@@ -1,0 +1,873 @@
+================================================================================
+🎯 ASSIGNMENT 1 - COMPLETE SOLUTION GUIDE 🎯
+================================================================================
+NAIVE BAYES - BERNOULLI & MULTINOMIAL IMPLEMENTATION
+================================================================================
+
+⚠️ IMPORTANT: This is a STUDY GUIDE to help you understand!
+   Write your own code based on this understanding!
+   Copy-pasting will result in ZERO marks for plagiarism!
+
+================================================================================
+📚 ASSIGNMENT OVERVIEW
+================================================================================
+
+You need to:
+1. Load and analyze two datasets (Mushroom & AG-News)
+2. Preprocess the data appropriately  
+3. Implement Bernoulli Naive Bayes from scratch
+4. Implement Multinomial Naive Bayes from scratch
+5. Compare with sklearn implementations
+
+Allowed Libraries ONLY:
+- numpy
+- pandas
+- re (for text processing)
+- sklearn (ONLY for Task 4 comparison)
+
+================================================================================
+🎯 TASK 1: DATASET ANALYSIS (5 Marks)
+================================================================================
+
+📌 1.1 LOADING DATASETS (2 marks)
+
+```python
+import pandas as pd
+import numpy as np
+
+# Load Mushroom Dataset
+mushroom_df = pd.read_csv('path/to/mushroom.csv')
+print("Mushroom Dataset - First 5 rows:")
+print(mushroom_df.head())
+
+# Load AG-News Dataset
+agnews_df = pd.read_csv('path/to/ag_news.csv')
+print("\nAG-News Dataset - First 5 rows:")
+print(agnews_df.head())
+```
+
+📌 1.2 DATASET-MODEL MATCHING EXPLANATION (3 marks) ⭐ IMPORTANT ⭐
+
+MUSHROOM DATASET → BERNOULLI NAIVE BAYES
+
+Why?
+┌────────────────────────────────────────────────────────────────────────────┐
+│ The Mushroom dataset has CATEGORICAL features like:                        │
+│ - cap-shape: bell, conical, flat, etc.                                    │
+│ - cap-color: brown, gray, red, etc.                                       │
+│ - odor: almond, anise, fishy, etc.                                        │
+│                                                                            │
+│ After ONE-HOT ENCODING, each category becomes a BINARY column (0 or 1)    │
+│                                                                            │
+│ Example: cap-shape_bell = 1 means "this mushroom has bell-shaped cap"     │
+│          cap-shape_bell = 0 means "this mushroom does NOT have bell cap"  │
+│                                                                            │
+│ This is EXACTLY what Bernoulli NB is designed for:                        │
+│ - Binary features (present/absent, 0/1)                                   │
+│ - Feature values don't have counts, just yes/no                           │
+└────────────────────────────────────────────────────────────────────────────┘
+
+AG-NEWS DATASET → MULTINOMIAL NAIVE BAYES
+
+Why?
+┌────────────────────────────────────────────────────────────────────────────┐
+│ The AG-News dataset contains TEXT data (news article descriptions)        │
+│                                                                            │
+│ When we convert text to features using Bag of Words:                      │
+│ - Each word becomes a feature                                             │
+│ - The value is the COUNT of how many times word appears                   │
+│                                                                            │
+│ Example: "the cat sat on the mat"                                         │
+│ → word_the: 2 (appears twice)                                             │
+│ → word_cat: 1                                                             │
+│ → word_sat: 1                                                             │
+│                                                                            │
+│ This is EXACTLY what Multinomial NB is designed for:                      │
+│ - Discrete count features (0, 1, 2, 3, ...)                              │
+│ - Word frequency/occurrence data                                          │
+│ - Text classification problems                                            │
+└────────────────────────────────────────────────────────────────────────────┘
+
+WRITE IN YOUR OWN WORDS for the assignment!
+
+================================================================================
+🎯 TASK 2: DATA PREPROCESSING (10 Marks)
+================================================================================
+
+📌 2.1 MUSHROOM PREPROCESSING (4 marks)
+
+```python
+from sklearn.model_selection import train_test_split
+
+# Separate features and target
+X = mushroom_df.drop('class', axis=1)  # All columns except 'class'
+y = mushroom_df['class']                # The target column
+
+# One-Hot Encoding for all categorical columns
+X_encoded = pd.get_dummies(X)
+
+print(f"Shape before encoding: {X.shape}")
+print(f"Shape after encoding: {X_encoded.shape}")
+
+# Split: 70% train, 30% test, random_state=42
+X_train, X_test, y_train, y_test = train_test_split(
+    X_encoded, y, test_size=0.3, random_state=42
+)
+
+print(f"Training set shape: {X_train.shape}")
+print(f"Test set shape: {X_test.shape}")
+```
+
+EXPLANATION OF ONE-HOT ENCODING:
+┌────────────────────────────────────────────────────────────────────────────┐
+│ Original: cap-shape = [bell, flat, bell, conical]                         │
+│                                                                            │
+│ After One-Hot:                                                             │
+│ ┌──────────────────┬─────────────────┬───────────────────┐                │
+│ │ cap-shape_bell   │ cap-shape_flat  │ cap-shape_conical │                │
+│ ├──────────────────┼─────────────────┼───────────────────┤                │
+│ │       1          │        0        │         0         │                │
+│ │       0          │        1        │         0         │                │
+│ │       1          │        0        │         0         │                │
+│ │       0          │        0        │         1         │                │
+│ └──────────────────┴─────────────────┴───────────────────┘                │
+│                                                                            │
+│ Now it's all 0s and 1s → Perfect for Bernoulli NB!                        │
+└────────────────────────────────────────────────────────────────────────────┘
+
+📌 2.2 AG-NEWS PREPROCESSING (6 marks)
+
+```python
+import re
+
+# STOPWORDS list (define your own - DO NOT use nltk!)
+STOPWORDS = {
+    'a', 'an', 'the', 'and', 'or', 'but', 'is', 'are', 'was', 'were',
+    'be', 'been', 'being', 'have', 'has', 'had', 'do', 'does', 'did',
+    'will', 'would', 'could', 'should', 'may', 'might', 'must', 'shall',
+    'to', 'of', 'in', 'for', 'on', 'with', 'at', 'by', 'from', 'as',
+    'into', 'through', 'during', 'before', 'after', 'above', 'below',
+    'between', 'under', 'again', 'further', 'then', 'once', 'here',
+    'there', 'when', 'where', 'why', 'how', 'all', 'each', 'few',
+    'more', 'most', 'other', 'some', 'such', 'no', 'nor', 'not', 'only',
+    'own', 'same', 'so', 'than', 'too', 'very', 'just', 'can', 'i',
+    'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you',
+    'your', 'yours', 'yourself', 'yourselves', 'he', 'him', 'his',
+    'himself', 'she', 'her', 'hers', 'herself', 'it', 'its', 'itself',
+    'they', 'them', 'their', 'theirs', 'themselves', 'what', 'which',
+    'who', 'whom', 'this', 'that', 'these', 'those', 'am'
+}
+
+def preprocess_text(text):
+    """
+    Clean and preprocess text for classification.
+    
+    Steps:
+    1. Remove URLs
+    2. Remove punctuation and non-alphanumeric characters
+    3. Convert to lowercase
+    4. Remove extra whitespace
+    5. Remove stopwords
+    """
+    # Step 1: Remove URLs (0.5 marks)
+    # Pattern matches http://, https://, www. followed by any characters
+    text = re.sub(r'http[s]?://\S+|www\.\S+', '', text)
+    
+    # Step 2: Remove punctuation and non-alphanumeric (0.5 marks)
+    # Keep only letters, numbers, and spaces
+    text = re.sub(r'[^a-zA-Z0-9\s]', '', text)
+    
+    # Step 3: Convert to lowercase (0.5 marks)
+    text = text.lower()
+    
+    # Step 4: Remove extra whitespace (0.5 marks)
+    # Replace multiple spaces with single space, then strip
+    text = re.sub(r'\s+', ' ', text).strip()
+    
+    # Step 5: Remove stopwords (2 marks)
+    words = text.split()
+    words = [word for word in words if word not in STOPWORDS]
+    text = ' '.join(words)
+    
+    return text
+
+# Apply preprocessing to 'Description' column (1 mark)
+agnews_df['cleaned_text'] = agnews_df['Description'].apply(preprocess_text)
+
+# Print first 5 preprocessed samples (1 mark)
+print("First 5 preprocessed samples:")
+for i in range(5):
+    print(f"{i+1}. {agnews_df['cleaned_text'].iloc[i][:100]}...")
+```
+
+EXPLANATION OF EACH REGEX:
+┌────────────────────────────────────────────────────────────────────────────┐
+│ 1. re.sub(r'http[s]?://\S+|www\.\S+', '', text)                           │
+│    ─────────────────────────────────────────────                          │
+│    http[s]? = "http" or "https" (s is optional with ?)                    │
+│    ://       = literal "://"                                               │
+│    \S+       = one or more non-whitespace characters                      │
+│    |         = OR                                                          │
+│    www\.     = literal "www."                                              │
+│    \S+       = one or more non-whitespace characters                      │
+│                                                                            │
+│ 2. re.sub(r'[^a-zA-Z0-9\s]', '', text)                                    │
+│    ────────────────────────────────────                                    │
+│    [^...]    = match anything NOT in the brackets                         │
+│    a-zA-Z    = letters                                                     │
+│    0-9       = numbers                                                     │
+│    \s        = whitespace                                                  │
+│    Result: Removes all punctuation and special characters                 │
+│                                                                            │
+│ 3. re.sub(r'\s+', ' ', text)                                              │
+│    ───────────────────────────                                             │
+│    \s+       = one or more whitespace characters                          │
+│    ' '       = replace with single space                                  │
+└────────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+🎯 TASK 3.1: BERNOULLI NAIVE BAYES (25 Marks)
+================================================================================
+
+📌 UNDERSTANDING BERNOULLI NB FORMULA:
+
+For binary features (0 or 1):
+
+P(C|X) ∝ P(C) × Π [P(xᵢ=1|C)^xᵢ × P(xᵢ=0|C)^(1-xᵢ)]
+                i
+
+In simpler terms:
+- If feature is 1: use P(feature=1|class)
+- If feature is 0: use P(feature=0|class) = 1 - P(feature=1|class)
+
+📌 COMPLETE IMPLEMENTATION:
+
+```python
+import numpy as np
+import pandas as pd
+
+class BernoulliNaiveBayes:
+    """
+    Bernoulli Naive Bayes Classifier for binary features.
+    
+    Assumes features are binary (0 or 1).
+    Uses Laplace smoothing to handle zero probabilities.
+    """
+    
+    def __init__(self):
+        """Initialize storage for model parameters."""
+        # AI fingerprint as required
+        self._ai_meta = {"author": "naivebayes", "version": "0.1"}
+        
+        # Will store log probabilities for each class
+        self.class_log_prior = None      # log P(C)
+        self.feature_log_prob = None     # log P(xᵢ=1|C)
+        self.classes = None              # Unique class labels
+        self.n_features = None           # Number of features
+    
+    def fit(self, X_train, y_train):
+        """
+        Train the Bernoulli Naive Bayes classifier.
+        
+        Parameters:
+        -----------
+        X_train : array-like of shape (n_samples, n_features)
+            Training data with binary features (0 or 1)
+        y_train : array-like of shape (n_samples,)
+            Target labels
+        """
+        # Convert to numpy arrays for easier manipulation
+        X = np.array(X_train)
+        y = np.array(y_train)
+        
+        # Set random seed for reproducibility
+        np.random.seed(42)
+        
+        # Get unique classes and number of features
+        self.classes = np.unique(y)
+        n_classes = len(self.classes)
+        self.n_features = X.shape[1]
+        
+        # Initialize arrays for probabilities
+        self.class_log_prior = np.zeros(n_classes)
+        self.feature_log_prob = np.zeros((n_classes, self.n_features))
+        
+        # Calculate probabilities for each class
+        for idx, c in enumerate(self.classes):
+            # Get samples belonging to this class
+            X_c = X[y == c]
+            n_c = X_c.shape[0]  # Number of samples in class c
+            n_total = X.shape[0]  # Total samples
+            
+            # ═══════════════════════════════════════════════════════════
+            # STEP 1: Calculate CLASS PRIORS P(C) (3 marks)
+            # ═══════════════════════════════════════════════════════════
+            # P(c) = count(c) / total_samples
+            self.class_log_prior[idx] = np.log(n_c / n_total)
+            
+            # ═══════════════════════════════════════════════════════════
+            # STEP 2: Calculate FEATURE LIKELIHOODS P(xᵢ=1|C) (5 marks)
+            # ═══════════════════════════════════════════════════════════
+            # With Laplace smoothing:
+            # P(xᵢ=1|C) = (count(xᵢ=1 in C) + 1) / (count(C) + 2)
+            #
+            # Why +1 and +2?
+            # +1 in numerator: Add 1 "fake" observation where feature=1
+            # +2 in denominator: Add 2 "fake" observations (one for 0, one for 1)
+            # This ensures probabilities are never 0 or 1
+            
+            for j in range(self.n_features):
+                # Count how many times feature j is 1 in class c
+                count_feature_1 = np.sum(X_c[:, j] == 1)
+                
+                # Apply Laplace smoothing (numerator +1, denominator +2)
+                prob = (count_feature_1 + 1) / (n_c + 2)
+                
+                # Clip probability to avoid log(0)
+                prob = np.clip(prob, 1e-10, 1 - 1e-10)
+                
+                # Store in LOG SPACE (2 marks)
+                self.feature_log_prob[idx, j] = np.log(prob)
+        
+        return self
+    
+    def predict(self, X_test):
+        """
+        Predict class labels for test samples.
+        
+        Parameters:
+        -----------
+        X_test : array-like of shape (n_samples, n_features)
+            Test data with binary features
+            
+        Returns:
+        --------
+        predictions : array of shape (n_samples,)
+            Predicted class labels
+        """
+        X = np.array(X_test)
+        predictions = []
+        
+        # ═══════════════════════════════════════════════════════════
+        # STEP 3: Loop through test samples (2 marks)
+        # ═══════════════════════════════════════════════════════════
+        for sample in X:
+            class_scores = []
+            
+            # Calculate score for each class
+            for idx, c in enumerate(self.classes):
+                # ═══════════════════════════════════════════════════════
+                # STEP 4: Calculate LOG PROBABILITY for each class (3 marks)
+                # ═══════════════════════════════════════════════════════
+                # Start with prior
+                score = self.class_log_prior[idx]
+                
+                # Add contribution from each feature
+                for j in range(self.n_features):
+                    if sample[j] == 1:
+                        # Feature is present: add log P(xⱼ=1|C)
+                        score += self.feature_log_prob[idx, j]
+                    else:
+                        # Feature is absent: add log P(xⱼ=0|C)
+                        # P(xⱼ=0|C) = 1 - P(xⱼ=1|C)
+                        # In log space: log(1 - exp(log_prob))
+                        log_prob_1 = self.feature_log_prob[idx, j]
+                        prob_0 = 1 - np.exp(log_prob_1)
+                        prob_0 = np.clip(prob_0, 1e-10, 1)
+                        score += np.log(prob_0)
+                
+                class_scores.append(score)
+            
+            # ═══════════════════════════════════════════════════════════
+            # STEP 5: Select class with HIGHEST probability (2 marks)
+            # ═══════════════════════════════════════════════════════════
+            best_class_idx = np.argmax(class_scores)
+            predictions.append(self.classes[best_class_idx])
+        
+        return np.array(predictions)
+```
+
+📌 TESTING AND EVALUATION (3 marks):
+
+```python
+# Train the model
+bnb = BernoulliNaiveBayes()
+bnb.fit(X_train, y_train)
+
+# Generate predictions
+y_pred = bnb.predict(X_test)
+
+# Calculate metrics
+def calculate_metrics(y_true, y_pred):
+    """Calculate accuracy, precision, recall, F1, and confusion matrix."""
+    y_true = np.array(y_true)
+    y_pred = np.array(y_pred)
+    
+    # Get unique classes
+    classes = np.unique(np.concatenate([y_true, y_pred]))
+    
+    # Accuracy
+    accuracy = np.mean(y_true == y_pred)
+    
+    # For binary classification or multi-class average
+    # Using macro average for multi-class
+    
+    precisions = []
+    recalls = []
+    
+    for c in classes:
+        # True Positives: predicted c and actually c
+        tp = np.sum((y_pred == c) & (y_true == c))
+        # False Positives: predicted c but actually not c
+        fp = np.sum((y_pred == c) & (y_true != c))
+        # False Negatives: predicted not c but actually c
+        fn = np.sum((y_pred != c) & (y_true == c))
+        
+        precision = tp / (tp + fp) if (tp + fp) > 0 else 0
+        recall = tp / (tp + fn) if (tp + fn) > 0 else 0
+        
+        precisions.append(precision)
+        recalls.append(recall)
+    
+    precision = np.mean(precisions)
+    recall = np.mean(recalls)
+    f1 = 2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0
+    
+    # Confusion Matrix
+    n_classes = len(classes)
+    confusion = np.zeros((n_classes, n_classes), dtype=int)
+    for i, c_true in enumerate(classes):
+        for j, c_pred in enumerate(classes):
+            confusion[i, j] = np.sum((y_true == c_true) & (y_pred == c_pred))
+    
+    return accuracy, precision, recall, f1, confusion
+
+# Calculate and print metrics
+accuracy, precision, recall, f1, confusion = calculate_metrics(y_test, y_pred)
+print(f"Accuracy: {accuracy:.4f}")
+print(f"Precision: {precision:.4f}")
+print(f"Recall: {recall:.4f}")
+print(f"F1 Score: {f1:.4f}")
+print(f"Confusion Matrix:\n{confusion}")
+```
+
+================================================================================
+🎯 TASK 3.2: MULTINOMIAL NAIVE BAYES (30 Marks)
+================================================================================
+
+📌 PART A: BAG OF WORDS VECTORIZER (7 marks)
+
+```python
+class BagOfWords:
+    """
+    Bag of Words vectorizer for text classification.
+    
+    Converts text documents into word count vectors.
+    """
+    
+    def __init__(self):
+        self.vocabulary = []  # List of unique words
+        self.word_to_idx = {}  # Word to index mapping
+    
+    def fit(self, documents):
+        """
+        Build vocabulary from training documents.
+        
+        Parameters:
+        -----------
+        documents : list of str
+            List of text documents
+        """
+        # Collect all unique words
+        all_words = set()
+        for doc in documents:
+            words = doc.lower().split()
+            all_words.update(words)
+        
+        # Sort for reproducibility
+        self.vocabulary = sorted(list(all_words))
+        
+        # Create word to index mapping
+        self.word_to_idx = {word: idx for idx, word in enumerate(self.vocabulary)}
+        
+        return self
+    
+    def transform(self, documents):
+        """
+        Convert documents to word count vectors.
+        
+        Parameters:
+        -----------
+        documents : list of str
+            List of text documents
+            
+        Returns:
+        --------
+        vectors : numpy array of shape (n_documents, vocabulary_size)
+            Word count vectors
+        """
+        vectors = []
+        
+        for doc in documents:
+            # Initialize zero vector
+            vector = [0] * len(self.vocabulary)
+            
+            # Count each word
+            words = doc.lower().split()
+            for word in words:
+                if word in self.word_to_idx:
+                    idx = self.word_to_idx[word]
+                    vector[idx] += 1
+            
+            vectors.append(vector)
+        
+        return np.array(vectors)
+    
+    def fit_transform(self, documents):
+        """Fit and transform in one step."""
+        self.fit(documents)
+        return self.transform(documents)
+
+# ═══════════════════════════════════════════════════════════════════════════
+# SANITY CHECK (1 mark)
+# ═══════════════════════════════════════════════════════════════════════════
+# Test with the given example
+bow = BagOfWords()
+bow.vocabulary = ["cat", "mat", "on", "sat", "the"]  # Sorted alphabetically
+bow.word_to_idx = {word: idx for idx, word in enumerate(bow.vocabulary)}
+
+test_sentence = "the cat sat on the mat"
+result = bow.transform([test_sentence])
+
+print("Vocabulary:", bow.vocabulary)
+print("Sentence:", test_sentence)
+print("Vector:", result[0])
+# Expected: [1, 1, 1, 1, 2] → cat:1, mat:1, on:1, sat:1, the:2
+```
+
+📌 PART B: MULTINOMIAL NB IMPLEMENTATION (20 marks)
+
+```python
+class MultinomialNaiveBayes:
+    """
+    Multinomial Naive Bayes Classifier for count data.
+    
+    Assumes features represent counts (word frequencies).
+    Uses Laplace smoothing to handle zero probabilities.
+    """
+    
+    def __init__(self, verbose=False):
+        """Initialize storage for model parameters."""
+        # AI fingerprint as required
+        self._ai_meta = {"author": "naivebayes", "version": "0.1"}
+        
+        # Required variable as per instructions
+        self.verbose = verbose
+        
+        # Model parameters
+        self.class_log_prior = None      # log P(C)
+        self.feature_log_prob = None     # log P(word|C)
+        self.classes_ = None             # Unique class labels (with underscore!)
+        self.n_features = None           # Vocabulary size
+        
+        # Set seed
+        np.random.seed(42)
+    
+    def fit(self, X_train, y_train):
+        """
+        Train the Multinomial Naive Bayes classifier.
+        
+        Parameters:
+        -----------
+        X_train : array-like of shape (n_samples, n_features)
+            Training data with count features (word frequencies)
+        y_train : array-like of shape (n_samples,)
+            Target labels
+        """
+        X = np.array(X_train)
+        y = np.array(y_train)
+        
+        # Get unique classes
+        self.classes_ = np.unique(y)  # Note: underscore as required!
+        n_classes = len(self.classes_)
+        self.n_features = X.shape[1]
+        
+        # Initialize arrays
+        self.class_log_prior = np.zeros(n_classes)
+        self.feature_log_prob = np.zeros((n_classes, self.n_features))
+        
+        for idx, c in enumerate(self.classes_):
+            # Get samples belonging to this class
+            X_c = X[y == c]
+            
+            # ═══════════════════════════════════════════════════════════
+            # Calculate CLASS PRIORS (3 marks)
+            # ═══════════════════════════════════════════════════════════
+            n_c = X_c.shape[0]
+            n_total = X.shape[0]
+            self.class_log_prior[idx] = np.log(n_c / n_total)
+            
+            # ═══════════════════════════════════════════════════════════
+            # Calculate WORD LIKELIHOODS with Laplace smoothing (5 marks)
+            # ═══════════════════════════════════════════════════════════
+            # For Multinomial NB:
+            # P(word_i|C) = (count(word_i in C) + 1) / (total_words_in_C + |V|)
+            #
+            # count(word_i in C) = sum of word_i counts across all docs in C
+            # total_words_in_C = sum of all word counts in class C
+            # |V| = vocabulary size
+            
+            # Sum of each word across all documents in class c
+            word_counts = np.sum(X_c, axis=0)  # Shape: (n_features,)
+            
+            # Total words in class c
+            total_words = np.sum(word_counts)
+            
+            # Apply Laplace smoothing
+            # Add 1 to each word count, add |V| to total
+            smoothed_counts = word_counts + 1
+            smoothed_total = total_words + self.n_features
+            
+            # Calculate probabilities
+            probs = smoothed_counts / smoothed_total
+            
+            # Use np.maximum as required (instead of np.clip)
+            probs = np.maximum(probs, 1e-10)
+            
+            # Store in LOG SPACE (2 marks)
+            self.feature_log_prob[idx, :] = np.log(probs)
+            
+            if self.verbose:
+                print(f"Class {c}: {n_c} samples, {total_words} total words")
+        
+        return self
+    
+    def predict(self, X_test):
+        """
+        Predict class labels for test samples.
+        
+        Parameters:
+        -----------
+        X_test : array-like of shape (n_samples, n_features)
+            Test data with count features
+            
+        Returns:
+        --------
+        predictions : array of shape (n_samples,)
+            Predicted class labels
+        """
+        # Required placeholder variable as per instructions
+        useless = None
+        
+        X = np.array(X_test)
+        predictions = []
+        
+        for sample in X:
+            # ═══════════════════════════════════════════════════════════
+            # Compute LOG PROBABILITIES for each class (4 marks)
+            # ═══════════════════════════════════════════════════════════
+            # log P(C|X) ∝ log P(C) + Σ xᵢ × log P(wordᵢ|C)
+            
+            class_scores = []
+            
+            for idx, c in enumerate(self.classes_):
+                # Start with log prior
+                score = self.class_log_prior[idx]
+                
+                # Add weighted sum of log likelihoods
+                # xᵢ is the count of word i, multiply by log prob
+                score += np.sum(sample * self.feature_log_prob[idx, :])
+                
+                class_scores.append(score)
+            
+            # ═══════════════════════════════════════════════════════════
+            # Return class with MAXIMUM probability (3 marks)
+            # ═══════════════════════════════════════════════════════════
+            best_class_idx = np.argmax(class_scores)
+            predictions.append(self.classes_[best_class_idx])
+        
+        return np.array(predictions)
+    
+    def predict_proba(self, X_test):
+        """
+        Return probability distributions for test samples.
+        
+        Parameters:
+        -----------
+        X_test : array-like of shape (n_samples, n_features)
+            
+        Returns:
+        --------
+        probabilities : array of shape (n_samples, n_classes)
+            Probability of each class for each sample
+        """
+        X = np.array(X_test)
+        all_probs = []
+        
+        for sample in X:
+            log_scores = []
+            
+            for idx in range(len(self.classes_)):
+                score = self.class_log_prior[idx]
+                score += np.sum(sample * self.feature_log_prob[idx, :])
+                log_scores.append(score)
+            
+            # Convert log probabilities to probabilities
+            # Use softmax to normalize
+            log_scores = np.array(log_scores)
+            # Subtract max for numerical stability
+            log_scores = log_scores - np.max(log_scores)
+            probs = np.exp(log_scores)
+            probs = probs / np.sum(probs)
+            
+            all_probs.append(probs)
+        
+        return np.array(all_probs)
+```
+
+📌 TESTING MULTINOMIAL NB (3 marks):
+
+```python
+# Prepare text data
+bow = BagOfWords()
+
+# Fit on training text
+X_train_bow = bow.fit_transform(agnews_df_train['cleaned_text'].tolist())
+X_test_bow = bow.transform(agnews_df_test['cleaned_text'].tolist())
+
+# Train
+mnb = MultinomialNaiveBayes(verbose=True)
+mnb.fit(X_train_bow, y_train)
+
+# Predict
+y_pred = mnb.predict(X_test_bow)
+
+# Evaluate
+accuracy, precision, recall, f1, confusion = calculate_metrics(y_test, y_pred)
+print(f"Accuracy: {accuracy:.4f}")
+print(f"Precision: {precision:.4f}")
+print(f"Recall: {recall:.4f}")
+print(f"F1 Score: {f1:.4f}")
+print(f"Confusion Matrix:\n{confusion}")
+```
+
+================================================================================
+🎯 TASK 4: SKLEARN COMPARISON (15 Marks)
+================================================================================
+
+```python
+# NOW you can use sklearn!
+from sklearn.naive_bayes import BernoulliNB, MultinomialNB
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix
+
+# ═══════════════════════════════════════════════════════════════════════════
+# Bernoulli NB with sklearn (Mushroom dataset)
+# ═══════════════════════════════════════════════════════════════════════════
+sklearn_bnb = BernoulliNB()
+sklearn_bnb.fit(X_train, y_train)
+sklearn_bnb_pred = sklearn_bnb.predict(X_test)
+
+print("Sklearn Bernoulli NB Results:")
+print(f"Accuracy: {accuracy_score(y_test, sklearn_bnb_pred):.4f}")
+print(f"Precision: {precision_score(y_test, sklearn_bnb_pred, average='macro'):.4f}")
+print(f"Recall: {recall_score(y_test, sklearn_bnb_pred, average='macro'):.4f}")
+print(f"F1: {f1_score(y_test, sklearn_bnb_pred, average='macro'):.4f}")
+print(f"Confusion Matrix:\n{confusion_matrix(y_test, sklearn_bnb_pred)}")
+
+# ═══════════════════════════════════════════════════════════════════════════
+# Multinomial NB with sklearn (AG-News dataset)
+# ═══════════════════════════════════════════════════════════════════════════
+# Use sklearn's CountVectorizer for fair comparison
+vectorizer = CountVectorizer()
+X_train_sklearn = vectorizer.fit_transform(agnews_df_train['cleaned_text'])
+X_test_sklearn = vectorizer.transform(agnews_df_test['cleaned_text'])
+
+sklearn_mnb = MultinomialNB()
+sklearn_mnb.fit(X_train_sklearn, y_train_news)
+sklearn_mnb_pred = sklearn_mnb.predict(X_test_sklearn)
+
+print("\nSklearn Multinomial NB Results:")
+print(f"Accuracy: {accuracy_score(y_test_news, sklearn_mnb_pred):.4f}")
+print(f"Precision: {precision_score(y_test_news, sklearn_mnb_pred, average='macro'):.4f}")
+print(f"Recall: {recall_score(y_test_news, sklearn_mnb_pred, average='macro'):.4f}")
+print(f"F1: {f1_score(y_test_news, sklearn_mnb_pred, average='macro'):.4f}")
+
+# ═══════════════════════════════════════════════════════════════════════════
+# COMPARISON DISCUSSION
+# ═══════════════════════════════════════════════════════════════════════════
+print("\n" + "="*60)
+print("COMPARISON DISCUSSION")
+print("="*60)
+print("""
+Key differences between manual and sklearn implementations:
+
+1. SMOOTHING:
+   - Our implementation uses Laplace (add-1) smoothing
+   - Sklearn uses alpha=1.0 by default (same as Laplace)
+   - Results should be similar
+
+2. NUMERICAL PRECISION:
+   - Our implementation uses np.clip/np.maximum for stability
+   - Sklearn uses optimized implementations
+   - Minor differences possible due to floating point
+
+3. FEATURE HANDLING:
+   - Our BoW is simple (splits on whitespace)
+   - Sklearn's CountVectorizer has more options
+   - This might cause slight differences
+
+4. EXPECTED OUTCOME:
+   - Results should be very close (within 1-2%)
+   - If very different, check preprocessing steps
+""")
+```
+
+================================================================================
+📚 KEY FORMULAS SUMMARY
+================================================================================
+
+BERNOULLI NB:
+P(C|X) ∝ P(C) × Π [P(xᵢ=1|C)^xᵢ × (1-P(xᵢ=1|C))^(1-xᵢ)]
+             i
+
+Laplace Smoothing for Bernoulli:
+P(xᵢ=1|C) = (count(xᵢ=1 in C) + 1) / (count(C) + 2)
+
+MULTINOMIAL NB:
+P(C|X) ∝ P(C) × Π P(wordᵢ|C)^xᵢ
+             i
+
+Laplace Smoothing for Multinomial:
+P(wordᵢ|C) = (count(wordᵢ in C) + 1) / (total_words_in_C + |V|)
+
+LOG FORM (both):
+log P(C|X) = log P(C) + Σᵢ xᵢ × log P(featureᵢ|C)
+
+================================================================================
+🎯 COMMON MISTAKES TO AVOID
+================================================================================
+
+1. ❌ Using nltk or spaCy for stopwords (not allowed!)
+2. ❌ Forgetting to convert to numpy arrays
+3. ❌ Not using log space (causes underflow!)
+4. ❌ Forgetting Laplace smoothing (causes zero probabilities!)
+5. ❌ Wrong smoothing formula (+1/+2 for Bernoulli, +1/+|V| for Multinomial)
+6. ❌ Not setting random_state=42 in train_test_split
+7. ❌ Missing the required _ai_meta attribute
+8. ❌ Missing the "useless" variable in predict method
+9. ❌ Using classes without underscore (should be classes_)
+10. ❌ Not clipping probabilities (use np.clip or np.maximum)
+
+================================================================================
+🎉 GOOD LUCK WITH YOUR ASSIGNMENT! 🎉
+================================================================================
+
+Remember:
+- Understand the code, don't just copy!
+- Test each component separately
+- Print intermediate results to debug
+- Comment your code well
+- Follow the exact requirements (variable names, methods, etc.)
+
+================================================================================

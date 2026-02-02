@@ -1,0 +1,936 @@
+References 
+Machine Learning for Intelligent Systems, CS4780/CS5780, Kilian Weinberger, https://www.cs.cornell.edu/courses/cs4780/2018fa/lectures/lecture note01 MLsetup.html 
+Supervised learning 
+• Classification: Predicting the categorical labels for unseen data based on labeled instances. 
+Features 
+Label 
+1 62 
+70 
+120 
+80 
+2 72 
+90 
+110 
+70 
+은은 
+No 
+Feature vector (4-dimensional) 
+3 74 
+80 
+130 
+70 
+No 
+4 65 
+120 
+150 
+90 
+Yes 
+Label vector 
+5 67 
+100 
+140 
+85 
+Yes 
+6 64 
+110 
+130 
+90 
+No 
+Training Data 
+7 69 
+150 
+170 
+100 
+Yes 
+8 66 
+125 
+145 
+90 
+? 
+Test Data 
+9 74 
+67 
+110 
+60 
+? 
+• 
+Supervised learning 
+Regression: Predicting the real-valued labels for unseen data based on labeled instances. 
+# Height 
+Weight 
+B.P. Sys 
+B.P. Dia 
+Cholesterol 
+(inches) 
+(kgs) 
+Level 
+1 
+62 
+70 
+120 
+80 
+2 72 
+90 
+110 
+70 
+3 74 
+80 
+130 
+70 
+4 65 
+120 
+150 
+90 
+8228 
+150 
+160 
+130 
+200 
+5 
+67 
+100 
+140 
+85 
+190 
+6 64 
+110 
+130 
+90 
+130 
+7 
+69 
+150 
+170 
+100 
+250 
+8 66 
+125 
+145 
+90 
+? 
+9 74 
+67 
+110 
+60 
+? 
+C. 
+Rules vs. Learning 
+We can write a complicated set of rules 
+Works well for a while 
+Cannot adapt well to new examples 
+A program could be reverse-engineered and circumvented 
+Learn the mapping between an instance and its label using past labeled data 
+Can be retrained on new instances 
+Not easy to reverse-engineer and circumvent in all cases 
+Easier to plug the leaks 
+Distributions 
+Suppose we want to predict whether someone is a child or an adult based on their height and weight. 
+If the features make sense then there is a distribution P of the labels across the input features 
+Every child and adult get sampled from that hidden distribution based on probabilities 
+We cannot access P 
+But we can estimate (reverse-engineer) it by sampling from it 
+Formalizing the setup 
+D = {(x1,y1), (x2, Y2), ... (xn, Yn)} ≤ X × Y 
+Where, 
+D is the data set 
+X is the d-dimensional feature space (Rd) 
+x is the input vector of the ith sample 
+Y is the label space 
+The data points are drawn (sampled) from an unknown distribution P 
+(xi, yi)~P(x, y) 
+We want to learn a function h E H, such that for a new instance(x, y)~P, 
+With a high probability or at least, h(x)≈ y. 
+h(x) = y 
+Estimating Distributions 
+We collect a dataset of 50 adults and 50 children 
+Height (cm) 
+96.9 
+131.6 
+Weight (kg) 
+40.4 
+30.9 
+160.4 
+64.4 
+187.7 
+72.2 
+www 
+90 
+80 
+70 
+60 
+50 
+Weight 
+(kg) 
+40 
+30 
+X 
+X 
+X 
+X 
+X 
+X 
+X 
+Status 
+Child 
+Child 
+Height vs Weight 
+20 
+XX 
+100 
+X 
+X 
+X 
+X 
+Adult 
+Adult 
+www 
+X 
+X 
+X 
+X 
+X 
+X 
+X 
+XX 
+X 
+X 
+X X 
+X 
+X 
+* X 
+X 
+X 
+X 
+Xx 
+Child 
+Adult 
+X X 
+X 
+x 
+X 
+X 
+X 
+XX 
+X 
+X 
+Хх 
+X 
+xx 
+X 
+X X 
+X 
+X 
+X 
+X 
+X 
+XX 
+120 
+140 
+160 
+180 
+200 
+Height (cm) 
+Machine Learning Pipeline 
+Machine Learning 
+Traditional CS 
+Data 
+Output 
+Training 
+Data 
+Program 
+Output 
+Correct Answer 
+Testing 
+Evaluation 
+Training and testing 
+Training 
+x ~ P 
+Testing 
+x1, x2,...,xn 
+h 
+Y1, Y2, ..., Yn 
+Evaluation 
+Compare h(x) and y 
+h(x) 
+1. Example of Job Selection / Resume Ranking 
+y= g(x) y=gx 
+Secant Lines 
+Feature Space 
+(x)) Tangent wine! 
+TI 
+xth 
+Tim glxth)-g(x) 
+hoo 
+h 
+f(x)=lm (x+18= x2 
+no 
+h 
+7.2 
+= lim x2+2xh+h2 = x2 
+h→0 
+h 
+=lim 
+2x4+h2 
+= lim bl2x+h; 
+isMale ? 
+Feature Space 
+Categorical 
+Nominal: Nominal features represent categories that have no intrinsic order. 
+Examples: 
+Gender (M/F/Other) 
+• Color (Red, Blue, Green) 
+• Marital Status (Single, Married, Divorced) 
+• 
+Blood type,... 
+- 
+Operations: Frequencies, mode, but not medians — as we cannot arrange them 
+• 
+Cannot perform mathematical operations (like addition or subtraction) on these values 
+Feature Space 
+Categorical 
+• Ordinal: Ordinal features represent categories with a meaningful order, but the intervals between consecutive categories are not uniform or meaningful. 
+Examples, 
+User experience (1-5, very unsatisfied, unsatisfied, neutral, satisfied, very satisfied), Rainfall (dry, damp, wet, torrential), 
+Socioeconomic status ("low income", "middle income", "high income"), 
+Education level ("high school," "BS," "MS," "PhD"),... 
+Operations: Median 
+Comparisons such as greater than or less than are meaningful, but mathematical operations like addition or subtraction are not valid. 
+Differences are not meaningful 
+For example, adding "dry" to "damp" does not make any mathematical sense. 
+Feature Space 
+• Numerical for quantitative data: 
+• Differences between values have a consistent meaning 
+• Finite or infinite scales 
+• 
+• 
+Operations: Add/subtract, measures of central tendency (mean, median, mode), as well as their measures of variability (variance and standard deviation) 
+Discrete and continuous 
+Whether they take on distinct or infinitely many values. 
+For example, visits to the dentists (discrete originally) vs. height (continuous 
+originally) 
+Sometimes, we discretize continuous attributes for ease of processing 
+Feature Space 
+• Numerical for quantitative data: 
+• 
+Interval: Interval features represent ordered numerical values where the difference between two values is meaningful, but there is no true zero point 
+(i.e., zero does not represent the absence of the quantity). 
+Examples 
+• 
+Temperature (in F or C), 
+A temperature of O C does not mean "no heat" 
+Time (e.g., Gregorian or Islamic calendar) 
+• Test scores, IQ scores, SAT scores... 
+Differences are meaningful (we can add/subtract), ratios are not 
+• 100 degrees C is not twice as hot as 50 C 
+Feature Space 
+• Interval (continued) 
+• Time (Interval) 
+• Years (e.g., 2024 and 4048): The year scale is interval because the year "O" is 
+• 
+arbitrary and does not mean "no time." 
+You cannot say that the year 4048 is twice as far in time as the year 2024 because time does not begin at year zero. 
+Feature Space 
+• Numerical for quantitative data: 
+• Ratio: Ratio features represent ordered numerical values with a true zero point, meaning that zero represents the absence of the quantity, and ratios between values are meaningful. 
+Never fall below zero. 
+E.g., Height, weight, age, income, temperature in K, length, rainfall, number of items,... 
+Height = 0 means "no height" 
+Ratios are meaningful (we can multiply and divide) 
+• An age of 50 is twice the age of 25 
+If we say rainfall per month has doubled from 100mm, we know the result is 200mm because the doubling is relative to zero. 
+Feature Space 
+• Numerical for quantitative data: 
+• Ratio (continued) 
+• Time (Ratio) 
+• 
+Elapsed time (e.g., 2 hours and 1 hour): The ratio scale here represents duration with a true zero (no time passed). 
+2 hours is twice as long as 1 hour because zero represents no time elapsed. 
+Feature Space 
+Arrays/Lists: Arrays or lists of values are often used when representing a collection 
+of multiple values for a single feature. Each element of the array could be a numerical value or a categorical label. 
+Examples: 
+Sensor data: [10.5, 12.0, 11.2] (collected over time) 
+Words in a sentence: ["This", "is", "a", "sentence"] 
+Pixel values in an image: [R1, G1, B1, R2, G2, B2, ...] (for RGB images) Operations: Arrays can be processed element-wise, or aggregated (e.g., summed, averaged) for numerical arrays. 
+In text processing, lists are often converted to other formats like embeddings 
+or counts. 
+Feature Space 
+Embeddings: Embeddings represent complex features as dense vectors of fixed length, typically in a continuous space. They are commonly used for text, images, and categorical data transformed into continuous-valued representations. 
+Examples: 
+Word embeddings (e.g., word2vec, GloVe): Words are represented as vectors where similar words are close in space. 
+Image embeddings: An image is processed through a convolutional neural network to generate a vector of features. 
+Product embeddings: Products in an online store are embedded in a vector space where similar products are close together. 
+Operations: Operations such as cosine similarity, Euclidean distance, or dot products can be applied to compare or process these vectors. 
+Feature Space - Examples 
+• 
+Student data (e.g., for predicting grades) 
+Xi 
+x1 = (x},x},...xd) 
+2 
+Xi 
+Xi 
+Where each x is the valued of the jth feature for student i. 
+Examples of features, x 
+Scores in assignments, quizzes, exams 
+Educational records, grades in previous courses 
+Rankings of previous educational institutes 
+Interaction with online tools? Missed instruments? 
+Small number of features and relatively few features with O values: Dense vectors 
+Feature Space - Examples 
+• 
+Image data (e.g., for facial recognition) 
+2 
+i 
+3d 
+x1 = (xi, x},.... x3α) 
+Xi 
+Where each group of three consecutive x's represent the red, green, and blue values of each 
+pixel in image i. 
+In a 6-megapixel image, there are 6 million pixels and 18 million features 
+Almost all pixels have non-zero values and the feature vector is mostly dense 
+x1, x2, x3 
+x4, x5,x9 
+6 
+7 8 i 
+x1,x1, x2 
+9 
+--- 
+200, 89, 55 
+213, 22, 55 
+255, 7, 0 
+... 
+58 
+x50, x59, x60 
+i 
+Feature Space - Examples 
+Textual data (e.g., for authorship attribution) 
+k 
+2 
+xi = (x},x}, ... xd) 
+Where x or TF(k) is the number of occurrences of the kth dictionary word in document i: Bag-of-Word features 
+English has nearly 600,000 word-forms (273,000 headwords) 
+Most of the feature values are zero: Sparse vectors 
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. https://www.lipsum.com/ 
+able 
+a 
+0 
+abandon 
+0 
+ability 
+0 
+2 
+about 
+3 
+above 
+0 
+abroad 
+0 
+... 
+Probably 
+0 
+product 
+1 
+production 0 
+profession 0 professional 0 professor 
+2 
+... 
+youth 
+zest 
+zone 
+ZOO 
+0 
+O O O O 
+One-hot vectors 
+A single high value among zeros in the vector One-cold vectors (all 1's with one 0) 
+Ordinal 
+S 
+M 
+L 
+2 
+Binary 
+One-hot 
+000 00000001 
+001 00000010 
+010 00000100 
+011 00001000 
+100 00010000 
+101 00100000 
+110 01000000 
+111 10000000 
+Nomined 
+FC, X 
+001 010 200 
+y= g(x) y=gx 
+Secant Lines 
+Label Space 
+(x)) Tengew 
+wine! 
+TI 
+xth 
+Tim glxth)-g(x) 
+hoo 
+h 
+f(x)=lm (x+18= x2 
+no 
+h 
+7.2 
+= lim x2+2xh+h2 = x2 
+h→0 
+h 
+=lim 
+2x4+h2 
+= lim bl2x+h; 
+Label Space 
+• 
+• 
+Binary (one-of-two) - Binary classification 
+• Sentiment: positive/negative 
+Email: Spam/ Not Spam 
+Online Transactions: Fraudulent (Yes/No) Tumor: Malignant / Benign 
+y = {0,1} 
+y = {−1,1} 
+e.g. 0: Negative class, 1: Positive class 
+e.g. -1: Negative class, 1: Positive class 
+Multi-class (one-of-many, many-of-many problems) - Multi-class classification 
+Sentiment: Positive/negative / neutral 
+Emotion: Happy, Sad, Surprised, Angry,... 
+Part-of-Speech tag: Noun / verb / adjective / adverb /... 
+Recognize a word: One of |V| tags 
+• y € {0,1,2,3,...} e.g. 0: Happy, 1: Sad, 2, Angry,... 
+Real-valued - Regression 
+• Temperature, height, age, length, weight, duration, price... 
+y= g(x) y=gx Secant Lines 
+hoo 
+h 
+= lim (x+b2 = x2 
+no 
+h 
+7.2 
+= lim x2+2xh+h2 = x2 
+Hypothesis Space 
+Tangent wine 
+TI 
+xth 
+Tim glxth)-g(x) 
+h→0 
+h 
+=lim 
+2x4+h2 
+= lim bl2x+h; 
+• 
+Hypothesis Space 
+The hypothesis h is sampled from a hypothesis space H. 
+hЄH 
+• The hypothesis space H refers to the set of all possible functions or models that 
+a learning algorithm can consider when trying to map input data to output predictions. 
+It represents the range of potential solutions the algorithm searches through to find the one that best fits the training data. 
+• The hypothesis space is defined by the structure of the model, the learning algorithm, and the assumptions or constraints imposed on the problem. 
+Linear Separation (Vertical, No Mixing) 
+X 
+X 
+2 
+Feature 2 
+T 
+0 
+Xx 
+XX 
+** 
+X 
+xx 
+-1 
+X 
+X 
+X 
+* 
+X 
+X 
+X 
+X 
+X 
+X 
+X 
+X 
+X 
+Bring me a vertical line (h) from the set Bring me a diagonal line (h) from the set of all vertical lines (H). 
+of all diagonal lines (H). 
+e.g. 
+If (featurel > 0) 
+e.g. 
+y = slope feature1 + feature2intercept 
+X 
+X X 
+X 
+X 
+X 
+-2 
+-6 
+-2 
+0 
+2 
+4 
+Feature 1 
+blue 
+Else 
+red 
+Polynomial Separation (No Mixing) 
+6 
+X 
+5 
+xx 
+X 
+4 
+X 
+Feature 2 
+3 
+2 
+T 
+*** 
+X 
+X X 
+X 
+0 
+-1 
+X 
+X X 
+-3 
+-2 
+-1 
+ㄏㄨㄨ 
+X 
+Feature 1 
+X 
+* 
+xx xx 
+X X 
+4 
+Linear Separation (Angled, No Mixing) 
+XX 
+3 
+2 
+Feature 2 
+1 
+O 
+-1 
+-2 
+-3 
+X 
+-4 
+-4 
+3 
+X 
+xxx 
+X 
+X 
+X 
+X 
+X 
+-2 
+-1 0 
+1 
+2 
+3 
+4 
+Feature 1 
+Elliptical Separation (No Mixing) 
+XX 
+X X X 
+X 
+1.0 
+X 
+Bring me a polynomial (h) from the set of Bring me an ellipse(h) from the set of all polynomials (H). 
+e.g. a parabola: 
+all ellipses (H). 
+1 
+2 
+3 
+X X 
+0.5 
+X 
+XX 
+X 
+Feature 2 
+0.0 
+X 
+X 
+XX 
+X 
+X 
+X X 
+X 
+X 
+X 
+X 
+X 
+-1.5 
+-2 
+-1 
+0 
+1 
+2 
+Feature 1 
+X 
+y = 0.5 feature 12 
+e.g. an ellipse: 
+X 
+-0.5 
+x2 
+y2 
++ 
+= 
+1.752 0.8752 
+1 
+-1.0 
+Hypothesis Space 
+The hypothesis h is sampled from a hypothesis space H. 
+hЄ H 
+H can be thought of as containing a class of hypotheses that share sets of assumptions 
+The hypothesis space will vary depending on the type of model (linear, non-linear, neural networks, etc.). 
+For example: 
+• Linear regression: The hypothesis space H consists of all linear functions of the form h(x) = w 
+• 
+x + b. 
+• Decision trees: The hypothesis space consists of all possible decision trees that can be constructed using the given features. 
+• 
+Neural networks: The hypothesis space consists of all neural networks with a particular architecture, 
+and the hypothesis is defined by the set of weights and biases that the network can learn. 
+So, how do we choose our h? 
+Randomly? 
+Exhaustively? 
+How do we evaluate h? 
+How to choose h? 
+Randomly 
+May not work well 
+Similar to using a random program to solve a sorting problem May work if H is constrained enough, e.g., all sorting algorithms 
+Exhaustively 
+Would be very slow 
+The space H is usually very large (if not infinite) 
+H is usually chosen by ML engineers and data scientists (psssst... we 
+are talking about you!) based on their experience! 
+• hЄ H is estimated efficiently using various optimization techniques 
+Hypothesis Space 
+The goal of a machine learning algorithm is to search through the hypothesis space H to find the hypothesis h* E H that best fits the training data, i.e., that minimizes the loss or error on the data. 
+The size and complexity of the hypothesis space can affect the algorithm's ability to generalize. 
+• A large hypothesis space (very precise tools for tweaking) may lead to overfitting (the model fits the training data too well and fails to generalize) A small hypothesis space (very blunt tools) may lead to underfitting (the model is too simple to capture the complexity of the data). 
+How to evaluate h? 
+Loss functions 
+• 
+Calculate the average error of h in predicting y. 
+Smaller is better 
+O loss: No error 
+100% loss: Could not even get one instance right 
+50% loss: Your h for binary labels is as informative as a coin toss 
+Functions to 
+calculate the loss (risk) 
+y= g(x) y=gx Secant Lines 
+Tangent 
+wine 
+TI 
+xth 
+Tim glxth)-g(x) 
+f(x)= lim +(x+1)+4(x) 
+hoo 
+h 
+f(x)=lm (x+18= x2 
+no 
+h 
+7.2 
+= lim x2+2xh+h2 = x2 
+h→0 
+h 
+=lim 
+2x4+h2 
+= lim bl2x+h; 
+Loss functions 
+0/1 Loss 
+n 
+1 
+Lo/1(h) 
+n 
+Σ 
+Ɛh(x¡)‡y; › where dn(xj)#yi 
+1, if h(xi) # Yi 
+8n(x¡)‡Yi 
+0, otherwise 
+i=1 
+Counts the average number of mistakes in predicting y 
+Returns the error rate 
+Non-continuous and non-differentiable 
+Difficult to utilize in optimization 
+Used to evaluate classifiers in binary/multiclass settings. 
+Squared loss 
+Lsq(h) 
+ΙΣ 
+1 
+[ 
+(h(xi) - yi)2 
+i=1 
+Typically used in regression settings 
+The loss is always non-negative 
+The loss grows quadratically with the absolute magnitude of mis-prediction 
+Encourages no predictions to be really far off 
+Can create problems in case of noisy data 
+If a prediction is very close to be correct, the square will be tiny and little attention will be given to that example to obtain zero error 
+Absolute loss 
+n 
+1 
+Labs (h) 
+h(xi) - yil 
+n 
+i=1 
+Typically used in regression settings 
+The loss is always non-negative 
+The loss grows linearly with the absolute magnitude of mis-prediction 
+Better suited for noisy data. 
+Comparison 
+Y 
+h(x) 
+Square loss 
+Abs loss 
+100.00 101.00 
+1.00 
+1.00 
+90.01 
+90.00 
+100.00 200.00 10,000.00 
+0.0001 
+0.01 
+100.00 
+100.00 1,000.00 
+Overall 
+810,000.00 900.00 205,000.25 
+250.25 
+у 
+h(x) Square loss 
+Abs loss 
+100.00 
+101.00 
+1.00 
+1.00 
+This model remained consistently good in predicting quantities with a small magnitude 
+but got the larger one wrong. 
+This model remained consistently bad in predicting quantities with a small magnitude but correctly predicted the larger one. 
+h(x) Square loss Abs loss 
+0.00 10,000.00 
+y 
+100.00 
+100.00 
+90.00 
+91.00 
+1.00 
+1.00 
+90.00 
+0.00 
+8,100.00 
+90.00 
+100.00 
+101.00 
+1.00 
+1.00 
+100.00 
+0.00 
+10,000.00 
+100.00 
+20.00 
+21.00 
+1.00 
+1.00 
+20.00 
+0.00 
+400.00 
+20.00 
+30.00 
+29.00 
+1.00 
+1.00 
+30.00 
+0.00 
+900.00 
+30.00 
+40.00 
+41.00 
+1.00 
+1.00 
+40.00 
+0.00 
+1,600.00 
+40.00 
+30.00 
+31.00 
+1.00 
+1.00 
+30.00 
+0.00 
+900.00 
+30.00 
+10.00 
+11.00 
+1.00 
+1.00 
+10.00 
+0.00 
+100.00 
+10.00 
+12.00 
+13.00 
+1.00 
+1.00 
+12.00 
+0.00 
+144.00 
+12.00 
+16.00 
+17.00 
+1.00 
+1.00 
+16.00 
+0.00 
+256.00 
+16.00 
+100.00 1,000.00 
+810,000.00 
+Overall 
+73,637.27 
+900.00 
+82.73 
+1,000.00 1,000.00 
+0.00 
+0.00 
+Overall 
+2,945.45 
+40.73 
+The elusive h 
+• 
+h 
+= argminhЄH L(h) 
+So, we need an h with a low loss on D? 
+Understanding Empirical vs. Expected Risk 
+Empirical Risk: This is the average loss calculated on the training data—in other words, how well our model fits the data it was trained on. 
+It's what we minimize during training to get the model to perform well on seen examples. 
+Expected Risk: This is the theoretical average loss over the entire distribution of all possible data points the model might encounter in the future. 
+We can't measure this directly; we only approximate it using unseen "test" data. 
+Relating Risk to Train/Test Splits 
+Training Data (Empirical Risk): The loss on the training set is what we call empirical risk. It tells us how well the model is doing on the data it has seen and was trained on. 
+• Test Data (Approximation of Expected Risk): The loss on the test set is an estimate of how the model generalizes to unseen data. It's not the full expected risk, but it gives us a practical approximation of how well the model might perform in the real world. 
+Measurable vs. Theoretical 
+Empirical risk is directly measurable on training data. 
+Expected risk remains a theoretical ideal. We aim to approximate it as closely as possible with test data, but we never capture it fully. 
+How about reducing the loss like this? 
+h(x) 
+= 
+Syi 
+Yi, 
+0. 
+if (xi, Yi) = D, otherwise 
+s. t. x = Xi 
+What would be the loss of this h on the training set? 
+What would be the loss of this h on an unseen test set? 
+Why is it bad? 
+• How to prevent this from happening? 
+The memorizer! 
+Inductive Bias 
+• The choice of hypothesis space implicitly encodes the inductive bias of the learning algorithm, which is the set of assumptions the model makes about the data. 
+• Learning from finite data is inherently underdetermined (there are usually many hypotheses that can explain the training data), and the algorithm needs some bias (assumptions or constraints) to select one hypothesis over others. 
+Examples: 
+Linear regression assumes that the relationship between input and output is linear, which limits the hypothesis space to linear functions. If the true relationship is non-linear, the algorithm might underfit. 
+• Decision Trees assume axis-aligned splits and are bad at approximating non-aligned decision boundaries. 
+• k-Nearest Neighbors: The bias is that similar data points will have similar labels, and that closer points in the feature space are more similar.

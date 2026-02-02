@@ -1,0 +1,912 @@
+================================================================================
+🌐 LECTURE 2 - HTTP PROTOCOL & HTML - EASY VERSION 🌐
+================================================================================
+                    ⭐ YOUR EXAM CHEAT SHEET ⭐
+================================================================================
+
+Hey! This is the EASY version of Lecture 2.
+Focus on understanding, not memorizing. Let's go! 💪
+
+================================================================================
+📌 PART A: HTTP PROTOCOL (How Web Communication Works)
+================================================================================
+
+================================================================================
+📌 SECTION 1: WHAT IS HTTP?
+================================================================================
+
+🔹 DEFINITION:
+   HTTP = HyperText Transfer Protocol
+   
+   - It's the LANGUAGE that browsers and servers use to talk
+   - Like English between two people, HTTP is between browser & server
+   - Foundation of ALL data exchange on the web!
+
+🔹 KEY POINT - HTTP IS STATELESS:
+   ┌────────────────────────────────────────────────────────────────┐
+   │  STATELESS means the server has AMNESIA! 🤯                    │
+   │                                                                │
+   │  Each request is INDEPENDENT                                   │
+   │  Server doesn't remember your previous requests                │
+   │                                                                │
+   │  Example:                                                      │
+   │  Request 1: "Give me homepage" → Server gives homepage         │
+   │  Request 2: "Give me about page" → Server doesn't know you     │
+   │             already visited homepage! Each request is NEW.     │
+   │                                                                │
+   │  That's why websites use COOKIES to remember you!              │
+   └────────────────────────────────────────────────────────────────┘
+
+================================================================================
+📌 SECTION 2: HOW HTTP WORKS - 3 SIMPLE STEPS
+================================================================================
+
+   Step 1: REQUEST 📤
+   ─────────────────
+   Your browser (Chrome, Firefox) sends a message to server:
+   "Hey server! I want the homepage please!"
+   
+   Step 2: PROCESSING ⚙️
+   ────────────────────
+   Server receives request, finds the page/file, prepares response
+   
+   Step 3: RESPONSE 📥
+   ─────────────────
+   Server sends back: "Here's your homepage!" (or "Page not found!")
+
+   VISUAL:
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │                                                                         │
+   │    YOUR BROWSER                    INTERNET                 SERVER      │
+   │    ┌─────────┐                                            ┌─────────┐   │
+   │    │ Chrome  │ ──── "I want /index.html" ──────────────▶  │ Apache  │   │
+   │    │         │                                            │         │   │
+   │    │         │ ◀──── "Here's your page!" ──────────────── │         │   │
+   │    └─────────┘                                            └─────────┘   │
+   │                                                                         │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+📌 SECTION 3: HTTP REQUEST STRUCTURE (What browser sends)
+================================================================================
+
+🔹 AN HTTP REQUEST HAS 3 PARTS:
+
+   ┌────────────────────────────────────────────────────────────────────────┐
+   │  PART 1: REQUEST LINE (What do you want?)                             │
+   │  ──────────────────────────────────────────                           │
+   │  Format: METHOD URL HTTP-VERSION                                      │
+   │                                                                       │
+   │  Example: GET /index.html HTTP/1.1                                    │
+   │           │   │           │                                           │
+   │           │   │           └── HTTP version being used                 │
+   │           │   └── Which page/file you want                            │
+   │           └── What action (GET = give me something)                   │
+   │                                                                       │
+   │                                                                       │
+   │  PART 2: HEADERS (Extra info about request)                           │
+   │  ──────────────────────────────────────────                           │
+   │  Metadata like: Which browser you're using, what content you accept   │
+   │                                                                       │
+   │  Example Headers:                                                     │
+   │  Host: www.example.com          ← Which website                       │
+   │  User-Agent: Mozilla/5.0        ← Your browser info                   │
+   │  Accept: text/html              ← What type of content you want       │
+   │                                                                       │
+   │                                                                       │
+   │  PART 3: BODY (Optional - Data you're sending)                        │
+   │  ──────────────────────────────────────────────                       │
+   │  Only used when SENDING data (like form submission)                   │
+   │  GET requests usually don't have body                                 │
+   │  POST requests have body (form data, etc.)                            │
+   └────────────────────────────────────────────────────────────────────────┘
+
+🔹 COMPLETE REQUEST EXAMPLE:
+
+   ┌────────────────────────────────────────┐
+   │  GET /home HTTP/1.1                    │  ← Request Line
+   │  Host: www.example.com                 │  ← Header
+   │  User-Agent: Mozilla/5.0               │  ← Header
+   │                                        │  ← Empty line (no body)
+   └────────────────────────────────────────┘
+
+================================================================================
+📌 SECTION 4: HTTP RESPONSE STRUCTURE (What server sends back)
+================================================================================
+
+🔹 AN HTTP RESPONSE HAS 3 PARTS:
+
+   ┌────────────────────────────────────────────────────────────────────────┐
+   │  PART 1: STATUS LINE (Did it work?)                                   │
+   │  ────────────────────────────────────                                 │
+   │  Format: HTTP-VERSION STATUS-CODE STATUS-MESSAGE                      │
+   │                                                                       │
+   │  Example: HTTP/1.1 200 OK                                             │
+   │           │         │   │                                             │
+   │           │         │   └── Human readable message                    │
+   │           │         └── Number code (200 = success!)                  │
+   │           └── HTTP version                                            │
+   │                                                                       │
+   │                                                                       │
+   │  PART 2: HEADERS (Info about response)                                │
+   │  ────────────────────────────────────                                 │
+   │  Example Headers:                                                     │
+   │  Content-Type: text/html        ← What type of content                │
+   │  Content-Length: 1234           ← Size of content in bytes            │
+   │                                                                       │
+   │                                                                       │
+   │  PART 3: BODY (The actual content!)                                   │
+   │  ─────────────────────────────────                                    │
+   │  The HTML, image, JSON, or whatever you requested                     │
+   └────────────────────────────────────────────────────────────────────────┘
+
+🔹 COMPLETE RESPONSE EXAMPLE:
+
+   ┌────────────────────────────────────────┐
+   │  HTTP/1.1 200 OK                       │  ← Status Line
+   │  Content-Type: text/html               │  ← Header
+   │  Content-Length: 1234                  │  ← Header
+   │                                        │  ← Empty line
+   │  <html>                                │  ← Body starts
+   │    <head>...</head>                    │
+   │    <body>Hello!</body>                 │
+   │  </html>                               │
+   └────────────────────────────────────────┘
+
+================================================================================
+📌 SECTION 5: HTTP STATUS CODES - MEMORIZE THESE!
+================================================================================
+
+🔹 STATUS CODES TELL YOU WHAT HAPPENED:
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  CODE  │  MEANING                │  WHEN IT HAPPENS                    │
+   │────────│─────────────────────────│─────────────────────────────────────│
+   │  200   │  OK ✅                  │  Everything worked! Here's your     │
+   │        │                         │  content.                           │
+   │────────│─────────────────────────│─────────────────────────────────────│
+   │  301   │  Moved Permanently 🚚   │  Page moved to new URL forever.     │
+   │        │                         │  Update your bookmarks!             │
+   │────────│─────────────────────────│─────────────────────────────────────│
+   │  403   │  Forbidden 🚫           │  Server understands but says NO!    │
+   │        │                         │  You don't have permission.         │
+   │────────│─────────────────────────│─────────────────────────────────────│
+   │  404   │  Not Found ❓           │  Page doesn't exist!                │
+   │        │                         │  Check your URL spelling.           │
+   │────────│─────────────────────────│─────────────────────────────────────│
+   │  500   │  Internal Server Error 💥│  Something broke on the server!    │
+   │        │                         │  Not your fault, server's problem.  │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+   EASY WAY TO REMEMBER:
+   ┌────────────────────────────────────────────────────────────────┐
+   │  2xx = SUCCESS! 🎉 (200, 201, etc.)                           │
+   │  3xx = REDIRECT! 🔄 (301, 302 - page moved)                   │
+   │  4xx = CLIENT ERROR! 😅 (YOUR fault - 404, 403)               │
+   │  5xx = SERVER ERROR! 💻 (SERVER's fault - 500)                │
+   └────────────────────────────────────────────────────────────────┘
+
+================================================================================
+📌 SECTION 6: HTTP METHODS - VERY IMPORTANT!
+================================================================================
+
+🔹 HTTP METHODS TELL SERVER WHAT ACTION YOU WANT:
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  METHOD   │  PURPOSE                │  EXAMPLE                         │
+   │───────────│─────────────────────────│───────────────────────────────────│
+   │  GET      │  RETRIEVE/READ data     │  Get a webpage, image, video     │
+   │           │  "Give me something"    │  GET /products                   │
+   │───────────│─────────────────────────│───────────────────────────────────│
+   │  POST     │  CREATE/SEND data       │  Submit a form, create account   │
+   │           │  "Here's new data"      │  POST /users (create new user)   │
+   │───────────│─────────────────────────│───────────────────────────────────│
+   │  PUT      │  UPDATE entire resource │  Update full user profile        │
+   │           │  "Replace everything"   │  PUT /users/5 (update user 5)    │
+   │───────────│─────────────────────────│───────────────────────────────────│
+   │  PATCH    │  PARTIAL update         │  Update only user's email        │
+   │           │  "Change just this"     │  PATCH /users/5/email            │
+   │───────────│─────────────────────────│───────────────────────────────────│
+   │  DELETE   │  REMOVE resource        │  Delete user account             │
+   │           │  "Remove this"          │  DELETE /users/5                 │
+   │───────────│─────────────────────────│───────────────────────────────────│
+   │  HEAD     │  GET but NO body        │  Check if page exists without    │
+   │           │  "Just headers please"  │  downloading it                  │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+📌 SECTION 7: GET vs POST - EXAM FAVORITE!
+================================================================================
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  FEATURE              │  GET                  │  POST                   │
+   │───────────────────────│───────────────────────│─────────────────────────│
+   │  Purpose              │  RETRIEVE data        │  SEND/CREATE data       │
+   │───────────────────────│───────────────────────│─────────────────────────│
+   │  Data visible in URL? │  YES ⚠️              │  NO (hidden in body)    │
+   │                       │  example.com?name=ali │                         │
+   │───────────────────────│───────────────────────│─────────────────────────│
+   │  Can be cached?       │  YES                  │  NO                     │
+   │───────────────────────│───────────────────────│─────────────────────────│
+   │  Can be bookmarked?   │  YES                  │  NO                     │
+   │───────────────────────│───────────────────────│─────────────────────────│
+   │  Browser history?     │  YES (stays)          │  NO                     │
+   │───────────────────────│───────────────────────│─────────────────────────│
+   │  Data length limit?   │  YES (limited URL)    │  NO (unlimited)         │
+   │───────────────────────│───────────────────────│─────────────────────────│
+   │  Sensitive data?      │  NEVER! 🚫            │  YES (passwords, etc.)  │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+   SIMPLE RULE:
+   ┌────────────────────────────────────────────────────────────────┐
+   │  GET = Getting/Reading data (search, view page)               │
+   │  POST = Sending data (login, signup, submit form)             │
+   │                                                                │
+   │  NEVER use GET for passwords or sensitive info!               │
+   │  (Because data shows in URL - anyone can see it!)             │
+   └────────────────────────────────────────────────────────────────┘
+
+================================================================================
+📌 SECTION 8: REQUEST-RESPONSE CYCLE EXAMPLE
+================================================================================
+
+🔹 COMPLETE EXAMPLE - Visiting Google:
+
+   STEP 1: You type www.google.com and press Enter
+   
+   STEP 2: Browser sends REQUEST:
+   ┌────────────────────────────────────────┐
+   │  GET / HTTP/1.1                        │
+   │  Host: www.google.com                  │
+   └────────────────────────────────────────┘
+   
+   STEP 3: Google's server PROCESSES request
+   
+   STEP 4: Server sends RESPONSE:
+   ┌────────────────────────────────────────┐
+   │  HTTP/1.1 200 OK                       │
+   │  Content-Type: text/html               │
+   │  Content-Length: xx                    │
+   │                                        │
+   │  <html>                                │
+   │    <head>...</head>                    │
+   │    <body>Google</body>                 │
+   │  </html>                               │
+   └────────────────────────────────────────┘
+   
+   STEP 5: Browser renders the HTML → You see Google!
+
+================================================================================
+📌 PART B: HTML (Creating Web Pages)
+================================================================================
+
+================================================================================
+📌 SECTION 9: WHAT IS HTML?
+================================================================================
+
+🔹 DEFINITION:
+   HTML = HyperText Markup Language
+   
+   - Standard language for creating web pages
+   - STRUCTURES content (where things go)
+   - Uses TAGS to define elements
+
+🔹 KEY POINT:
+   - HTML is NOT a programming language (no logic, no calculations)
+   - HTML is a MARKUP language (marks up content with tags)
+   - Like using highlighters to mark different parts of a book
+
+================================================================================
+📌 SECTION 10: HTML ELEMENT STRUCTURE
+================================================================================
+
+🔹 WHAT IS AN ELEMENT?
+
+   An element has:
+   1. Start tag (opening)
+   2. Content (what's inside)
+   3. End tag (closing)
+   4. Attributes (extra info)
+
+🔹 STRUCTURE:
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  <tag attribute="value"> content </tag>                                │
+   │   │      │        │       │        │                                   │
+   │   │      │        │       │        └── END tag (with /)                │
+   │   │      │        │       └── Content (text, other elements)           │
+   │   │      │        └── Attribute VALUE                                  │
+   │   │      └── Attribute NAME                                            │
+   │   └── START tag                                                        │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+🔹 EXAMPLES:
+
+   <!-- With content -->
+   <p class="intro">Hello World</p>
+   │  │      │       │           │
+   │  │      │       │           └── End tag
+   │  │      │       └── Content
+   │  │      └── Attribute value
+   │  └── Attribute name
+   └── Start tag
+
+   <!-- Self-closing (no content) -->
+   <img src="photo.jpg" />
+   │    │       │       │
+   │    │       │       └── Self-closing slash
+   │    │       └── Attribute value
+   │    └── Attribute name
+   └── Tag name
+
+================================================================================
+📌 SECTION 11: BASIC HTML DOCUMENT STRUCTURE
+================================================================================
+
+🔹 EVERY HTML PAGE HAS THIS SKELETON:
+
+<!-- THIS IS A COMPLETE HTML TEMPLATE - MEMORIZE THIS! -->
+
+<!DOCTYPE html>                    <!-- Tells browser: "This is HTML5!" -->
+<html lang="en">                   <!-- Root element, lang=language -->
+  
+  <head>                           <!-- Metadata (not visible on page) -->
+    <meta charset="UTF-8">         <!-- Character encoding -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Page</title>     <!-- Browser tab title -->
+  </head>
+  
+  <body>                           <!-- Everything VISIBLE goes here -->
+    <h1>Welcome!</h1>              <!-- Main heading -->
+    <p>This is a paragraph.</p>    <!-- Paragraph text -->
+  </body>
+  
+</html>
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  BREAKDOWN:                                                            │
+   │                                                                        │
+   │  <!DOCTYPE html>  → Declaration (tells browser it's HTML5)             │
+   │  <html>           → Root element (everything goes inside)              │
+   │  <head>           → Metadata (title, styles, scripts - not visible)    │
+   │  <body>           → Content (what user sees on the page)               │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+📌 SECTION 12: KEY HTML ELEMENTS - COMPLETE LIST
+================================================================================
+
+🔹 TEXT ELEMENTS:
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  ELEMENT  │  PURPOSE               │  EXAMPLE                          │
+   │───────────│────────────────────────│───────────────────────────────────│
+   │  <h1>     │  Heading (BIGGEST)     │  <h1>Main Title</h1>              │
+   │  <h2>     │  Heading (smaller)     │  <h2>Subtitle</h2>                │
+   │  <h3>     │  Heading (smaller)     │  <h3>Section</h3>                 │
+   │  <h4>     │  Heading (smaller)     │  <h4>Subsection</h4>              │
+   │  <h5>     │  Heading (smaller)     │  <h5>Minor</h5>                   │
+   │  <h6>     │  Heading (SMALLEST)    │  <h6>Tiny</h6>                    │
+   │  <p>      │  Paragraph             │  <p>This is text.</p>             │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+   CODE EXAMPLE:
+   
+   <!DOCTYPE html>
+   <html>
+   <body>
+     <h1>My First Heading</h1>     <!-- Biggest heading -->
+     <h2>This is heading 2</h2>    <!-- Second level -->
+     <h3>This is heading 3</h3>    <!-- Third level -->
+     <h6>This is heading 6</h6>    <!-- Smallest heading -->
+     <p>My first paragraph.</p>    <!-- Regular text -->
+   </body>
+   </html>
+
+
+🔹 LINKS (ANCHOR TAG):
+
+   <!-- Basic link -->
+   <a href="https://www.google.com">Click to visit Google</a>
+   │  │                              │                     │
+   │  │                              └── Text user sees    │
+   │  └── href = where link goes                          │
+   └── anchor tag                                         └── closing tag
+
+   <!-- Open in new tab -->
+   <a href="https://www.google.com" target="_blank">Opens in new tab</a>
+                                    │
+                                    └── target="_blank" = new window/tab!
+
+   ┌────────────────────────────────────────────────────────────────┐
+   │  URL TYPES:                                                    │
+   │                                                                │
+   │  ABSOLUTE URL = Full address to any website                    │
+   │  Example: href="https://www.google.com/images"                 │
+   │                                                                │
+   │  RELATIVE URL = Path within same website                       │
+   │  Example: href="about.html" (goes to about.html on same site)  │
+   │  Example: href="/images/photo.jpg" (from root of site)         │
+   └────────────────────────────────────────────────────────────────┘
+
+
+🔹 IMAGES:
+
+   <img src="sunflower.jpg" width="104" height="142">
+   │    │                   │          │
+   │    │                   │          └── height in pixels
+   │    │                   └── width in pixels
+   │    └── src = image source (file path or URL)
+   └── img tag (self-closing, no </img> needed)
+
+   <!-- With absolute URL -->
+   <img src="https://example.com/photo.jpg" alt="Description of image">
+                                            │
+                                            └── alt = text if image can't load
+                                                (also helps blind users!)
+
+
+🔹 BUTTONS:
+
+   <button>Click Me!</button>
+   │       │         │
+   │       │         └── closing tag
+   │       └── button text
+   └── button tag
+
+   <!-- Button that does something -->
+   <button onclick="alert('Hello!')">Click for greeting</button>
+
+================================================================================
+📌 SECTION 13: HTML FORMS - VERY IMPORTANT!
+================================================================================
+
+🔹 WHAT ARE FORMS?
+   - Let users enter and submit data
+   - Login forms, signup forms, search boxes, contact forms
+   
+🔹 BASIC FORM STRUCTURE:
+
+   <form action="/submit" method="POST">
+   │     │               │
+   │     │               └── method = How to send (GET or POST)
+   │     └── action = Where to send the data (URL)
+   └── form tag
+
+     <label for="name">Name:</label>
+     │      │
+     │      └── for = links to input's id
+     └── label describes the input field
+
+     <input type="text" id="name" name="name">
+     │      │          │         │
+     │      │          │         └── name = key when data is sent
+     │      │          └── id = unique identifier
+     │      └── type = what kind of input
+     └── input tag (self-closing)
+
+     <input type="submit" value="Submit">
+     │      │             │
+     │      │             └── value = button text
+     │      └── type="submit" = makes it a submit button
+     └── creates submit button
+
+   </form>
+
+
+🔹 COMPLETE FORM EXAMPLE WITH CODE:
+
+   <!-- Login Form Example -->
+   <form method="POST" action="/login">
+     
+     <!-- Username field -->
+     <label for="username">Username:</label>
+     <input type="text" id="username" name="username" placeholder="Enter username">
+     
+     <!-- Password field (text is hidden!) -->
+     <label for="password">Password:</label>
+     <input type="password" id="password" name="password" placeholder="Enter password">
+     
+     <!-- Submit button -->
+     <input type="submit" value="Login">
+     
+   </form>
+
+🔹 GET vs POST IN FORMS:
+
+   <!-- GET Method - Data shows in URL -->
+   <form method="GET" action="https://www.google.com/search">
+     <input type="text" name="q">          <!-- q = query parameter name -->
+     <input type="submit" value="Google Search">
+   </form>
+   
+   After submit, URL becomes: https://www.google.com/search?q=yourSearchTerm
+   ⚠️ Data is VISIBLE in browser address bar!
+
+   <!-- POST Method - Data hidden in body -->
+   <form method="POST" action="/login">
+     <input type="text" name="username">
+     <input type="password" name="password">
+     <input type="submit" value="Login">
+   </form>
+   
+   After submit, URL stays: /login
+   ✅ Data is HIDDEN (safe for passwords)
+
+================================================================================
+📌 SECTION 14: INPUT TYPES - MEMORIZE THESE!
+================================================================================
+
+🔹 TEXT INPUT:
+   <input type="text" placeholder="Enter your name">
+   <!-- Single line plain text input -->
+
+🔹 PASSWORD INPUT:
+   <input type="password" placeholder="Enter password">
+   <!-- Text is hidden with dots ••••••• -->
+
+🔹 FILE INPUT:
+   <input type="file" accept="image/*">
+   <!-- Opens file picker to upload files -->
+   <!-- accept="image/*" means only images allowed -->
+
+🔹 CHECKBOX (Multiple choices):
+   <input type="checkbox" id="subscribe" name="subscribe">
+   <label for="subscribe">Subscribe to newsletter</label>
+   <!-- Can check multiple boxes -->
+   <!-- Binary: checked or not checked -->
+
+🔹 RADIO BUTTONS (One choice from many):
+   <input type="radio" name="gender" value="male"> Male
+   <input type="radio" name="gender" value="female"> Female
+   <!-- IMPORTANT: Same "name" means they're in same group! -->
+   <!-- Can only select ONE option -->
+
+🔹 DATE PICKER:
+   <input type="date">
+   <!-- Shows a calendar to pick date -->
+
+🔹 SELECT DROPDOWN:
+   <select name="city">
+     <option value="lahore">Lahore</option>
+     <option value="karachi">Karachi</option>
+     <option value="islamabad">Islamabad</option>
+   </select>
+   <!-- Dropdown menu -->
+
+🔹 TEXTAREA (Multi-line text):
+   <textarea name="message" rows="4" cols="50">
+     Enter your message here...
+   </textarea>
+   <!-- For long text like comments -->
+
+================================================================================
+📌 SECTION 15: HTML TABLES
+================================================================================
+
+🔹 TABLE STRUCTURE:
+
+   <table>           <!-- Table container -->
+     <tr>            <!-- Table ROW -->
+       <th>Name</th> <!-- Table HEADER (bold, centered) -->
+       <th>Age</th>
+     </tr>
+     <tr>            <!-- Another row -->
+       <td>Ali</td>  <!-- Table DATA (regular cell) -->
+       <td>25</td>
+     </tr>
+     <tr>
+       <td>Sara</td>
+       <td>22</td>
+     </tr>
+   </table>
+
+   RESULT:
+   ┌────────┬────────┐
+   │ Name   │ Age    │  ← Header row (th)
+   ├────────┼────────┤
+   │ Ali    │ 25     │  ← Data row (td)
+   ├────────┼────────┤
+   │ Sara   │ 22     │  ← Data row (td)
+   └────────┴────────┘
+
+🔹 SPANNING MULTIPLE COLUMNS/ROWS:
+
+   colspan = span across multiple COLUMNS (horizontal)
+   rowspan = span across multiple ROWS (vertical)
+
+   <!-- colspan example - cell spans 2 columns -->
+   <table border="1">
+     <tr>
+       <td colspan="2">This spans 2 columns!</td>
+     </tr>
+     <tr>
+       <td>Cell 1</td>
+       <td>Cell 2</td>
+     </tr>
+   </table>
+
+   RESULT:
+   ┌────────────────────────────┐
+   │  This spans 2 columns!    │  ← Takes up 2 cells
+   ├─────────────┬─────────────┤
+   │   Cell 1    │   Cell 2    │  ← Normal 2 cells
+   └─────────────┴─────────────┘
+
+   <!-- rowspan example - cell spans 3 rows -->
+   <table border="1">
+     <tr>
+       <td rowspan="3">April</td>
+       <td>Week 1</td>
+     </tr>
+     <tr>
+       <td>Week 2</td>
+     </tr>
+     <tr>
+       <td>Week 3</td>
+     </tr>
+   </table>
+
+   RESULT:
+   ┌─────────┬─────────┐
+   │         │ Week 1  │
+   │  April  ├─────────┤  ← "April" spans 3 rows
+   │         │ Week 2  │
+   │         ├─────────┤
+   │         │ Week 3  │
+   └─────────┴─────────┘
+
+================================================================================
+📌 SECTION 16: BLOCK vs INLINE ELEMENTS
+================================================================================
+
+🔹 BLOCK LEVEL ELEMENTS:
+   - Take FULL WIDTH of parent
+   - Start on NEW LINE
+   - Stack VERTICALLY
+   
+   Examples: <div>, <p>, <h1> to <h6>, <form>, <table>, <ul>, <ol>
+
+   ┌────────────────────────────────────────────────────────────────┐
+   │  <div>I take full width!</div>                                │
+   └────────────────────────────────────────────────────────────────┘
+   ┌────────────────────────────────────────────────────────────────┐
+   │  <p>So do I! New line!</p>                                    │
+   └────────────────────────────────────────────────────────────────┘
+
+🔹 INLINE ELEMENTS:
+   - Take only NEEDED WIDTH
+   - Stay on SAME LINE
+   - Flow HORIZONTALLY
+   
+   Examples: <span>, <a>, <img>, <strong>, <em>, <label>
+
+   <span>I only</span> <span>take</span> <span>what I need</span>
+   └────── All on same line, side by side ──────┘
+
+🔹 VISUAL COMPARISON:
+
+   BLOCK:                          INLINE:
+   ┌──────────────────────┐        ┌──────┐ ┌────┐ ┌──────────┐
+   │       Block 1        │        │Inline│ │Next│ │More text │
+   └──────────────────────┘        └──────┘ └────┘ └──────────┘
+   ┌──────────────────────┐        (all on same line)
+   │       Block 2        │
+   └──────────────────────┘
+   (stacked vertically)
+
+================================================================================
+📌 SECTION 17: HTML LISTS
+================================================================================
+
+🔹 ORDERED LIST (Numbered):
+   
+   <ol>                    <!-- ol = Ordered List -->
+     <li>First item</li>   <!-- li = List Item -->
+     <li>Second item</li>
+     <li>Third item</li>
+   </ol>
+   
+   RESULT:
+   1. First item
+   2. Second item
+   3. Third item
+
+🔹 UNORDERED LIST (Bullets):
+   
+   <ul>                    <!-- ul = Unordered List -->
+     <li>Coffee</li>
+     <li>Tea</li>
+     <li>Milk</li>
+   </ul>
+   
+   RESULT:
+   • Coffee
+   • Tea
+   • Milk
+
+🔹 NESTED LISTS (Lists inside lists):
+   
+   <ul>
+     <li>Punjab
+       <ol>
+         <li>Lahore</li>
+         <li>Faisalabad</li>
+       </ol>
+     </li>
+     <li>Sindh
+       <ol>
+         <li>Karachi</li>
+         <li>Hyderabad</li>
+       </ol>
+     </li>
+   </ul>
+   
+   RESULT:
+   • Punjab
+     1. Lahore
+     2. Faisalabad
+   • Sindh
+     1. Karachi
+     2. Hyderabad
+
+================================================================================
+📌 SECTION 18: HTML5 SEMANTIC ELEMENTS
+================================================================================
+
+🔹 NEW HTML5 ELEMENTS (Give meaning to structure):
+
+   <article>   → Self-contained content (blog post, news article)
+   <section>   → Thematic grouping of content
+   <nav>       → Navigation links
+   <header>    → Introductory content
+   <footer>    → Footer content
+   <aside>     → Sidebar content
+   <video>     → Embed video without plugins
+   <audio>     → Embed audio without plugins
+
+🔹 WHY USE SEMANTIC ELEMENTS?
+   - Better for SEO (search engines understand your page)
+   - Better for accessibility (screen readers)
+   - Cleaner, more readable code
+
+================================================================================
+📌 SECTION 19: ENCLOSING vs SELF-CLOSING TAGS
+================================================================================
+
+🔹 ENCLOSING TAGS (Need opening AND closing):
+   
+   <tagname>content</tagname>
+   
+   Examples:
+   <p>paragraph</p>
+   <div>content</div>
+   <h1>heading</h1>
+   <a href="#">link</a>
+   <button>click</button>
+   
+🔹 SELF-CLOSING TAGS (No closing tag needed):
+   
+   <tagname />   or   <tagname>
+   
+   Examples:
+   <img src="photo.jpg" />
+   <input type="text" />
+   <br />     <!-- Line break -->
+   <hr />     <!-- Horizontal line -->
+   <meta charset="UTF-8" />
+
+================================================================================
+📌 SECTION 20: HTML COMMENTS
+================================================================================
+
+   <!-- This is a comment -->
+   <!-- Comments are NOT displayed in browser -->
+   <!-- Use them to explain your code or temporarily hide things -->
+
+   <!-- 
+     This is a 
+     multi-line comment
+   -->
+
+================================================================================
+📌 SECTION 21: QUICK REFERENCE - ALL TAGS
+================================================================================
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  TEXT           │  STRUCTURE       │  FORMS              │  MEDIA      │
+   │─────────────────│──────────────────│─────────────────────│─────────────│
+   │  <h1> to <h6>   │  <html>          │  <form>             │  <img>      │
+   │  <p>            │  <head>          │  <input>            │  <video>    │
+   │  <span>         │  <body>          │  <textarea>         │  <audio>    │
+   │  <a>            │  <div>           │  <select>           │             │
+   │  <strong>       │  <header>        │  <option>           │             │
+   │  <em>           │  <footer>        │  <label>            │             │
+   │                 │  <nav>           │  <button>           │             │
+   │                 │  <section>       │                     │             │
+   │                 │  <article>       │                     │             │
+   ├─────────────────┴──────────────────┴─────────────────────┴─────────────┤
+   │  LISTS          │  TABLES                                              │
+   │─────────────────│──────────────────────────────────────────────────────│
+   │  <ul>           │  <table> <tr> <th> <td>                              │
+   │  <ol>           │  colspan, rowspan                                    │
+   │  <li>           │                                                      │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+📌 CLASS TEST QUESTION (From slides)
+================================================================================
+
+QUESTION: Create an unordered list containing the names of any three 
+provinces of Pakistan. Then, create three nested ordered lists within 
+the unordered list, containing names of any two cities of each province.
+
+ANSWER:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pakistan Provinces and Cities</title>
+</head>
+<body>
+
+  <h1>Provinces of Pakistan</h1>
+  
+  <ul>                          <!-- Unordered list of provinces -->
+    <li>Punjab                  <!-- Province 1 -->
+      <ol>                      <!-- Ordered list of cities -->
+        <li>Lahore</li>
+        <li>Faisalabad</li>
+      </ol>
+    </li>
+    <li>Sindh                   <!-- Province 2 -->
+      <ol>
+        <li>Karachi</li>
+        <li>Hyderabad</li>
+      </ol>
+    </li>
+    <li>KPK                     <!-- Province 3 -->
+      <ol>
+        <li>Peshawar</li>
+        <li>Abbottabad</li>
+      </ol>
+    </li>
+  </ul>
+
+</body>
+</html>
+
+================================================================================
+📌 SUMMARY - QUICK REVISION
+================================================================================
+
+   HTTP:
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  • HTTP = Protocol for web communication                               │
+   │  • HTTP is STATELESS (server doesn't remember you)                     │
+   │  • Request: Method + URL + Headers + Body                              │
+   │  • Response: Status Code + Headers + Body                              │
+   │  • Status: 200=OK, 404=Not Found, 500=Server Error                     │
+   │  • GET=Read, POST=Create, PUT=Update, DELETE=Delete                    │
+   │  • GET shows data in URL (don't use for passwords!)                    │
+   │  • POST hides data in body (safe for sensitive data)                   │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+   HTML:
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  • HTML = Language for creating web pages                              │
+   │  • Elements = Start tag + Content + End tag                            │
+   │  • DOCTYPE, html, head, body = Basic structure                         │
+   │  • <h1>-<h6> = Headings, <p> = Paragraph                               │
+   │  • <a href=""> = Links, <img src=""> = Images                          │
+   │  • <form> <input> = Forms for user input                               │
+   │  • <table> <tr> <td> = Tables                                          │
+   │  • <ul> <ol> <li> = Lists                                              │
+   │  • Block = Full width, new line (div, p)                               │
+   │  • Inline = Only needed width, same line (span, a, img)                │
+   │  • colspan = span columns, rowspan = span rows                         │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+                         💪 YOU'VE GOT THIS! GOOD LUCK! 💪
+================================================================================

@@ -1,0 +1,734 @@
+================================================================================
+    🎯 LECTURE 3 - EASY VERSION (ADHD FRIENDLY) 🎯
+    THE MANAGER AS DECISION MAKER (PART 1)
+    Chapter 2 | Date: Monday, 26th January 2026
+================================================================================
+
+Decision making is the HEART of management! Let's break it down! 🧠
+
+================================================================================
+PART 1: WHAT IS DECISION MAKING? 🤔
+================================================================================
+
+Let's start with the basics:
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  DEFINITIONS (Memorize these!)                                             │
+│  ────────────────────────────────                                          │
+│                                                                             │
+│  🔹 DECISION MAKING:                                                       │
+│     "A choice among TWO OR MORE alternatives"                              │
+│                                                                             │
+│     Simple, right? You have options, you pick one!                         │
+│     Examples:                                                              │
+│       • Coffee or tea?                                                     │
+│       • Hire Person A or Person B?                                         │
+│       • Invest in Project X or Project Y?                                  │
+│       • Expand to new market or focus on current market?                   │
+│                                                                             │
+│  🔹 DECISION:                                                              │
+│     A specific CHOICE that is made                                         │
+│     (The actual pick, the final answer)                                    │
+│                                                                             │
+│  🔹 DECISION-MAKING:                                                       │
+│     The PROCESS of identifying and choosing alternatives                   │
+│     (The whole journey from problem to solution)                           │
+│                                                                             │
+│  THE DIFFERENCE:                                                           │
+│    Decision = The destination (the final choice)                           │
+│    Decision-making = The journey (the process to get there)               │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+PART 2: SCOPE - WHERE DOES DECISION MAKING HAPPEN? 📍
+================================================================================
+
+SUPER IMPORTANT POINT:
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  DECISION MAKING IS CENTRAL TO ALL MANAGERIAL ACTIVITIES                   │
+│  ──────────────────────────────────────────────────────────                │
+│                                                                             │
+│  What does "central" mean?                                                 │
+│    → It's at the CORE of everything managers do                           │
+│    → Without decisions, nothing moves forward                              │
+│    → Every function (Planning, Organizing, Leading, Controlling)          │
+│      involves making decisions!                                            │
+│                                                                             │
+│  EXAMPLES:                                                                 │
+│    Planning: "What goals should we set?" = DECISION                        │
+│    Organizing: "Who should lead this project?" = DECISION                  │
+│    Leading: "How should I motivate this team?" = DECISION                  │
+│    Controlling: "Should we change our approach?" = DECISION                │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  DECISION MAKING HAPPENS AT EVERY LEVEL                                    │
+│  ───────────────────────────────────────                                   │
+│                                                                             │
+│    👑 TOP-LINE MANAGERS                                                    │
+│       Make STRATEGIC decisions                                             │
+│       Examples:                                                            │
+│         • "Should we acquire that competitor?"                            │
+│         • "Which new market should we enter?"                             │
+│         • "Should we change our business model?"                          │
+│                                                                             │
+│    🌉 MIDDLE-LINE MANAGERS                                                 │
+│       Make TACTICAL decisions                                              │
+│       Examples:                                                            │
+│         • "How should we allocate budget across teams?"                   │
+│         • "Which vendor should we partner with?"                          │
+│         • "How do we implement headquarters' new policy?"                 │
+│                                                                             │
+│    🎖️ BASE-LINE (FIRST-LINE) MANAGERS                                      │
+│       Make OPERATIONAL decisions                                           │
+│       Examples:                                                            │
+│         • "Who should work the morning shift?"                            │
+│         • "How do we handle this customer complaint?"                     │
+│         • "Should we approve this overtime request?"                      │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+PART 3: THE DECISION-MAKING PROCESS (8 STEPS) 📋
+================================================================================
+
+This is CRUCIAL for your exam! There are 8 steps, and they follow a logical order.
+
+Think of it like solving a mystery: Find the problem → Investigate → Solve it!
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  STEP 1: IDENTIFY THE PROBLEM ⚠️                                           │
+│  ──────────────────────────────────                                        │
+│                                                                             │
+│  WHAT IS A PROBLEM?                                                        │
+│    A DISCREPANCY (gap) between:                                            │
+│      → The CURRENT state (where you are NOW)                              │
+│      → The DESIRED state (where you WANT to be)                           │
+│                                                                             │
+│  SIMPLE EXAMPLE:                                                           │
+│    Current state: Sales are $100,000                                       │
+│    Desired state: Sales should be $150,000                                 │
+│    Problem: There's a $50,000 gap!                                        │
+│                                                                             │
+│  WHY THIS STEP MATTERS:                                                    │
+│    If you identify the WRONG problem, your solution will be useless!      │
+│    "A problem well-defined is half solved."                               │
+│                                                                             │
+│  REAL EXAMPLE:                                                             │
+│    A company notices high employee turnover.                               │
+│    Current: 30% of employees leave each year                               │
+│    Desired: Only 10% should leave                                          │
+│    Problem identified: Excessive turnover rate                             │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  STEP 2: IDENTIFY THE DECISION CRITERIA 📏                                 │
+│  ──────────────────────────────────────────                                │
+│                                                                             │
+│  WHAT ARE CRITERIA?                                                        │
+│    The FACTORS that are important in making this decision.                 │
+│    "What matters to us when choosing a solution?"                         │
+│                                                                             │
+│  EXAMPLE - Hiring a new employee:                                          │
+│    Criteria might be:                                                      │
+│    ✓ Experience level                                                     │
+│    ✓ Education/qualifications                                             │
+│    ✓ Salary expectations                                                  │
+│    ✓ Cultural fit                                                         │
+│    ✓ Availability to start                                                │
+│    ✓ Technical skills                                                     │
+│                                                                             │
+│  EXAMPLE - Buying office equipment:                                        │
+│    Criteria might be:                                                      │
+│    ✓ Price/cost                                                           │
+│    ✓ Quality/durability                                                   │
+│    ✓ Warranty                                                             │
+│    ✓ Delivery time                                                        │
+│    ✓ After-sales support                                                  │
+│                                                                             │
+│  WHY THIS MATTERS:                                                         │
+│    Different decisions need different criteria!                            │
+│    Skip this step and you'll forget important factors.                    │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  STEP 3: ALLOCATE WEIGHTS TO CRITERIA ⚖️                                   │
+│  ────────────────────────────────────────                                  │
+│                                                                             │
+│  WHAT DOES THIS MEAN?                                                      │
+│    Not all criteria are EQUALLY important!                                 │
+│    Assign weights (numbers) to show which matter MORE.                     │
+│                                                                             │
+│  EXAMPLE - Hiring decision:                                                │
+│                                                                             │
+│    Criteria             Weight (out of 10)                                 │
+│    ─────────────────────────────────────────                               │
+│    Technical skills         10 (most important!)                           │
+│    Experience               8                                              │
+│    Cultural fit             7                                              │
+│    Salary expectations      5                                              │
+│    Availability             3 (least important)                            │
+│                                                                             │
+│  WHY THIS MATTERS:                                                         │
+│    Helps you make OBJECTIVE decisions.                                     │
+│    Prevents you from being swayed by less important factors.              │
+│    Makes comparing options mathematical, not just gut feeling.            │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  STEP 4: DEVELOP ALTERNATIVES 💡                                           │
+│  ───────────────────────────────                                           │
+│                                                                             │
+│  WHAT DOES THIS MEAN?                                                      │
+│    List out ALL the possible options/solutions.                            │
+│    Don't judge yet - just brainstorm!                                     │
+│                                                                             │
+│  EXAMPLE - High employee turnover problem:                                 │
+│    Alternative solutions:                                                  │
+│    1. Increase salaries                                                    │
+│    2. Improve work-life balance (flexible hours)                          │
+│    3. Provide better career growth opportunities                           │
+│    4. Improve workplace culture                                            │
+│    5. Offer better benefits (health, vacation)                            │
+│    6. Improve management training                                          │
+│                                                                             │
+│  TIPS:                                                                     │
+│    → Be creative! Don't just list obvious options.                        │
+│    → Get input from others.                                               │
+│    → Don't eliminate options too early.                                   │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  STEP 5: ANALYZE ALTERNATIVES 🔍                                           │
+│  ───────────────────────────────                                           │
+│                                                                             │
+│  WHAT DOES THIS MEAN?                                                      │
+│    Evaluate each alternative against your weighted criteria.               │
+│    "How well does each option score?"                                     │
+│                                                                             │
+│  EXAMPLE:                                                                  │
+│    Let's say we're choosing between Option A and Option B.               │
+│                                                                             │
+│    Criteria           Weight   Option A   Option B                         │
+│    ────────────────────────────────────────────────────                    │
+│    Technical skills     10        8          9                             │
+│    Experience            8        7          6                             │
+│    Cultural fit          7        9          7                             │
+│    Salary                5        6          8                             │
+│    ────────────────────────────────────────────────────                    │
+│    Weighted Score:              238        232                             │
+│    (Multiply and add up: 10×8 + 8×7 + 7×9 + 5×6 = 238 for Option A)      │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  STEP 6: SELECT AN ALTERNATIVE ✅                                          │
+│  ─────────────────────────────────                                         │
+│                                                                             │
+│  WHAT DOES THIS MEAN?                                                      │
+│    CHOOSE the best option based on your analysis!                          │
+│    Pick the one with the highest score (or best fit).                     │
+│                                                                             │
+│  FROM OUR EXAMPLE:                                                         │
+│    Option A scored 238, Option B scored 232.                               │
+│    Decision: Go with Option A!                                             │
+│                                                                             │
+│  REMEMBER:                                                                 │
+│    Sometimes you might adjust based on factors that are hard to measure.  │
+│    But having a systematic process helps a LOT!                            │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  STEP 7: IMPLEMENT THE DECISION 🚀                                         │
+│  ───────────────────────────────────                                       │
+│                                                                             │
+│  WHAT DOES THIS MEAN?                                                      │
+│    Put the decision into ACTION!                                           │
+│    A decision without implementation is just a wish.                       │
+│                                                                             │
+│  WHAT THIS INVOLVES:                                                       │
+│    → Communicate the decision to everyone involved                         │
+│    → Assign responsibilities                                               │
+│    → Allocate resources                                                    │
+│    → Set timelines                                                         │
+│    → Start executing!                                                      │
+│                                                                             │
+│  EXAMPLE:                                                                  │
+│    Decision: Hire Candidate A                                              │
+│    Implementation:                                                         │
+│    → Send offer letter                                                    │
+│    → Set up their workspace                                               │
+│    → Plan their onboarding                                                │
+│    → Announce to the team                                                 │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  STEP 8: EVALUATE EFFECTIVENESS 📊                                         │
+│  ───────────────────────────────────                                       │
+│                                                                             │
+│  WHAT DOES THIS MEAN?                                                      │
+│    Check if the decision WORKED!                                           │
+│    "Is the problem solved or at least improved?"                          │
+│                                                                             │
+│  KEY QUESTIONS:                                                            │
+│    → Did we achieve what we wanted?                                       │
+│    → Is the gap (problem) closed or smaller?                              │
+│    → Were there any unexpected consequences?                              │
+│    → What can we learn for future decisions?                              │
+│                                                                             │
+│  EXAMPLE:                                                                  │
+│    Problem was: 30% employee turnover                                      │
+│    We implemented: Better career growth programs                           │
+│    Evaluate after 1 year:                                                  │
+│    → Turnover dropped to 15% - IMPROVEMENT!                               │
+│    → Still not at 10% goal - need more work                               │
+│                                                                             │
+│  IF IT DIDN'T WORK:                                                        │
+│    Go back to earlier steps!                                               │
+│    Maybe you identified the wrong problem, or chose the wrong solution.   │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+MEMORY TRICK FOR THE 8 STEPS:
+    "I  I  A  D  A  S  I  E"
+    
+    I = Identify problem
+    I = Identify criteria
+    A = Allocate weights
+    D = Develop alternatives
+    A = Analyze alternatives
+    S = Select alternative
+    I = Implement
+    E = Evaluate
+    
+    Or remember: "Problems need criteria, weighted alternatives get selected, 
+    implemented, and evaluated!"
+
+================================================================================
+PART 4: PIA CASE STUDY - WHAT WENT WRONG? ✈️
+================================================================================
+
+PIA (Pakistan International Airlines) is used as an example of POOR decision-making.
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  THE FINANCIAL SITUATION 💰                                                │
+│  ────────────────────────────                                              │
+│                                                                             │
+│  → PIA has been in LOSS from DAY 1                                         │
+│  → It operates like a Non-Profit Organization (NPO) rather than a          │
+│    profitable business                                                     │
+│  → Never made consistent profits                                           │
+│                                                                             │
+│  This is shocking for an airline that SHOULD be profitable!                │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  CORE ISSUE #1: POOR DECISION-MAKING DUE TO POLITICAL INTERFERENCE 🏛️     │
+│  ─────────────────────────────────────────────────────────────────────     │
+│                                                                             │
+│  WHAT HAPPENED:                                                            │
+│    → Decisions were NOT made based on business logic                       │
+│    → Politicians interfered in management decisions                        │
+│    → Hiring, routes, purchases - all influenced by politics               │
+│                                                                             │
+│  WHY IT'S BAD:                                                             │
+│    → Decisions should be based on what's GOOD FOR THE BUSINESS            │
+│    → Political decisions prioritize votes/favors, not efficiency          │
+│    → Incompetent people get hired because of connections                   │
+│    → Good managers can't do their jobs properly                           │
+│                                                                             │
+│  EXAMPLE:                                                                  │
+│    Instead of hiring the BEST pilot, hire the minister's nephew!          │
+│    Instead of flying profitable routes, fly to politician's hometown!     │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  CORE ISSUE #2: SHORT-TERM FOCUS 📆                                        │
+│  ──────────────────────────────────                                        │
+│                                                                             │
+│  WHAT HAPPENED:                                                            │
+│    → Top-line managers ONLY focused on SHORT-TERM goals and benefits      │
+│    → No long-term strategic thinking                                       │
+│    → Quick fixes instead of sustainable solutions                          │
+│                                                                             │
+│  WHY IT'S BAD:                                                             │
+│    → Short-term gains often create long-term problems                     │
+│    → No investment in future (new planes, training, technology)           │
+│    → Problems kept piling up year after year                              │
+│                                                                             │
+│  EXAMPLE:                                                                  │
+│    Short-term: "Let's delay buying new planes to save money now"          │
+│    Long-term result: Old planes = more breakdowns = bad reputation =      │
+│                      fewer customers = even less money!                    │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  CORE ISSUE #3: OVERSTAFFING 👥👥👥                                        │
+│  ──────────────────────────────────                                        │
+│                                                                             │
+│  WHAT HAPPENED:                                                            │
+│    → PIA kept HIRING even when they didn't need people                    │
+│    → Way more employees than necessary                                     │
+│    → Massive payroll costs                                                 │
+│                                                                             │
+│  WHY IT'S BAD:                                                             │
+│    → Salary costs eat into profits                                        │
+│    → Too many people = inefficiency                                       │
+│    → Political hiring = unqualified employees                             │
+│                                                                             │
+│  COMPARISON (approximate example):                                         │
+│    Average international airline: 200 employees per aircraft              │
+│    PIA: 500+ employees per aircraft!                                      │
+│    That's more than DOUBLE the required staff!                            │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+LESSONS FROM PIA CASE:
+    ✗ Don't let politics interfere with business decisions
+    ✗ Don't focus only on short-term
+    ✗ Don't over-hire
+    ✓ Make decisions based on data and logic
+    ✓ Think long-term
+    ✓ Keep your organization efficient (right number of people)
+
+================================================================================
+PART 5: DECISION-MAKING APPROACHES 🧭
+================================================================================
+
+There are different WAYS to make decisions. Each has pros and cons!
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  APPROACH 1: RATIONAL MODEL 🤖                                             │
+│  (The "Perfect Computer" Approach)                                         │
+│  ───────────────────────────────────                                       │
+│                                                                             │
+│  DEFINITION:                                                               │
+│    Uses LOGIC, is VALUE-MAXIMIZING, and assumes FULL INFORMATION           │
+│    and CLEAR GOALS.                                                        │
+│                                                                             │
+│  CHARACTERISTICS:                                                          │
+│    → Completely LOGICAL (no emotions)                                      │
+│    → VALUE-MAXIMIZING: Picks the option that gives MAXIMUM value          │
+│    → Assumes you have ALL the information you need                        │
+│    → Assumes goals are 100% clear                                         │
+│    → Follows the 8-step process perfectly                                 │
+│                                                                             │
+│  EXAMPLE:                                                                  │
+│    "I have all the data about every smartphone. I know exactly what I    │
+│     want (best camera, longest battery, under $500). I will calculate    │
+│     which phone scores highest and buy that one."                        │
+│                                                                             │
+│  THE PROBLEM:                                                              │
+│    This is IDEAL but NOT REALISTIC!                                        │
+│    → We never have ALL the information                                    │
+│    → Goals aren't always clear                                            │
+│    → We have limited time                                                 │
+│    → We can't process infinite data                                       │
+│    → Humans aren't robots!                                                │
+│                                                                             │
+│  WHEN IT'S USEFUL:                                                         │
+│    For important decisions where you CAN gather lots of data.             │
+│    As a framework to AIM for, even if you can't be perfect.              │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  APPROACH 2: BOUNDED RATIONALITY 📦                                        │
+│  (The "Good Enough" Approach)                                              │
+│  ─────────────────────────────────                                         │
+│                                                                             │
+│  DEFINITION:                                                               │
+│    Decision-making within COGNITIVE LIMITS.                                │
+│    Aims for "GOOD ENOUGH" rather than perfect.                            │
+│    Used when information is LIMITED and needs ASSUMPTIONS.                 │
+│                                                                             │
+│  KEY CONCEPT - "SATISFICING":                                              │
+│    A combination of "satisfy" + "suffice"                                  │
+│    = Finding a solution that is satisfactory and sufficient               │
+│    NOT necessarily the BEST, but GOOD ENOUGH                              │
+│                                                                             │
+│  WHY DO WE NEED THIS?                                                      │
+│                                                                             │
+│    Our brains have LIMITS:                                                 │
+│    → We can't process unlimited information                               │
+│    → We have limited time                                                 │
+│    → We have limited memory                                               │
+│    → We have limited attention                                            │
+│                                                                             │
+│  EXAMPLE:                                                                  │
+│    Looking for an apartment:                                               │
+│    RATIONAL: Visit ALL 500 apartments in the city, rate each one,        │
+│              pick the absolute best.                                       │
+│    BOUNDED: Visit 10 apartments, find one that meets your basic           │
+│             criteria (location, price, size), and rent it!               │
+│                                                                             │
+│  WHEN IT'S USEFUL:                                                         │
+│    → When you can't get complete information                              │
+│    → When time is limited                                                 │
+│    → When the decision isn't life-or-death important                     │
+│    → Most everyday decisions!                                             │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  APPROACH 3: INTUITION 🔮                                                  │
+│  (The "Gut Feeling" Approach)                                              │
+│  ─────────────────────────────────                                         │
+│                                                                             │
+│  DEFINITION:                                                               │
+│    Based on EXPERIENCE, FEELINGS, JUDGMENT, and UNCONSCIOUS reasoning.    │
+│                                                                             │
+│  WHAT IS INTUITION?                                                        │
+│    → Your brain processing information without you consciously thinking   │
+│    → "I just have a feeling this is the right choice"                    │
+│    → Built from years of experience                                       │
+│                                                                             │
+│  WHEN IS IT USEFUL?                                                        │
+│    → When DATA is LIMITED (can't analyze what you don't have)            │
+│    → In times of UNCERTAINTY (no clear right answer)                      │
+│    → Under TIME PRESSURE (no time for full analysis)                      │
+│    → When you have lots of EXPERIENCE in similar situations               │
+│                                                                             │
+│  THE DANGER:                                                               │
+│    → Can be BIASED if not kept in check!                                  │
+│    → Your "gut" might be wrong                                            │
+│    → Affected by emotions, prejudices, recent experiences                 │
+│    → Should be combined with data when possible                           │
+│                                                                             │
+│  EXAMPLE:                                                                  │
+│    A doctor with 30 years experience might "sense" something is wrong     │
+│    with a patient even before test results come back.                     │
+│    That's intuition built from thousands of similar cases!               │
+│                                                                             │
+│  BALANCE IS KEY:                                                           │
+│    Use intuition + data together when possible.                           │
+│    Don't ONLY rely on gut feeling for important decisions.               │
+│    Don't IGNORE gut feeling either - it's valuable!                      │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  APPROACH 4: EVIDENCE-BASED MANAGEMENT 📊                                  │
+│  (The "Show Me the Data" Approach)                                         │
+│  ────────────────────────────────────                                      │
+│                                                                             │
+│  DEFINITION:                                                               │
+│    Uses the BEST AVAILABLE EVIDENCE from:                                  │
+│      → Experience                                                          │
+│      → Stakeholder inputs                                                  │
+│      → Internal and external context                                       │
+│                                                                             │
+│  THE IDEA:                                                                 │
+│    Don't just go with tradition ("we've always done it this way!")        │
+│    Don't just go with what's popular ("everyone is doing it!")           │
+│    LOOK AT THE EVIDENCE - what does the data actually show?               │
+│                                                                             │
+│  SOURCES OF EVIDENCE:                                                      │
+│                                                                             │
+│    → EXPERIENCE:                                                          │
+│      What have we learned from past decisions?                            │
+│      What worked? What didn't?                                            │
+│                                                                             │
+│    → STAKEHOLDER INPUTS:                                                  │
+│      What do employees, customers, partners say?                          │
+│      What do experts recommend?                                           │
+│                                                                             │
+│    → INTERNAL CONTEXT:                                                    │
+│      Company data, performance metrics, financial reports                 │
+│      What do OUR numbers tell us?                                         │
+│                                                                             │
+│    → EXTERNAL CONTEXT:                                                    │
+│      Industry research, market data, scientific studies                   │
+│      What does the OUTSIDE WORLD tell us?                                 │
+│                                                                             │
+│  EXAMPLE:                                                                  │
+│    Question: "Should we switch to open office plan?"                      │
+│    Evidence-based approach:                                               │
+│    → Research studies on open offices (many show productivity drops!)    │
+│    → Our employee surveys (what do THEY want?)                           │
+│    → Data from companies that switched (what happened to them?)          │
+│    → Our specific context (what kind of work do we do?)                  │
+│                                                                             │
+│  WHY IT'S POWERFUL:                                                        │
+│    Makes decisions based on FACTS, not assumptions!                        │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+QUICK COMPARISON OF APPROACHES:
+
+    APPROACH              WHEN TO USE                KEY FEATURE
+    ─────────────────────────────────────────────────────────────
+    Rational             Have all info, clear goals  "Maximize value"
+    Bounded Rationality  Limited info/time           "Good enough"
+    Intuition            Time pressure, experience   "Gut feeling"
+    Evidence-Based       Important decisions         "Show me the data"
+
+================================================================================
+PART 6: TYPES OF DECISIONS 📑
+================================================================================
+
+Not all decisions are the same! There are two main types:
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  TYPE 1: PROGRAMMED DECISIONS 🔄                                           │
+│  (The "Routine" Decisions)                                                 │
+│  ───────────────────────────────                                           │
+│                                                                             │
+│  NATURE:                                                                   │
+│    → REPETITIVE: Happens again and again                                  │
+│    → Daily/Regular: Part of routine operations                            │
+│    → PREDICTABLE: You've seen this before                                 │
+│                                                                             │
+│  WHEN TO USE:                                                              │
+│    → For STRUCTURED problems                                               │
+│    → Problems that are clear, routine, well-defined                       │
+│    → Where there's a standard way to handle it                            │
+│                                                                             │
+│  METHOD:                                                                   │
+│    → Follows a STANDARD PROCEDURE or RULE                                 │
+│    → Often automated or documented                                        │
+│    → "When X happens, do Y"                                               │
+│                                                                             │
+│  EXAMPLES:                                                                 │
+│    ✓ Reordering inventory when stock is low                               │
+│      "When we have less than 100 units, order 500 more"                   │
+│                                                                             │
+│    ✓ Depositing money in a bank                                           │
+│      Standard process every time                                          │
+│                                                                             │
+│    ✓ Processing refund requests                                           │
+│      "If purchase was within 30 days, approve refund"                     │
+│                                                                             │
+│    ✓ Scheduling employee shifts                                           │
+│      Following standard rotation rules                                     │
+│                                                                             │
+│    ✓ Approving routine leave requests                                     │
+│      "If employee has balance, approve"                                   │
+│                                                                             │
+│  WHY THEY'RE EASIER:                                                       │
+│    → No need to think deeply each time                                    │
+│    → Can be delegated to lower levels                                     │
+│    → Can be automated by computers                                        │
+│    → Saves time and mental energy for harder decisions                    │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  TYPE 2: NON-PROGRAMMED DECISIONS ⚡                                       │
+│  (The "Unique" Decisions)                                                  │
+│  ──────────────────────────────                                            │
+│                                                                             │
+│  NATURE:                                                                   │
+│    → UNIQUE: First time facing this                                       │
+│    → NON-RECURRING: Won't happen the same way again                       │
+│    → UNPREDICTABLE: Can't anticipate it fully                            │
+│                                                                             │
+│  WHEN TO USE:                                                              │
+│    → For UNSTRUCTURED problems                                             │
+│    → Problems that are new, complex, unclear                              │
+│    → Where there's no standard solution                                   │
+│                                                                             │
+│  METHOD:                                                                   │
+│    → NO clear procedure to follow                                         │
+│    → Requires JUDGMENT and CREATIVITY                                     │
+│    → Needs CUSTOM SOLUTIONS designed for this specific situation         │
+│    → Full decision-making process (8 steps)                               │
+│                                                                             │
+│  EXAMPLES:                                                                 │
+│    ✓ Entering a new market                                                │
+│      "Should we expand to China?" - Never done it before!                 │
+│                                                                             │
+│    ✓ Launching a new product                                              │
+│      "What features should our new phone have?"                           │
+│                                                                             │
+│    ✓ Responding to a competitor's unexpected move                         │
+│      "They just cut prices 50% - what do we do?"                         │
+│                                                                             │
+│    ✓ Handling a major crisis                                              │
+│      "There's a global pandemic - how do we adapt?"                       │
+│                                                                             │
+│    ✓ Major restructuring decisions                                        │
+│      "Should we merge with Company X?"                                    │
+│                                                                             │
+│    ✓ Dealing with unique employee situations                              │
+│      "Our top performer wants special arrangements"                       │
+│                                                                             │
+│  WHY THEY'RE HARDER:                                                       │
+│    → Can't use a pre-made solution                                        │
+│    → More risk involved                                                   │
+│    → Usually handled by higher-level managers                             │
+│    → Requires more time, thought, and expertise                          │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+COMPARISON TABLE:
+
+┌──────────────────┬───────────────────────┬───────────────────────────────┐
+│   FEATURE        │  PROGRAMMED           │  NON-PROGRAMMED               │
+├──────────────────┼───────────────────────┼───────────────────────────────┤
+│   Nature         │  Repetitive,          │  Unique,                      │
+│                  │  Daily/Regular        │  Non-recurring                │
+├──────────────────┼───────────────────────┼───────────────────────────────┤
+│   Problem Type   │  Structured           │  Unstructured                 │
+│                  │  (clear, routine)     │  (new, complex)               │
+├──────────────────┼───────────────────────┼───────────────────────────────┤
+│   Method         │  Standard procedure   │  Judgment, creativity,        │
+│                  │  or rule              │  custom solutions             │
+├──────────────────┼───────────────────────┼───────────────────────────────┤
+│   Examples       │  Reordering inventory │  Entering new market          │
+│                  │  Depositing money     │  Launching new product        │
+├──────────────────┼───────────────────────┼───────────────────────────────┤
+│   Who Handles    │  Lower-level managers │  Higher-level managers        │
+│                  │  or automated         │  (requires expertise)         │
+└──────────────────┴───────────────────────┴───────────────────────────────┘
+
+MEMORY TRICK:
+    PROGRAMMED = "Programmed like a computer" - follows a set program/rule
+    NON-PROGRAMMED = "Not in the program" - no pre-set instructions exist!
+
+================================================================================
+🎯 QUICK REVIEW CHECKLIST - LECTURE 3 🎯
+================================================================================
+
+□ Can I define decision-making? (Choice among 2+ alternatives)
+□ Do I know it happens at ALL levels? (Top, Middle, First-line)
+□ Do I know the 8-STEP PROCESS?
+    1. Identify problem (gap between current & desired)
+    2. Identify decision criteria
+    3. Allocate weights to criteria
+    4. Develop alternatives
+    5. Analyze alternatives
+    6. Select an alternative
+    7. Implement the decision
+    8. Evaluate effectiveness
+
+□ PIA CASE - Can I list the 3 issues?
+    1. Political interference
+    2. Short-term focus only
+    3. Overstaffing
+
+□ Can I explain the 4 APPROACHES?
+    1. Rational (logic, maximize value, full info)
+    2. Bounded Rationality (good enough, limited info)
+    3. Intuition (gut feeling, experience)
+    4. Evidence-Based (best available evidence)
+
+□ Can I explain PROGRAMMED vs NON-PROGRAMMED?
+    Programmed = Routine, standard procedure, structured problems
+    Non-programmed = Unique, judgment needed, unstructured problems
+
+================================================================================
+END OF LECTURE 3 EASY VERSION
+ALMOST THERE! ONE MORE TO GO! 🎯
+================================================================================

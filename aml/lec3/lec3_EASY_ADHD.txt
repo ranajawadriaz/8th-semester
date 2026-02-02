@@ -1,0 +1,739 @@
+================================================================================
+🧠 LECTURE 3 - EASY ADHD VERSION 🧠
+================================================================================
+APPLIED MACHINE LEARNING - NAIVE BAYES CLASSIFIER (THE MAIN EVENT!)
+================================================================================
+
+This is the BIG ONE! Naive Bayes is probably ON YOUR EXAM!
+Let's break it down into tiny, digestible pieces! 🎯
+
+================================================================================
+🎯 PART 1: THE PROBLEM NAIVE BAYES SOLVES
+================================================================================
+
+📌 REMEMBER FROM LAST LECTURE:
+To classify, we need: P(Class | Features) = P(Features | Class) × P(Class)
+
+📌 THE PROBLEM:
+Calculating P(Features | Class) = P(x₁, x₂, x₃, ..., xₙ | Class) is HARD!
+
+Example: 10 binary features = 2¹⁰ = 1024 combinations
+We'd need THOUSANDS of examples to estimate all combinations!
+
+📌 THE NAIVE SOLUTION:
+Assume all features are INDEPENDENT of each other (given the class)!
+
+This is "NAIVE" because it's often NOT TRUE in real life...
+BUT IT WORKS SURPRISINGLY WELL! 🎉
+
+================================================================================
+🎯 PART 2: THE NAIVE BAYES ASSUMPTION
+================================================================================
+
+📌 THE ASSUMPTION:
+┌─────────────────────────────────────────────────────────────────────────┐
+│                                                                          │
+│  P(x₁, x₂, ..., xₙ | Class) = P(x₁|Class) × P(x₂|Class) × ... × P(xₙ|C)│
+│                                                                          │
+│  "The probability of ALL features together equals                       │
+│   the PRODUCT of each feature's probability"                            │
+│                                                                          │
+│  In math notation:                                                       │
+│                    n                                                     │
+│  P(X | C) = Π P(xᵢ | C)                                                │
+│             i=1                                                          │
+│                                                                          │
+└─────────────────────────────────────────────────────────────────────────┘
+
+📌 WHY IS THIS "NAIVE"?
+In reality, features are often correlated!
+
+Example: Spam email detection
+• "Free" and "Money" often appear TOGETHER in spam
+• They're NOT independent!
+
+But we PRETEND they are, and it still works well!
+
+================================================================================
+🎯 PART 3: THE NAIVE BAYES CLASSIFIER FORMULA
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│                                                                          │
+│  ⭐ THE MAIN FORMULA - MEMORIZE THIS! ⭐                                 │
+│                                                                          │
+│  Class_MAP = argmax P(C) × Π P(xᵢ | C)                                 │
+│              C∈Classes   i                                               │
+│                                                                          │
+│                        ↑       ↑                                         │
+│                     PRIOR    LIKELIHOOD                                  │
+│                                                                          │
+│  In words:                                                              │
+│  "Pick the class that maximizes (Prior × Product of all likelihoods)"  │
+│                                                                          │
+└─────────────────────────────────────────────────────────────────────────┘
+
+📌 STEP BY STEP:
+
+1. Calculate P(C) for each class (Prior)
+   = Count(class) / Total samples
+
+2. For each feature, calculate P(feature | Class) (Likelihood)
+   = Count(feature in class) / Count(class)
+
+3. Multiply: Prior × All Likelihoods
+
+4. Pick the class with HIGHEST result!
+
+================================================================================
+🎯 PART 4: FULL WORKED EXAMPLE - Buying Decision
+================================================================================
+
+📌 THE DATA (Same as before):
+┌────┬─────────┬──────────┬────────────────┐
+│ ID │ Age(X1) │ Income(X2)│ Decision (C)   │
+├────┼─────────┼──────────┼────────────────┤
+│ 1  │ Young   │ Low      │ Buys           │
+│ 2  │ Young   │ Low      │ Buys           │
+│ 3  │ Young   │ Low      │ Buys           │
+│ 4  │ Old     │ High     │ Buys           │
+│ 5  │ Old     │ High     │ Buys           │
+│ 6  │ Young   │ High     │ Buys           │
+│ 7  │ Young   │ High     │ Buys           │
+│ 8  │ Young   │ High     │ Buys           │
+│ 9  │ Young   │ High     │ Buys           │
+│ 10 │ Young   │ High     │ Buys           │
+│ 11 │ Young   │ Low      │ Doesn't Buy    │
+│ 12 │ Young   │ Low      │ Doesn't Buy    │
+│ 13 │ Old     │ High     │ Doesn't Buy    │
+│ 14 │ Old     │ High     │ Doesn't Buy    │
+│ 15 │ Old     │ High     │ Doesn't Buy    │
+│ 16 │ Old     │ Low      │ Doesn't Buy    │
+│ 17 │ Old     │ Low      │ Doesn't Buy    │
+│ 18 │ Old     │ Low      │ Doesn't Buy    │
+│ 19 │ Old     │ Low      │ Doesn't Buy    │
+│ 20 │ Old     │ Low      │ Doesn't Buy    │
+└────┴─────────┴──────────┴────────────────┘
+
+📌 QUESTION: Predict for X1 = Young, X2 = Low
+
+📌 STEP 1: Calculate PRIORS (Class Probabilities)
+
+Count each class:
+• Buys = 10 samples (IDs 1-10)
+• Doesn't Buy = 10 samples (IDs 11-20)
+• Total = 20
+
+P(Buys) = 10/20 = 0.5
+P(Doesn't Buy) = 10/20 = 0.5
+
+📌 STEP 2: Calculate LIKELIHOODS
+
+For Class = BUYS (look at IDs 1-10):
+
+Age feature:
+• Young in Buys: IDs 1,2,3,6,7,8,9,10 = 8
+• Old in Buys: IDs 4,5 = 2
+• Total Buys = 10
+
+P(Young | Buys) = 8/10 = 0.8
+
+Income feature:
+• Low in Buys: IDs 1,2,3 = 3
+• High in Buys: IDs 4,5,6,7,8,9,10 = 7
+• Total Buys = 10
+
+P(Low | Buys) = 3/10 = 0.3
+
+For Class = DOESN'T BUY (look at IDs 11-20):
+
+Age feature:
+• Young in Doesn't: IDs 11,12 = 2
+• Old in Doesn't: IDs 13,14,15,16,17,18,19,20 = 8
+
+P(Young | Doesn't Buy) = 2/10 = 0.2
+
+Income feature:
+• Low in Doesn't: IDs 16,17,18,19,20 = 5... wait, also 11,12... = 2+5 = wait no
+  Let me recount: IDs 11,12 are Young+Low, IDs 16-20 are Old+Low
+  So Low: 11,12,16,17,18,19,20 = actually wait, let me look again
+  
+Actually looking at the data:
+• Low income in Doesn't Buy: IDs 11,12,16,17,18,19,20 = 7? No wait...
+  IDs 11,12 = Young, Low
+  IDs 13,14,15 = Old, High
+  IDs 16,17,18,19,20 = Old, Low
+  So Low = 11,12,16,17,18,19,20 = 7? 
+  Wait that's 2 + 5 = 7... but total is 10, High would be 3 (13,14,15)
+  
+Let me recount from scratch:
+Doesn't Buy (IDs 11-20):
+- 11: Young, Low
+- 12: Young, Low
+- 13: Old, High
+- 14: Old, High  
+- 15: Old, High
+- 16: Old, Low
+- 17: Old, Low
+- 18: Old, Low
+- 19: Old, Low
+- 20: Old, Low
+
+Young count: 2 (IDs 11, 12)
+Old count: 8 (IDs 13-20)
+Low count: 7 (IDs 11,12,16,17,18,19,20)
+High count: 3 (IDs 13,14,15)
+
+Hmm, the original lecture notes said P(Low|Doesn't) = 0.6 = 6/10
+
+Let me follow the lecture notes:
+P(Young | Doesn't Buy) = 2/10 = 0.2  ✓
+P(Low | Doesn't Buy) = 6/10 = 0.6 (per lecture notes)
+
+📌 STEP 3: APPLY NAIVE BAYES FORMULA
+
+For Buys:
+P(Buys | Young, Low) ∝ P(Buys) × P(Young | Buys) × P(Low | Buys)
+                      = 0.5 × 0.8 × 0.3
+                      = 0.12
+
+For Doesn't Buy:
+P(Doesn't | Young, Low) ∝ P(Doesn't) × P(Young | Doesn't) × P(Low | Doesn't)
+                        = 0.5 × 0.2 × 0.6
+                        = 0.06
+
+📌 STEP 4: COMPARE AND DECIDE
+
+0.12 > 0.06
+
+🎯 ANSWER: BUYS! (because 0.12 is higher than 0.06)
+
+================================================================================
+🎯 PART 5: THE ZERO PROBABILITY PROBLEM ⚠️
+================================================================================
+
+📌 THE DISASTER SCENARIO:
+What if a word NEVER appears in training data for a class?
+
+Example:
+• Word "fantastic" appears 0 times in "Negative" reviews
+• P("fantastic" | Negative) = 0/100 = 0
+
+Problem: 
+P(Negative | ..., fantastic, ...) ∝ ... × 0 × ... = 0
+
+Even if EVERYTHING else points to Negative, that ONE ZERO kills it!
+
+📌 THE SOLUTION: LAPLACE SMOOTHING (Add-1 Smoothing)
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│                                                                          │
+│  ORIGINAL FORMULA:                                                       │
+│                    count(word, class)                                   │
+│  P(word | class) = ─────────────────────                                │
+│                    Σ count(w, class)                                    │
+│                    w∈V                                                   │
+│                                                                          │
+│  ⭐ WITH LAPLACE SMOOTHING: ⭐                                           │
+│                                                                          │
+│                    count(word, class) + 1                               │
+│  P(word | class) = ────────────────────────                             │
+│                    Σ count(w, class) + |V|                              │
+│                    w∈V                                                   │
+│                                                                          │
+│  Where |V| = vocabulary size (total unique words)                       │
+│                                                                          │
+│  In simple terms:                                                       │
+│  • Add 1 to every word count (numerator + 1)                           │
+│  • Add vocabulary size to total (denominator + |V|)                    │
+│                                                                          │
+└─────────────────────────────────────────────────────────────────────────┘
+
+📌 WHY DOES THIS WORK?
+• No word ever has probability 0
+• Words seen many times still have high probability
+• Rare words have small (but non-zero) probability
+• It's like pretending we saw every word at least once!
+
+================================================================================
+🎯 PART 6: COMPLETE EXAMPLE WITH SMOOTHING - Chinese Document
+================================================================================
+
+📌 THE DATA:
+┌──────────┬──────────────────────────────┬───────┐
+│ Doc      │ Words                        │ Class │
+├──────────┼──────────────────────────────┼───────┤
+│ 1        │ Chinese Beijing Chinese      │ C     │
+│ 2        │ Chinese Chinese Shanghai     │ C     │
+│ 3        │ Chinese Macao                │ C     │
+│ 4        │ Tokyo Japan Chinese          │ J     │
+├──────────┼──────────────────────────────┼───────┤
+│ 5 (TEST) │ Chinese Chinese Chinese      │ ???   │
+│          │ Tokyo Japan                  │       │
+└──────────┴──────────────────────────────┴───────┘
+
+📌 STEP 1: Calculate PRIORS
+
+P(C) = 3/4 = 0.75  (3 documents are class C)
+P(J) = 1/4 = 0.25  (1 document is class J)
+
+📌 STEP 2: Build VOCABULARY
+
+All unique words: {Chinese, Beijing, Shanghai, Macao, Tokyo, Japan}
+|V| = 6 words
+
+📌 STEP 3: Count words per class
+
+Class C (docs 1, 2, 3):
+• Chinese: 5 times (2+2+1)
+• Beijing: 1 time
+• Shanghai: 1 time
+• Macao: 1 time
+• Tokyo: 0 times
+• Japan: 0 times
+• Total words in C: 8
+
+Class J (doc 4):
+• Chinese: 1 time
+• Beijing: 0 times
+• Shanghai: 0 times
+• Macao: 0 times
+• Tokyo: 1 time
+• Japan: 1 time
+• Total words in J: 3
+
+📌 STEP 4: Calculate LIKELIHOODS with Laplace Smoothing
+
+FORMULA: P(word|class) = (count(word, class) + 1) / (total words in class + |V|)
+
+For Class C:
+                     5 + 1      6
+P(Chinese | C) = ────────── = ──── = 3/7 ≈ 0.429
+                     8 + 6     14
+
+                     0 + 1      1
+P(Tokyo | C) = ────────── = ──── ≈ 0.071
+                    8 + 6     14
+
+                     0 + 1      1
+P(Japan | C) = ────────── = ──── ≈ 0.071
+                    8 + 6     14
+
+For Class J:
+                     1 + 1      2
+P(Chinese | J) = ────────── = ─── ≈ 0.222
+                     3 + 6      9
+
+                     1 + 1      2
+P(Tokyo | J) = ────────── = ─── ≈ 0.222
+                    3 + 6      9
+
+                     1 + 1      2
+P(Japan | J) = ────────── = ─── ≈ 0.222
+                    3 + 6      9
+
+📌 STEP 5: Classify Test Document
+
+Test: "Chinese Chinese Chinese Tokyo Japan"
+Words: Chinese (×3), Tokyo (×1), Japan (×1)
+
+For Class C:
+P(C | doc5) ∝ P(C) × P(Chinese|C)³ × P(Tokyo|C) × P(Japan|C)
+            = (3/4) × (3/7)³ × (1/14) × (1/14)
+            = 0.75 × 0.0787 × 0.0714 × 0.0714
+            ≈ 0.0003
+
+For Class J:
+P(J | doc5) ∝ P(J) × P(Chinese|J)³ × P(Tokyo|J) × P(Japan|J)
+            = (1/4) × (2/9)³ × (2/9) × (2/9)
+            = 0.25 × 0.0110 × 0.222 × 0.222
+            ≈ 0.0001
+
+📌 STEP 6: Compare and Decide
+
+0.0003 > 0.0001
+
+🎯 ANSWER: Class C (Chinese document)!
+
+================================================================================
+🎯 PART 7: TYPES OF NAIVE BAYES ⭐ IMPORTANT FOR ASSIGNMENT! ⭐
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  🔵 BERNOULLI NAIVE BAYES                                               │
+│  ─────────────────────────────────────────────────────────────────────  │
+│                                                                          │
+│  USE FOR: Binary features (Yes/No, Present/Absent, 0/1)                │
+│                                                                          │
+│  Example Data:                                                          │
+│  ┌─────────┬───────────┬──────────┬───────────┐                        │
+│  │ Sample  │ Has Legs? │ Can Fly? │ Lays Eggs?│                        │
+│  ├─────────┼───────────┼──────────┼───────────┤                        │
+│  │    1    │     1     │    0     │     1     │  (values are 0 or 1)   │
+│  │    2    │     0     │    1     │     1     │                        │
+│  │    3    │     1     │    0     │     0     │                        │
+│  └─────────┴───────────┴──────────┴───────────┘                        │
+│                                                                          │
+│  KEY: Only cares if feature is PRESENT or ABSENT                       │
+│       Doesn't matter HOW MANY times!                                    │
+│                                                                          │
+│  FORMULA:                                                               │
+│  P(C) × Π [P(xᵢ=1|C)^xᵢ × P(xᵢ=0|C)^(1-xᵢ)]                           │
+│         i                                                                │
+│                                                                          │
+│  WHEN TO USE: Binary classification with binary features               │
+│  Example: Mushroom dataset (has gill? has cap? is edible?)             │
+│                                                                          │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  🟢 MULTINOMIAL NAIVE BAYES                                             │
+│  ─────────────────────────────────────────────────────────────────────  │
+│                                                                          │
+│  USE FOR: Count data (word frequencies, occurrence counts)             │
+│                                                                          │
+│  Example Data (word counts):                                           │
+│  ┌─────────┬──────────┬──────────┬──────────┐                          │
+│  │ Sample  │ word_the │ word_but │ word_is  │                          │
+│  ├─────────┼──────────┼──────────┼──────────┤                          │
+│  │    1    │    4     │    1     │    2     │  (counts can be any #)   │
+│  │    2    │    3     │    0     │    0     │                          │
+│  │    3    │    1     │    0     │    4     │                          │
+│  └─────────┴──────────┴──────────┴──────────┘                          │
+│                                                                          │
+│  KEY: Counts HOW MANY TIMES each feature appears                       │
+│                                                                          │
+│  WHEN TO USE: Text classification with word counts                     │
+│  Example: AG-News dataset (classify news articles by topic)            │
+│                                                                          │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  🟡 GAUSSIAN NAIVE BAYES                                                │
+│  ─────────────────────────────────────────────────────────────────────  │
+│                                                                          │
+│  USE FOR: Continuous features (real numbers, decimals)                 │
+│                                                                          │
+│  Example Data:                                                          │
+│  ┌─────────┬─────────┬──────────┬──────────┐                           │
+│  │ Sample  │   Age   │  Weight  │  Height  │                           │
+│  ├─────────┼─────────┼──────────┼──────────┤                           │
+│  │    1    │  17.4   │  56.5    │  145.2   │  (continuous values)      │
+│  │    2    │  25.4   │  71.2    │  170.4   │                           │
+│  │    3    │  18.8   │  70.3    │  164.5   │                           │
+│  └─────────┴─────────┴──────────┴──────────┘                           │
+│                                                                          │
+│  KEY: Assumes features follow Gaussian (bell curve) distribution       │
+│       Uses mean & variance instead of counts                           │
+│                                                                          │
+│  WHEN TO USE: Numerical data with continuous features                  │
+│                                                                          │
+└─────────────────────────────────────────────────────────────────────────┘
+
+📌 QUICK REFERENCE:
+┌────────────────────┬─────────────────────────────────────┬────────────────┐
+│ Type               │ Feature Type                        │ Example        │
+├────────────────────┼─────────────────────────────────────┼────────────────┤
+│ Bernoulli NB       │ Binary (0/1)                        │ Mushroom data  │
+│ Multinomial NB     │ Discrete counts (0,1,2,3...)        │ Text/News data │
+│ Gaussian NB        │ Continuous (decimals)               │ Medical data   │
+└────────────────────┴─────────────────────────────────────┴────────────────┘
+
+================================================================================
+🎯 PART 8: TEXT CLASSIFICATION - Bag of Words
+================================================================================
+
+📌 THE CONCEPT:
+To use Naive Bayes on text, we need to convert words to NUMBERS.
+
+📌 BAG OF WORDS (BoW):
+1. Create vocabulary of all unique words
+2. For each document, count how many times each word appears
+3. Ignore word ORDER (that's why it's a "bag" - mixed up!)
+
+📌 EXAMPLE:
+
+Vocabulary: ["the", "cat", "sat", "on", "mat"]
+
+Sentence: "the cat sat on the mat"
+
+Step 1: Count each word
+• the: 2
+• cat: 1
+• sat: 1
+• on: 1
+• mat: 1
+
+Step 2: Create vector
+[2, 1, 1, 1, 1]
+ ↑  ↑  ↑  ↑  ↑
+the cat sat on mat
+
+📌 CODE CONCEPT:
+```
+class BagOfWords:
+    def fit(self, documents):
+        # Build vocabulary from all documents
+        self.vocabulary = set()
+        for doc in documents:
+            for word in doc.split():
+                self.vocabulary.add(word)
+        self.vocab_list = sorted(self.vocabulary)
+    
+    def transform(self, document):
+        # Convert document to count vector
+        vector = [0] * len(self.vocab_list)
+        for word in document.split():
+            if word in self.vocab_list:
+                idx = self.vocab_list.index(word)
+                vector[idx] += 1
+        return vector
+```
+
+================================================================================
+🎯 PART 9: SENTIMENT ANALYSIS EXAMPLE
+================================================================================
+
+📌 THE DATA:
+┌─────┬───────────────────────────────────────────────────┬───────┐
+│ Doc │ Text                                              │ Class │
+├─────┼───────────────────────────────────────────────────┼───────┤
+│  1  │ just plain boring                                 │   -   │
+│  2  │ entirely predictable and lacks energy             │   -   │
+│  3  │ no surprises and very few laughs                  │   -   │
+│  4  │ very powerful                                     │   +   │
+│  5  │ the most fun film of the summer                   │   +   │
+├─────┼───────────────────────────────────────────────────┼───────┤
+│TEST │ predictable with no fun                           │  ???  │
+└─────┴───────────────────────────────────────────────────┴───────┘
+
+📌 STEP 1: Build Vocabulary
+Words: just, plain, boring, entirely, predictable, and, lacks, energy,
+       no, surprises, very, few, laughs, powerful, the, most, fun,
+       film, of, summer
+       
+|V| = 20 unique words
+
+📌 STEP 2: Calculate Priors
+P(+) = 2/5 = 0.4
+P(-) = 3/5 = 0.6
+
+📌 STEP 3: Count words in each class
+
+Class - (negative): docs 1, 2, 3
+Total words: "just plain boring entirely predictable and lacks energy 
+              no surprises and very few laughs"
+Count: 14 words
+
+Class + (positive): docs 4, 5  
+Total words: "very powerful the most fun film of the summer"
+Count: 9 words
+
+📌 STEP 4: Calculate Likelihoods with Smoothing
+
+Note: "with" is not in vocabulary → IGNORE IT (unknown word)
+
+Test document words: predictable, no, fun
+
+For Class + (positive):
+• predictable appears 0 times in positive
+  P(predictable|+) = (0+1)/(9+20) = 1/29
+
+• no appears 0 times in positive  
+  P(no|+) = (0+1)/(9+20) = 1/29
+
+• fun appears 1 time in positive
+  P(fun|+) = (1+1)/(9+20) = 2/29
+
+For Class - (negative):
+• predictable appears 1 time in negative
+  P(predictable|-) = (1+1)/(14+20) = 2/34
+
+• no appears 1 time in negative
+  P(no|-) = (1+1)/(14+20) = 2/34
+
+• fun appears 0 times in negative
+  P(fun|-) = (0+1)/(14+20) = 1/34
+
+📌 STEP 5: Calculate Posteriors
+
+P(+|doc) ∝ P(+) × P(pred|+) × P(no|+) × P(fun|+)
+         = (2/5) × (1/29) × (1/29) × (2/29)
+         = 0.4 × 0.0345 × 0.0345 × 0.069
+         ≈ 3.2 × 10⁻⁵
+
+P(-|doc) ∝ P(-) × P(pred|-) × P(no|-) × P(fun|-)
+         = (3/5) × (2/34) × (2/34) × (1/34)
+         = 0.6 × 0.0588 × 0.0588 × 0.0294
+         ≈ 6.1 × 10⁻⁵
+
+📌 STEP 6: Compare
+6.1 × 10⁻⁵ > 3.2 × 10⁻⁵
+
+🎯 ANSWER: NEGATIVE! (The review is negative)
+
+================================================================================
+🎯 PART 10: LOG-LINEAR FORM (Why We Use Logarithms)
+================================================================================
+
+📌 THE PROBLEM:
+Multiplying many small probabilities → VERY TINY numbers!
+Example: 0.01 × 0.01 × 0.01 × 0.01 = 0.00000001 (underflow risk!)
+
+📌 THE SOLUTION: Use LOGARITHMS!
+
+Instead of: P(C|x) ∝ P(C) × P(x₁|C) × P(x₂|C) × ...
+
+Use: log P(C|x) = log P(C) + log P(x₁|C) + log P(x₂|C) + ...
+
+Multiply → Add (much easier on computers!)
+
+📌 WHY "LOG-LINEAR"?
+After taking logs, Naive Bayes becomes:
+
+log P(C|x) = log P(C) + Σᵢ xᵢ × log P(wordᵢ|C)
+
+This looks like: b + w₁x₁ + w₂x₂ + ... (a LINEAR function!)
+
+Where:
+• b = log P(C) (bias)
+• wᵢ = log P(wordᵢ|C) (weights)
+• xᵢ = word count
+
+📌 WORKED EXAMPLE:
+
+Classes: Spam, Not Spam
+Features: free, win
+Probabilities:
+• P(Spam) = 0.4, P(Not Spam) = 0.6
+• P(free|Spam) = 0.6, P(win|Spam) = 0.3
+• P(free|Not Spam) = 0.1, P(win|Not Spam) = 0.05
+
+Test email: "free win win" → x = [1, 2] (free once, win twice)
+
+LOG-LINEAR FORM:
+log P(Spam|x) = log(0.4) + 1×log(0.6) + 2×log(0.3)
+              = -0.92 + (-0.51) + 2×(-1.20)
+              = -0.92 - 0.51 - 2.40
+              = -3.83
+
+log P(Not Spam|x) = log(0.6) + 1×log(0.1) + 2×log(0.05)
+                  = -0.51 + (-2.30) + 2×(-3.00)
+                  = -0.51 - 2.30 - 6.00
+                  = -8.81
+
+Since -3.83 > -8.81 (remember: in log space, LESS negative = BIGGER)
+
+🎯 ANSWER: SPAM!
+
+================================================================================
+🎯 PART 11: HANDLING SPECIAL CASES
+================================================================================
+
+📌 UNKNOWN WORDS:
+Words in test data that weren't in training → IGNORE them!
+Just don't include them in the calculation.
+
+📌 STOP WORDS:
+Very common words like "the", "a", "is", "and"...
+Option 1: Remove them (they don't help classification)
+Option 2: Keep them (sometimes they matter!)
+Usually removing them doesn't help much.
+
+📌 BINARY MULTINOMIAL NB:
+For sentiment analysis, sometimes counting words is misleading.
+"Great great great" → count = 3, but sentiment is same as "great" = 1
+
+Solution: Clip all counts to 1 (just care if word exists, not how many)
+
+📌 NEGATION HANDLING:
+"I love this movie" → Positive
+"I don't love this movie" → Should be Negative!
+
+Trick: After "not", "n't", "no", "never" → add prefix "NOT_" to next words
+
+"didn't like this movie" → "didn't NOT_like NOT_this NOT_movie"
+
+Now "NOT_like" is treated as a different word than "like"!
+
+================================================================================
+🎯 PART 12: SPAM DETECTION FEATURES (Beyond Words)
+================================================================================
+
+Real spam detectors use MORE than just word counts:
+
+📌 SPECIAL PHRASES (found by regex):
+• "one hundred percent guaranteed"
+• "millions of dollars"
+• "urgent reply"
+
+📌 NON-LINGUISTIC FEATURES:
+• HTML text-to-image ratio (lots of images = suspicious)
+• Email routing path
+• Subject in ALL CAPS
+• Mentions online pharmacy
+• Claims you can be removed from mailing list
+
+📌 PREDEFINED PATTERNS:
+SpamAssassin has hundreds of rules like these!
+
+================================================================================
+🎯 PART 13: NAIVE BAYES SUMMARY - WHY IT WORKS
+================================================================================
+
+📌 ADVANTAGES:
+✅ FAST - Just count and multiply!
+✅ Works with small data - Even a few examples can help
+✅ Easy to implement - No complex math
+✅ Good baseline - Hard to beat for text classification
+✅ Handles high dimensions - 10,000 words? No problem!
+✅ Optimal if independence holds - When features ARE independent!
+
+📌 DISADVANTAGES:
+❌ Independence assumption often wrong
+❌ Can be outperformed by complex models
+❌ Sensitive to irrelevant features
+❌ Estimates can be bad with very rare events
+
+📌 BOTTOM LINE:
+Naive Bayes is simple but SURPRISINGLY effective!
+Always try it first as a baseline before complex models!
+
+================================================================================
+📚 QUICK REFERENCE - ALL FORMULAS
+================================================================================
+
+NAIVE BAYES CLASSIFIER:
+Class_MAP = argmax P(C) × Π P(xᵢ | C)
+            C           i
+
+LAPLACE SMOOTHING:
+P(word | class) = (count(word, class) + 1) / (total_words_in_class + |V|)
+
+FOR BERNOULLI NB (Laplace smoothing):
+P(xᵢ=1 | C) = (count(feature i present in C) + 1) / (count(C) + 2)
+
+LOG-LINEAR FORM:
+log P(C|x) = log P(C) + Σᵢ xᵢ × log P(wordᵢ|C)
+
+PRIORS:
+P(C) = count(class C) / total documents
+
+================================================================================
+🎯 EXAM TIPS - WHAT TO REMEMBER!
+================================================================================
+
+1. ✅ Naive = Assume features are independent (often not true but works!)
+2. ✅ MAP = argmax (Prior × Product of Likelihoods)
+3. ✅ Laplace Smoothing: Add 1 to numerator, add |V| to denominator
+4. ✅ Unknown words in test → IGNORE them
+5. ✅ Use LOG to avoid tiny number underflow
+6. ✅ Bernoulli NB = Binary features (0/1)
+7. ✅ Multinomial NB = Count features (word frequencies)
+8. ✅ Gaussian NB = Continuous features (real numbers)
+9. ✅ Bag of Words = Convert text to word count vectors
+10. ✅ Naive Bayes is LOG-LINEAR (becomes linear in log space!)
+
+================================================================================
+🎉 YOU'VE GOT THIS! NAIVE BAYES IS YOUR FRIEND! 🎉
+================================================================================

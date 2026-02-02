@@ -1,0 +1,576 @@
+================================================================================
+🧠 LECTURE 1 - EASY ADHD VERSION 🧠
+================================================================================
+APPLIED MACHINE LEARNING - INTRODUCTION & BASICS
+================================================================================
+
+Hey! This is your ADHD-friendly study guide. Everything is broken into 
+SMALL CHUNKS with VISUAL CUES 👀 and EXAMPLES you can actually understand!
+
+================================================================================
+🎯 PART 1: WHAT IS MACHINE LEARNING? (The Big Picture)
+================================================================================
+
+📌 SIMPLE DEFINITION:
+--------------------
+Machine Learning = Teaching computers to learn from EXAMPLES instead of 
+writing explicit rules.
+
+Think of it like this:
+┌─────────────────────────────────────────────────────────────────────────┐
+│  TRADITIONAL PROGRAMMING:                                                │
+│  You tell computer: "If email has 'FREE MONEY' → mark as SPAM"          │
+│  Problem: What about "FR33 M0NEY"? You need to write NEW rules!         │
+│                                                                          │
+│  MACHINE LEARNING:                                                       │
+│  You show computer 1000 spam emails and 1000 good emails                │
+│  Computer LEARNS: "Hmm, spam emails look like THIS pattern"             │
+│  Now it can catch "FR33 M0NEY" too because it learned the PATTERN!      │
+└─────────────────────────────────────────────────────────────────────────┘
+
+📌 WHY IS THIS BETTER?
+---------------------
+✅ Rules can't handle all situations (new spam types appear daily)
+✅ ML can ADAPT by retraining on new data
+✅ ML finds patterns humans might miss
+✅ Harder to "hack" or circumvent (spammers can't just avoid one word)
+
+================================================================================
+🎯 PART 2: TWO MAIN TYPES OF LEARNING
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  TYPE 1: SUPERVISED LEARNING (Has a "teacher" with correct answers)     │
+│  ─────────────────────────────────────────────────────────────────────  │
+│  You give the computer LABELED data (data with correct answers)         │
+│                                                                          │
+│  Example: You show 1000 photos labeled "CAT" and "DOG"                  │
+│  The computer learns what makes a cat look like a cat                   │
+│  Now it can classify NEW photos!                                        │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  TYPE 2: UNSUPERVISED LEARNING (No teacher, finds patterns alone)       │
+│  ─────────────────────────────────────────────────────────────────────  │
+│  You give the computer data WITHOUT labels                              │
+│                                                                          │
+│  Example: You give 1000 customer profiles                               │
+│  Computer finds: "These 200 customers are similar - they all buy       │
+│  electronics at midnight!" (You didn't tell it to look for this!)      │
+└─────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+🎯 PART 3: CLASSIFICATION vs REGRESSION (Super Important!)
+================================================================================
+
+Both are SUPERVISED learning, but they predict DIFFERENT things:
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  🏷️ CLASSIFICATION = Predicting CATEGORIES (like sorting into boxes)   │
+│  ─────────────────────────────────────────────────────────────────────  │
+│                                                                          │
+│  Question Type: "WHICH BOX does this belong to?"                        │
+│                                                                          │
+│  Examples:                                                               │
+│  • Is this email SPAM or NOT SPAM? → 2 boxes (Binary Classification)    │
+│  • Is this tumor MALIGNANT or BENIGN? → 2 boxes                         │
+│  • Is this review POSITIVE, NEGATIVE, or NEUTRAL? → 3 boxes             │
+│  • What digit is this (0-9)? → 10 boxes                                 │
+│                                                                          │
+│  Output: A LABEL from a fixed set of options                            │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  📊 REGRESSION = Predicting NUMBERS (like reading a thermometer)        │
+│  ─────────────────────────────────────────────────────────────────────  │
+│                                                                          │
+│  Question Type: "HOW MUCH / WHAT VALUE?"                                │
+│                                                                          │
+│  Examples:                                                               │
+│  • What will be the house price? → $245,000.50                          │
+│  • What will the temperature be? → 72.5°F                               │
+│  • How many sales next month? → 1,547                                   │
+│  • What's the cholesterol level? → 185                                  │
+│                                                                          │
+│  Output: A CONTINUOUS NUMBER (any value possible)                       │
+└─────────────────────────────────────────────────────────────────────────┘
+
+⚡ QUICK MEMORY TRICK ⚡
+Classification = "Which CLASS?" (categories/boxes)
+Regression = "What's the REAL number?" (continuous values)
+
+================================================================================
+🎯 PART 4: THE DATA - Features & Labels (The Building Blocks)
+================================================================================
+
+Every ML problem has:
+1. FEATURES (X) = The information you USE to make predictions
+2. LABELS (Y) = The thing you WANT to predict
+
+📌 REAL EXAMPLE - Heart Disease Prediction:
+------------------------------------------
+┌──────────────────────────────────────────────────────────────────────────┐
+│ Patient # │ Height │ Weight │ BP_Sys │ BP_Dia │ Has Heart Disease? │
+│           │ (X1)   │ (X2)   │ (X3)   │ (X4)   │        (Y)         │
+├───────────┼────────┼────────┼────────┼────────┼────────────────────┤
+│    1      │   62   │   70   │  120   │   80   │        No          │
+│    2      │   72   │   90   │  110   │   70   │        No          │
+│    3      │   74   │   80   │  130   │   70   │        No          │
+│    4      │   65   │  120   │  150   │   90   │       YES          │
+│    5      │   67   │  100   │  140   │   85   │       YES          │
+│    6      │   64   │  110   │  130   │   90   │        No          │
+│    7      │   69   │  150   │  170   │  100   │       YES          │
+│    8      │   66   │  125   │  145   │   90   │        ???         │ ← TEST
+└──────────────────────────────────────────────────────────────────────────┘
+
+FEATURES (X): Height, Weight, BP_Sys, BP_Dia → Things we KNOW
+LABEL (Y): Has Heart Disease? → Thing we PREDICT
+
+Patient 1-7 = TRAINING DATA (we know the answer, used to train)
+Patient 8 = TEST DATA (we DON'T know, model must predict!)
+
+📌 THE MATH NOTATION (Don't panic, it's simple!):
+------------------------------------------------
+D = {(x₁, y₁), (x₂, y₂), ..., (xₙ, yₙ)}
+
+Translation:
+• D = Your whole dataset
+• xᵢ = Feature vector for patient i (like [62, 70, 120, 80])
+• yᵢ = Label for patient i (like "No" or "Yes")
+• n = Total number of samples
+
+================================================================================
+🎯 PART 5: TYPES OF FEATURES (What Goes in the Columns?)
+================================================================================
+
+🔹 CATEGORICAL DATA (Things with NAMES/CATEGORIES)
+-------------------------------------------------
+
+A) NOMINAL = Categories with NO ORDER (just different names)
+   
+   Examples:
+   • Gender: Male, Female, Other → Can't say Male > Female!
+   • Colors: Red, Blue, Green → No order between colors
+   • Blood Type: A, B, AB, O → No ranking possible
+   • Country: USA, Pakistan, China → Just different names
+   
+   ⚠️ KEY POINT: You can count them (mode), but NOT average them!
+   "Average of Male and Female" makes NO sense!
+
+   📌 HOW TO USE IN ML (One-Hot Encoding):
+   ┌────────────────────────────────────────────────────────────────┐
+   │ Original: Color = [Red, Blue, Green]                           │
+   │                                                                 │
+   │ One-Hot Encoded (each category becomes its own column):        │
+   │                                                                 │
+   │ Sample │ Is_Red │ Is_Blue │ Is_Green │                         │
+   │   1    │   1    │    0    │    0     │  (this sample is Red)   │
+   │   2    │   0    │    1    │    0     │  (this sample is Blue)  │
+   │   3    │   0    │    0    │    1     │  (this sample is Green) │
+   └────────────────────────────────────────────────────────────────┘
+   
+   WHY? Because ML algorithms need NUMBERS, not words!
+
+B) ORDINAL = Categories WITH ORDER (there's a ranking!)
+   
+   Examples:
+   • Education: High School < BS < MS < PhD (there's a clear order!)
+   • Satisfaction: Very Bad < Bad < Neutral < Good < Very Good
+   • T-Shirt Size: S < M < L < XL
+   • Income Level: Low < Medium < High
+   
+   ⚠️ KEY POINT: Order matters, but gaps aren't equal!
+   The difference between MS and PhD is NOT the same as BS and MS.
+   
+   📌 HOW TO USE IN ML (Label Encoding - preserves order):
+   ┌────────────────────────────────────────────────────────────────┐
+   │ Education: High School → 0, BS → 1, MS → 2, PhD → 3           │
+   │                                                                 │
+   │ Now the model knows: 3 > 2 > 1 > 0 (order is preserved!)      │
+   └────────────────────────────────────────────────────────────────┘
+   
+   ⚠️ DON'T use one-hot for ordinal! It loses the ORDER information!
+
+🔹 NUMERICAL DATA (Actual Numbers)
+----------------------------------
+
+A) DISCRETE = Whole numbers only, countable
+   
+   Examples:
+   • Number of dentist visits: 0, 1, 2, 3... (can't visit 2.5 times!)
+   • Number of children: 0, 1, 2, 3...
+   • Number of rooms in house: 1, 2, 3, 4...
+   
+B) CONTINUOUS = Any value possible (decimals allowed)
+   
+   Examples:
+   • Height: 5.8 feet, 5.85 feet, 5.857 feet...
+   • Temperature: 98.6°F, 72.34°F...
+   • Price: $199.99, $200.01...
+
+   ⚠️ KEY POINT: Can use ALL math operations (mean, median, mode, 
+   variance, standard deviation, add, subtract, multiply, divide)
+
+🔹 SPECIAL TYPES:
+-----------------
+
+INTERVAL = Has order + equal gaps, BUT no true zero
+   • Temperature in Celsius: 0°C doesn't mean "no temperature"!
+   • Calendar Year: Year 0 is just a reference point
+   ⚠️ Can add/subtract, but ratios don't make sense
+   (100°C is NOT "twice as hot" as 50°C)
+
+RATIO = Has order + equal gaps + TRUE ZERO
+   • Height: 0 inches = no height (true zero!)
+   • Weight: 0 kg = no weight
+   • Age: 0 years = just born
+   ⚠️ ALL operations make sense (50 years IS twice as old as 25!)
+
+================================================================================
+🎯 PART 6: LABEL SPACE (What Can We Predict?)
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  BINARY CLASSIFICATION (2 options)                                      │
+│  ─────────────────────────────────────────────────────────────────────  │
+│  • Spam / Not Spam                                                      │
+│  • Fraud / Not Fraud                                                    │
+│  • Tumor: Malignant / Benign                                           │
+│  • Pass / Fail                                                          │
+│                                                                          │
+│  Usually represented as: Y = {0, 1} or Y = {-1, +1}                    │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  MULTI-CLASS CLASSIFICATION (3+ options)                               │
+│  ─────────────────────────────────────────────────────────────────────  │
+│  • Sentiment: Positive / Negative / Neutral                            │
+│  • Digit Recognition: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9                     │
+│  • Animal: Cat / Dog / Bird / Fish                                     │
+│                                                                          │
+│  Represented as: Y = {0, 1, 2, 3, ...}                                 │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  REGRESSION (Continuous numbers)                                        │
+│  ─────────────────────────────────────────────────────────────────────  │
+│  • House Price: $150,000 to $5,000,000                                 │
+│  • Temperature: -30°F to 120°F                                         │
+│  • Stock Price: $0.01 to $10,000                                       │
+│                                                                          │
+│  Represented as: Y ∈ ℝ (any real number)                               │
+└─────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+🎯 PART 7: TEXT DATA - Special Handling Required!
+================================================================================
+
+Computers don't understand words! We need to convert text to NUMBERS.
+
+📌 BAG OF WORDS (BoW) - The Simple Way
+--------------------------------------
+Step 1: Create a dictionary of ALL words in your data
+Step 2: For each document, count how many times each word appears
+
+EXAMPLE:
+Dictionary: [the, cat, sat, on, mat, dog, ran, fast]
+
+Document 1: "the cat sat on the mat"
+Vector: [2, 1, 1, 1, 1, 0, 0, 0]
+         ↑  ↑  ↑  ↑  ↑  ↑  ↑  ↑
+        the cat sat on mat dog ran fast
+        (2)  appears twice!
+
+Document 2: "the dog ran fast"
+Vector: [1, 0, 0, 0, 0, 1, 1, 1]
+
+⚠️ PROBLEM: Most words are ZERO! (Called "Sparse Vector")
+   If dictionary has 600,000 words, most cells are empty!
+
+📌 DENSE vs SPARSE VECTORS:
+---------------------------
+DENSE = Most values are non-zero (like image pixels - every pixel has a value)
+SPARSE = Most values are zero (like text - most words don't appear)
+
+📌 EMBEDDINGS - The Smart Way (Just Know the Concept)
+-----------------------------------------------------
+Instead of counting words, use pre-trained models (like BERT, Word2Vec)
+They convert text to meaningful numbers where similar words are close together.
+
+"King" and "Queen" would have similar vectors
+"King" and "Banana" would have very different vectors
+
+================================================================================
+🎯 PART 8: THE HYPOTHESIS (The Model That Makes Predictions)
+================================================================================
+
+📌 WHAT IS A HYPOTHESIS?
+------------------------
+A hypothesis (h) is a FUNCTION that takes features and outputs a prediction.
+
+Input: Features (X) like [height, weight, blood pressure]
+Output: Prediction (ŷ) like "Has Heart Disease"
+
+h(x) = ŷ
+
+📌 HYPOTHESIS SPACE (H)
+-----------------------
+The hypothesis space is ALL POSSIBLE MODELS we could choose from.
+
+Examples of different hypothesis spaces:
+┌─────────────────────────────────────────────────────────────────────────┐
+│  LINEAR MODELS: Can only draw straight lines                           │
+│                                                                          │
+│           ●  ●                                                          │
+│         ●      ●                                                        │
+│      ───────────────  ← A straight line separating the data            │
+│         ○    ○                                                          │
+│           ○  ○                                                          │
+│                                                                          │
+│  Formula: y = w₁x₁ + w₂x₂ + b (weights × features + bias)              │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  POLYNOMIAL MODELS: Can draw curves                                     │
+│                                                                          │
+│           ●  ●     ●                                                    │
+│         ●      ●                                                        │
+│      ~~~~~~~~~~~~~~~~~~~~~~~~  ← A curved line                          │
+│         ○    ○   ○                                                      │
+│           ○                                                             │
+│                                                                          │
+│  Formula: y = w₁x² + w₂x + b (can handle curves!)                      │
+└─────────────────────────────────────────────────────────────────────────┘
+
+⚠️ KEY CONCEPT:
+• If hypothesis space is TOO SMALL (only straight lines but data is curved)
+  → UNDERFITTING: Model can't capture the pattern
+  
+• If hypothesis space is TOO LARGE (very complex curves)
+  → OVERFITTING: Model memorizes training data, fails on new data
+
+================================================================================
+🎯 PART 9: LOSS FUNCTIONS (How to Measure Mistakes)
+================================================================================
+
+A loss function tells us HOW WRONG our predictions are.
+LOWER LOSS = BETTER MODEL
+
+📌 0/1 LOSS (For Classification)
+--------------------------------
+Count how many predictions were WRONG.
+
+Formula: L = (1/n) × Σ(1 if h(xᵢ) ≠ yᵢ else 0)
+
+Example:
+Predictions: [Cat, Dog, Cat, Dog]
+Actual:      [Cat, Cat, Cat, Dog]
+               ✓    ✗    ✓    ✓
+
+Wrong = 1, Total = 4
+Loss = 1/4 = 0.25 = 25% error rate
+
+⚠️ Problem: Not smooth! Can't use calculus to optimize.
+
+📌 SQUARED LOSS / MSE (For Regression) ⭐ IMPORTANT ⭐
+-----------------------------------------------------
+Formula: L = (1/n) × Σ(h(xᵢ) - yᵢ)²
+
+Square the error so:
+1. All errors become positive
+2. BIG errors are punished MORE (squared!)
+
+Example:
+┌──────────┬──────────┬───────┬─────────────┐
+│ Actual   │ Predicted│ Error │ Error²      │
+├──────────┼──────────┼───────┼─────────────┤
+│   100    │   101    │  -1   │     1       │
+│    90    │    91    │  -1   │     1       │
+│   100    │   200    │ -100  │  10,000  ⚠️ │ ← BIG ERROR PUNISHED!
+└──────────┴──────────┴───────┴─────────────┘
+MSE = (1 + 1 + 10000) / 3 = 3334
+
+⚠️ SENSITIVE TO OUTLIERS! One bad prediction ruins everything!
+
+📌 ABSOLUTE LOSS / MAE (For Regression)
+---------------------------------------
+Formula: L = (1/n) × Σ|h(xᵢ) - yᵢ|
+
+Just take the absolute value of errors.
+
+Same Example:
+┌──────────┬──────────┬───────┬─────────────┐
+│ Actual   │ Predicted│ Error │ |Error|     │
+├──────────┼──────────┼───────┼─────────────┤
+│   100    │   101    │  -1   │     1       │
+│    90    │    91    │  -1   │     1       │
+│   100    │   200    │ -100  │   100       │ ← Not as extreme!
+└──────────┴──────────┴───────┴─────────────┘
+MAE = (1 + 1 + 100) / 3 = 34
+
+⚠️ BETTER FOR NOISY DATA with outliers!
+
+📌 WHEN TO USE WHICH?
+--------------------
+┌────────────────────────────────────────────────────────────────────────┐
+│                    MSE                    │          MAE              │
+├───────────────────────────────────────────┼───────────────────────────┤
+│ • Clean data, no outliers                 │ • Noisy data, outliers    │
+│ • Want to penalize big errors more        │ • Treat all errors equal  │
+│ • Smooth curve, easy optimization         │ • More robust to outliers │
+│ • Most commonly used                      │ • Harder to optimize      │
+└───────────────────────────────────────────┴───────────────────────────┘
+
+================================================================================
+🎯 PART 10: OVERFITTING vs UNDERFITTING (Critical Concept!)
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  UNDERFITTING (Too Simple)                                              │
+│  ─────────────────────────────────────────────────────────────────────  │
+│  Model is TOO SIMPLE to capture the patterns in data.                  │
+│                                                                          │
+│  Imagine: Data follows a curve, but you only allow straight lines      │
+│                                                                          │
+│           ●  ●     ●       ← Data points                               │
+│         ●      ●                                                        │
+│      ─────────────────────  ← Straight line can't fit the curve!       │
+│                                                                          │
+│  Symptoms:                                                              │
+│  • HIGH training error                                                  │
+│  • HIGH test error                                                      │
+│  • Both are bad!                                                        │
+│                                                                          │
+│  Fix: Use more complex model, add more features                        │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  OVERFITTING (Too Complex) ⚠️ THE DANGEROUS ONE ⚠️                     │
+│  ─────────────────────────────────────────────────────────────────────  │
+│  Model MEMORIZES training data instead of learning patterns.           │
+│                                                                          │
+│  The MEMORIZER Problem:                                                 │
+│  What if our model just says:                                          │
+│  "If I've seen this exact input before, give that answer,              │
+│   otherwise say I don't know"                                          │
+│                                                                          │
+│  Training error: 0% PERFECT!                                           │
+│  Test error: 100% DISASTER! (never seen test data before)              │
+│                                                                          │
+│  Symptoms:                                                              │
+│  • VERY LOW training error (suspiciously good!)                        │
+│  • HIGH test error                                                      │
+│  • Gap between train and test performance                              │
+│                                                                          │
+│  Fix: Use simpler model, get more data, regularization                 │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│  JUST RIGHT (Good Generalization) ✅                                    │
+│  ─────────────────────────────────────────────────────────────────────  │
+│  Model learns the TRUE pattern, works on NEW data too!                 │
+│                                                                          │
+│  Symptoms:                                                              │
+│  • LOW training error                                                   │
+│  • LOW test error (similar to training!)                               │
+│  • Model generalizes well                                               │
+└─────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+🎯 PART 11: EMPIRICAL RISK vs EXPECTED RISK
+================================================================================
+
+📌 EMPIRICAL RISK = Error on TRAINING data (what we can measure)
+📌 EXPECTED RISK = Error on ALL possible data (what we really want)
+
+We can't measure expected risk (we don't have ALL possible data!)
+So we use TEST data to ESTIMATE expected risk.
+
+This is why we split data:
+• Training Data → Calculate Empirical Risk → Optimize model
+• Test Data → Estimate Expected Risk → Check if model generalizes
+
+================================================================================
+🎯 PART 12: INDUCTIVE BIAS (Every Algorithm Has Assumptions!)
+================================================================================
+
+INDUCTIVE BIAS = The assumptions a model makes about the data.
+
+Examples:
+┌────────────────────────────────────────────────────────────────────────┐
+│ Algorithm         │ Assumption / Bias                                  │
+├───────────────────┼────────────────────────────────────────────────────┤
+│ Linear Regression │ Assumes relationship is a straight line           │
+│ Decision Trees    │ Assumes axis-aligned splits work well             │
+│ K-Nearest Neighbor│ Assumes similar inputs have similar outputs       │
+│ Naive Bayes       │ Assumes features are independent                  │
+└───────────────────┴────────────────────────────────────────────────────┘
+
+⚠️ No single model works for ALL problems!
+   Choose based on what assumptions match your data!
+
+================================================================================
+🎯 PART 13: THE ML PIPELINE (How It All Fits Together)
+================================================================================
+
+TRADITIONAL PROGRAMMING:
+┌─────────┐     ┌─────────┐     ┌─────────┐
+│  Data   │ + │ Program │  →  │ Output  │
+└─────────┘     └─────────┘     └─────────┘
+
+MACHINE LEARNING:
+┌─────────┐     ┌─────────┐     ┌─────────┐
+│  Data   │ + │ Output  │  →  │ Program │ (We LEARN the program!)
+└─────────┘     └─────────┘     └─────────┘
+
+The Full Pipeline:
+1. DATA COLLECTION → Gather examples
+2. PREPROCESSING → Clean data, handle missing values, encode categories
+3. SPLIT DATA → Training / Validation / Test
+4. TRAIN MODEL → Learn from training data
+5. VALIDATE → Check on validation set, tune parameters
+6. TEST → Final evaluation on test set
+7. DEPLOY → Use in real world!
+
+================================================================================
+🎯 PART 14: THE FORMAL DEFINITION (For Exams!)
+================================================================================
+
+"A computer program is said to LEARN from experience E with respect to 
+some class of tasks T and performance measure P, if its performance at 
+tasks in T, as measured by P, IMPROVES with experience E."
+
+Breaking it down:
+• E = Experience = Training Data
+• T = Task = What we want to do (classify spam, predict prices)
+• P = Performance = How we measure success (accuracy, loss)
+
+If the model gets BETTER as it sees more data → It's LEARNING!
+
+================================================================================
+📚 QUICK REFERENCE FORMULAS
+================================================================================
+
+FEATURE VECTOR:      x = (x₁, x₂, x₃, ..., xd)    [d features]
+DATASET:             D = {(x₁,y₁), (x₂,y₂), ..., (xₙ,yₙ)}
+HYPOTHESIS:          h(x) = ŷ    (takes features, outputs prediction)
+0/1 LOSS:            L = (1/n) × Σ(1 if h(xᵢ) ≠ yᵢ else 0)
+MSE (SQUARED):       L = (1/n) × Σ(h(xᵢ) - yᵢ)²
+MAE (ABSOLUTE):      L = (1/n) × Σ|h(xᵢ) - yᵢ|
+
+================================================================================
+🎯 EXAM TIPS - WHAT TO REMEMBER!
+================================================================================
+
+1. ✅ Classification = Categories, Regression = Numbers
+2. ✅ Nominal = No order, Ordinal = Has order
+3. ✅ One-Hot Encoding for Nominal, Label Encoding for Ordinal
+4. ✅ MSE for clean data, MAE for noisy data with outliers
+5. ✅ Overfitting = Low train error, High test error (memorizing!)
+6. ✅ Underfitting = High train error, High test error (too simple!)
+7. ✅ Goal: Low EXPECTED risk (performance on unseen data)
+8. ✅ Every ML algorithm has inductive bias (assumptions)
+
+================================================================================
+🎉 YOU GOT THIS! GOOD LUCK ON YOUR EXAM! 🎉
+================================================================================

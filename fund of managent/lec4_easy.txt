@@ -1,0 +1,955 @@
+================================================================================
+    🎯 LECTURE 4 - EASY VERSION (ADHD FRIENDLY) 🎯
+    THE MANAGER AS DECISION MAKER (PART 2)
+    Chapter 2 Continued | Date: Wednesday, 28th January 2026
+================================================================================
+
+This lecture continues decision-making and introduces BIASES! 
+Super important for exams! 🧠
+
+================================================================================
+PART 1: DECISION MAKING STYLES 🎨
+================================================================================
+
+People think differently! There are two main styles:
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  STYLE 1: LINEAR THINKERS 📏                                               │
+│  ─────────────────────────────                                             │
+│                                                                             │
+│  WHAT THEY USE:                                                            │
+│    → DATA: Numbers, facts, statistics                                      │
+│    → LOGIC: Step-by-step reasoning                                         │
+│                                                                             │
+│  HOW THEY THINK:                                                           │
+│    → "Let me see the spreadsheet"                                         │
+│    → "What do the numbers say?"                                           │
+│    → Sequential: A leads to B leads to C                                   │
+│    → Analytical and methodical                                             │
+│                                                                             │
+│  CHARACTERISTICS:                                                          │
+│    ✓ Prefer hard evidence                                                  │
+│    ✓ Like clear processes                                                 │
+│    ✓ Systematic approach                                                  │
+│    ✓ Focus on facts over feelings                                         │
+│                                                                             │
+│  EXAMPLE:                                                                  │
+│    When buying a car, a linear thinker will:                               │
+│    → Research fuel efficiency numbers                                      │
+│    → Compare safety ratings                                                │
+│    → Create a spreadsheet of pros/cons                                    │
+│    → Calculate total cost of ownership                                    │
+│                                                                             │
+│  JOBS THAT ATTRACT LINEAR THINKERS:                                        │
+│    Engineers, Accountants, Data Analysts, Scientists                       │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  STYLE 2: NON-LINEAR THINKERS 🌊                                           │
+│  ─────────────────────────────────                                         │
+│                                                                             │
+│  WHAT THEY USE:                                                            │
+│    → INTUITION: Gut feelings                                               │
+│    → EMOTIONS: How does this feel?                                         │
+│    → EXPERIENCES: What happened before in similar situations              │
+│                                                                             │
+│  HOW THEY THINK:                                                           │
+│    → "I have a feeling about this"                                        │
+│    → "This reminds me of when..."                                         │
+│    → Big picture, patterns, connections                                   │
+│    → Creative leaps, not just steps                                       │
+│                                                                             │
+│  CHARACTERISTICS:                                                          │
+│    ✓ Trust their instincts                                                │
+│    ✓ See patterns others miss                                             │
+│    ✓ Comfortable with ambiguity                                           │
+│    ✓ More flexible and adaptive                                           │
+│                                                                             │
+│  EXAMPLE:                                                                  │
+│    When buying a car, a non-linear thinker will:                           │
+│    → Visit dealership and see how they FEEL sitting in it                 │
+│    → Think about memories of similar cars                                 │
+│    → Consider their lifestyle and image                                   │
+│    → Go with the one that "feels right"                                   │
+│                                                                             │
+│  JOBS THAT ATTRACT NON-LINEAR THINKERS:                                    │
+│    Artists, Entrepreneurs, Marketing Creatives, Leaders                   │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  IMPORTANT POINT! ⭐                                                       │
+│  ─────────────────────                                                     │
+│                                                                             │
+│  MOST MANAGERS USE A MIX OF BOTH STYLES!                                   │
+│                                                                             │
+│  Why?                                                                      │
+│    → Pure linear thinking misses human factors                            │
+│    → Pure non-linear thinking ignores important data                      │
+│    → Best decisions often combine BOTH                                     │
+│                                                                             │
+│  Smart approach:                                                           │
+│    Use data AND intuition together!                                        │
+│    "The numbers say X, but my experience tells me Y. Let me               │
+│     investigate further before deciding."                                  │
+│                                                                             │
+│  NOTE ON INTUITION:                                                        │
+│  ────────────────────                                                      │
+│    → USEFUL in uncertainty or under time pressure                         │
+│    → BUT can be BIASED if left unchecked                                  │
+│    → Trust but verify!                                                    │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+PART 2: GROUP DECISION MAKING 👥
+================================================================================
+
+Sometimes decisions are made by GROUPS, not individuals. Is that better or worse?
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  ADVANTAGES OF GROUP DECISIONS ✅                                          │
+│  ─────────────────────────────────                                         │
+│                                                                             │
+│  ADVANTAGE 1: MORE INFORMATION AND PERSPECTIVES                            │
+│  ─────────────────────────────────────────────────                         │
+│                                                                             │
+│    WHY IT'S GOOD:                                                          │
+│      → Multiple brains = multiple viewpoints                              │
+│      → Different experiences and knowledge                                │
+│      → Spots blind spots that one person might miss                       │
+│      → More complete understanding of the problem                         │
+│                                                                             │
+│    EXAMPLE:                                                                │
+│      A team deciding on a marketing campaign:                              │
+│      → Marketing person knows what sells                                  │
+│      → Finance person knows the budget limits                             │
+│      → Sales person knows what customers ask for                          │
+│      → Tech person knows what's feasible                                  │
+│      Together, they see the FULL picture!                                 │
+│                                                                             │
+│  ADVANTAGE 2: HIGHER ACCEPTANCE OF DECISIONS                               │
+│  ─────────────────────────────────────────────                             │
+│                                                                             │
+│    WHY IT'S GOOD:                                                          │
+│      → People support what they help CREATE                               │
+│      → If you're part of the decision, you'll commit to it               │
+│      → Less resistance during implementation                              │
+│      → "Buy-in" from stakeholders                                         │
+│                                                                             │
+│    EXAMPLE:                                                                │
+│      If employees help decide the new work schedule:                       │
+│      → They'll follow it better                                           │
+│      → They won't complain "management just imposed this on us"          │
+│      → They feel respected and valued                                     │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  DISADVANTAGES OF GROUP DECISIONS ❌                                       │
+│  ───────────────────────────────────                                       │
+│                                                                             │
+│  DISADVANTAGE 1: TIME-CONSUMING ⏰                                         │
+│  ─────────────────────────────────                                         │
+│                                                                             │
+│    WHY IT'S BAD:                                                           │
+│      → Scheduling meetings is hard                                        │
+│      → Everyone wants to speak                                            │
+│      → Debates and discussions take time                                  │
+│      → Reaching consensus is slow                                         │
+│      → Can't make quick decisions in emergencies                         │
+│                                                                             │
+│    EXAMPLE:                                                                │
+│      Individual decision: "I'll buy this software" - 5 minutes            │
+│      Group decision: "Let's meet, discuss, vote..." - 2 weeks!           │
+│                                                                             │
+│  DISADVANTAGE 2: RISK OF GROUPTHINK 🐑                                     │
+│  ────────────────────────────────────                                      │
+│                                                                             │
+│    WHAT IS GROUPTHINK?                                                     │
+│      → When group members conform to the majority opinion                 │
+│      → People stay quiet to avoid conflict                                │
+│      → Critical thinking gets suppressed                                  │
+│      → Everyone agrees even when they shouldn't                          │
+│                                                                             │
+│    WHY IT'S DANGEROUS:                                                     │
+│      → Bad ideas get approved because no one speaks up                    │
+│      → "Everyone agreed, so it must be right!" (Not always!)             │
+│      → False sense of confidence                                          │
+│      → Can lead to DISASTROUS decisions                                   │
+│                                                                             │
+│    FAMOUS EXAMPLE:                                                         │
+│      Space Shuttle Challenger disaster (1986):                             │
+│      Engineers had concerns about launching in cold weather.               │
+│      But groupthink and pressure led to "launch anyway."                  │
+│      Result: Shuttle exploded, 7 people died.                             │
+│                                                                             │
+│    HOW TO PREVENT GROUPTHINK:                                              │
+│      → Encourage different opinions                                        │
+│      → Assign someone to play "devil's advocate"                          │
+│      → Allow anonymous feedback                                            │
+│      → Leader should speak LAST (so they don't influence others)         │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+SUMMARY TABLE:
+
+    INDIVIDUAL DECISIONS          GROUP DECISIONS
+    ─────────────────────────     ──────────────────────────
+    ✓ Fast                        ✓ More perspectives
+    ✓ Clear accountability        ✓ Higher acceptance
+    ✗ Limited perspective         ✗ Time-consuming
+    ✗ May lack buy-in             ✗ Risk of groupthink
+
+================================================================================
+PART 3: DESIGN THINKING 🎨
+================================================================================
+
+A modern approach to problem-solving that's becoming super popular!
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  WHAT IS DESIGN THINKING? 🧩                                               │
+│  ───────────────────────────                                               │
+│                                                                             │
+│  DEFINITION:                                                               │
+│    A HUMAN-CENTERED, CREATIVE approach to solve problems.                  │
+│                                                                             │
+│  KEY WORDS EXPLAINED:                                                      │
+│                                                                             │
+│    HUMAN-CENTERED:                                                         │
+│      → Focus on PEOPLE first, not technology or business                  │
+│      → Ask: "What do USERS actually need?"                                │
+│      → Empathy is key!                                                    │
+│                                                                             │
+│    CREATIVE:                                                               │
+│      → Think outside the box                                              │
+│      → Brainstorm many ideas                                              │
+│      → Experiment and iterate                                             │
+│                                                                             │
+│  FOCUS AREAS:                                                              │
+│  ─────────────────                                                         │
+│                                                                             │
+│    → USER NEEDS: What do people actually want/need?                        │
+│      Not what WE think they need, but what THEY truly need               │
+│                                                                             │
+│    → UX (USER EXPERIENCE): How do people FEEL using our product/service?  │
+│      Is it easy? Enjoyable? Frustrating?                                  │
+│                                                                             │
+│    → INNOVATIVE SOLUTIONS: New and better ways to solve problems          │
+│      Not just copying what exists                                         │
+│                                                                             │
+│  BIG BENEFIT:                                                              │
+│  ──────────────                                                            │
+│    REDUCES THE RISK OF PRODUCT FAILURE!                                    │
+│                                                                             │
+│    Why? Because you're building what users actually WANT,                  │
+│    not what you ASSUME they want.                                         │
+│    Test early, fail cheap, learn fast!                                    │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  THE 5 KEY CHARACTERISTICS OF DESIGN THINKING 🔑                           │
+│  ──────────────────────────────────────────────────                        │
+│                                                                             │
+│  1️⃣ EMPATHY (Understanding) 💗                                             │
+│  ────────────────────────────                                              │
+│                                                                             │
+│    WHAT IT IS:                                                             │
+│      → Put yourself in the USER'S shoes                                   │
+│      → Understand their feelings, frustrations, desires                   │
+│      → Observe and listen deeply                                          │
+│                                                                             │
+│    HOW TO DO IT:                                                           │
+│      → Interview users                                                    │
+│      → Watch how they use products                                        │
+│      → Ask "Why?" multiple times                                          │
+│      → Don't assume - investigate!                                        │
+│                                                                             │
+│    EXAMPLE:                                                                │
+│      Instead of designing a "better hospital form,"                        │
+│      empathize first: Go sit in a hospital waiting room.                  │
+│      Feel the anxiety, confusion, frustration that patients feel.         │
+│      NOW design a form that addresses those feelings!                     │
+│                                                                             │
+│  2️⃣ PROBLEM DEFINITION 🔍                                                  │
+│  ───────────────────────────                                               │
+│                                                                             │
+│    WHAT IT IS:                                                             │
+│      → Clearly STATE the problem you're solving                           │
+│      → Frame it from the USER's perspective                               │
+│      → Make sure you're solving the RIGHT problem                         │
+│                                                                             │
+│    FORMAT:                                                                 │
+│      "[User] needs [need] because [insight]"                              │
+│                                                                             │
+│    EXAMPLE:                                                                │
+│      "Elderly patients need a simpler check-in process because they      │
+│       feel overwhelmed by complex digital kiosks."                        │
+│                                                                             │
+│    WHY IT MATTERS:                                                         │
+│      A well-defined problem is half the solution!                          │
+│      Wrong problem = wasted effort on wrong solution.                     │
+│                                                                             │
+│  3️⃣ IDEA GENERATION (Ideation) 💡                                         │
+│  ─────────────────────────────────                                         │
+│                                                                             │
+│    WHAT IT IS:                                                             │
+│      → Brainstorm MANY possible solutions                                 │
+│      → Go for QUANTITY first, then quality                                │
+│      → No idea is too crazy at this stage!                                │
+│                                                                             │
+│    RULES:                                                                  │
+│      → No judging ideas during brainstorming                              │
+│      → Build on others' ideas                                             │
+│      → Think wild and crazy                                               │
+│      → The more ideas, the better!                                        │
+│                                                                             │
+│    EXAMPLE:                                                                │
+│      Problem: Elderly patients struggle with check-in                      │
+│      Ideas: Voice-activated check-in, human greeter, family app,         │
+│             simplified tablet, phone call system, printed mail-in,        │
+│             volunteer assistants, etc.                                    │
+│                                                                             │
+│  4️⃣ PROTOTYPING 🛠️                                                        │
+│  ─────────────────                                                         │
+│                                                                             │
+│    WHAT IT IS:                                                             │
+│      → Build a QUICK, ROUGH version of your solution                      │
+│      → Doesn't need to be perfect!                                        │
+│      → Cheap and fast to create                                           │
+│                                                                             │
+│    PURPOSE:                                                                │
+│      → Make the idea TANGIBLE (something you can see/touch)              │
+│      → Test before investing lots of resources                            │
+│      → Learn what works and what doesn't                                  │
+│                                                                             │
+│    EXAMPLES:                                                               │
+│      → Paper sketches of an app                                           │
+│      → Cardboard model of a product                                       │
+│      → Role-play of a service experience                                  │
+│      → Simple clickable mockup                                            │
+│                                                                             │
+│    MOTTO: "Fail early, fail cheap!"                                        │
+│           Better to find problems with a $10 prototype than a              │
+│           $10 million product launch!                                      │
+│                                                                             │
+│  5️⃣ TESTING 🧪                                                             │
+│  ─────────────                                                             │
+│                                                                             │
+│    WHAT IT IS:                                                             │
+│      → Put your prototype in front of REAL USERS                          │
+│      → Watch how they interact with it                                    │
+│      → Gather feedback                                                    │
+│                                                                             │
+│    WHAT TO LOOK FOR:                                                       │
+│      → What works? Keep it!                                               │
+│      → What's confusing? Fix it!                                          │
+│      → What's missing? Add it!                                            │
+│      → What's unnecessary? Remove it!                                     │
+│                                                                             │
+│    IMPORTANT:                                                              │
+│      → Don't defend your design - LEARN from feedback                     │
+│      → Iterate: Test → Learn → Improve → Test again                       │
+│      → Be willing to go back to earlier steps if needed                   │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+THE DESIGN THINKING PROCESS VISUAL:
+
+    EMPATHIZE → DEFINE → IDEATE → PROTOTYPE → TEST
+         ↑_____________________________________________↓
+                      (Iterate as needed!)
+
+================================================================================
+PART 4: BIG DATA 📊
+================================================================================
+
+We live in the age of DATA! Let's understand how it helps decision-making.
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  WHAT IS BIG DATA? 🗃️                                                      │
+│  ───────────────────────                                                   │
+│                                                                             │
+│  DEFINITION:                                                               │
+│    Vast datasets (both STRUCTURED and UNSTRUCTURED) used with analytics   │
+│    to improve decision quality.                                            │
+│                                                                             │
+│  WHAT'S "BIG" ABOUT IT?                                                    │
+│    → VOLUME: Massive amounts of data                                       │
+│    → VARIETY: Different types (text, images, numbers, videos)             │
+│    → VELOCITY: Generated very fast, constantly streaming                   │
+│                                                                             │
+│  STRUCTURED vs UNSTRUCTURED:                                               │
+│                                                                             │
+│    STRUCTURED DATA: Organized in rows/columns                              │
+│      → Sales numbers, customer ages, inventory counts                      │
+│      → Easy to analyze with traditional tools                             │
+│                                                                             │
+│    UNSTRUCTURED DATA: No pre-defined format                                │
+│      → Social media posts, emails, videos, images                          │
+│      → Harder to analyze, but very valuable!                              │
+│                                                                             │
+│  GOAL:                                                                     │
+│    IMPROVE DECISION QUALITY using this data!                               │
+│    Instead of guessing, use data to make informed choices.                │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  HOW BIG DATA IMPROVES DECISIONS ✨                                        │
+│  ─────────────────────────────────────                                     │
+│                                                                             │
+│  1️⃣ IDENTIFIES TRENDS 📈                                                   │
+│  ──────────────────────                                                    │
+│                                                                             │
+│    → See patterns over time                                               │
+│    → Spot what's increasing or decreasing                                 │
+│    → Understand market movements                                          │
+│                                                                             │
+│    EXAMPLE:                                                                │
+│      "Our data shows sales of winter jackets start increasing in         │
+│       September, not November. Let's start our campaign earlier!"        │
+│                                                                             │
+│  2️⃣ PREDICTS CUSTOMER BEHAVIOR 🔮                                         │
+│  ───────────────────────────────                                           │
+│                                                                             │
+│    → Understand what customers might do NEXT                               │
+│    → Personalize experiences                                               │
+│    → Anticipate needs before they arise                                   │
+│                                                                             │
+│    EXAMPLE:                                                                │
+│      Netflix predicts what shows you'll enjoy based on your history.     │
+│      Amazon suggests products you might buy.                             │
+│      "Customers who bought X also bought Y"                              │
+│                                                                             │
+│  3️⃣ REDUCES UNCERTAINTY ❓→✓                                              │
+│  ─────────────────────────                                                 │
+│                                                                             │
+│    → Replace guessing with evidence                                        │
+│    → Make more confident decisions                                        │
+│    → Less "I think" more "I know"                                         │
+│                                                                             │
+│    EXAMPLE:                                                                │
+│      Instead of: "I think customers want feature X"                       │
+│      Say: "80% of customer feedback requests feature X"                  │
+│                                                                             │
+│  4️⃣ IMPROVES ACCURACY 🎯                                                   │
+│  ─────────────────────                                                     │
+│                                                                             │
+│    → Better forecasting                                                   │
+│    → Fewer mistakes                                                       │
+│    → More precise targeting                                               │
+│                                                                             │
+│    EXAMPLE:                                                                │
+│      Weather forecasting is way more accurate now because of massive     │
+│      data from satellites, sensors, and historical patterns.             │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  SOURCES OF BIG DATA 📲                                                    │
+│  ─────────────────────────                                                 │
+│                                                                             │
+│  Where does all this data come from?                                       │
+│                                                                             │
+│    1. CUSTOMER TRANSACTIONS 💳                                             │
+│       → Every purchase, every click, every order                          │
+│       → What people buy, when, how much, how often                        │
+│                                                                             │
+│    2. SOCIAL MEDIA 📱                                                      │
+│       → Posts, likes, shares, comments, reviews                           │
+│       → What people are saying about your brand                           │
+│       → Trends and viral content                                          │
+│                                                                             │
+│    3. MOBILE APPS 📲                                                       │
+│       → User behavior inside apps                                         │
+│       → Location data, usage patterns                                     │
+│       → In-app actions and preferences                                    │
+│                                                                             │
+│    4. MARKET DATA 📊                                                       │
+│       → Industry reports, competitor analysis                             │
+│       → Economic indicators                                               │
+│       → Stock prices, exchange rates                                      │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  BIG DATA LIMITATIONS ⚠️                                                   │
+│  ─────────────────────────                                                 │
+│                                                                             │
+│  Big data is powerful, BUT it has problems too:                            │
+│                                                                             │
+│  1️⃣ DATA PRIVACY CONCERNS 🔒                                               │
+│  ─────────────────────────────                                             │
+│                                                                             │
+│    → Collecting data raises ethical questions                              │
+│    → People worry about how their data is used                            │
+│    → Laws like GDPR restrict what you can collect                         │
+│    → Data breaches can expose sensitive info                              │
+│                                                                             │
+│    EXAMPLE:                                                                │
+│      Facebook's Cambridge Analytica scandal - data misused!               │
+│                                                                             │
+│  2️⃣ POOR QUALITY DATA = POOR DECISIONS 🗑️                                 │
+│  ─────────────────────────────────────────                                 │
+│                                                                             │
+│    "Garbage In, Garbage Out" (GIGO)                                        │
+│                                                                             │
+│    → If your data is wrong, your decisions will be wrong                  │
+│    → Incomplete data leads to incomplete understanding                    │
+│    → Biased data leads to biased decisions                               │
+│                                                                             │
+│    EXAMPLE:                                                                │
+│      If your customer survey only reaches happy customers,                │
+│      you'll miss all the problems angry customers have!                  │
+│                                                                             │
+│  3️⃣ REQUIRES SKILLED ANALYSTS 👩‍💻                                         │
+│  ─────────────────────────────────                                         │
+│                                                                             │
+│    → Having data isn't enough                                             │
+│    → Need people who can ANALYZE it properly                              │
+│    → Data scientists are expensive and hard to find                       │
+│    → Misinterpretation can be worse than no data!                        │
+│                                                                             │
+│  4️⃣ DATA NEEDS TO BE UP TO DATE 📅                                        │
+│  ────────────────────────────────                                          │
+│                                                                             │
+│    → Old data may not reflect current reality                             │
+│    → Markets and behaviors change constantly                              │
+│    → Decisions based on outdated data can backfire                        │
+│                                                                             │
+│    EXAMPLE:                                                                │
+│      Using 2019 travel data to plan 2021 (during COVID) = disaster!      │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+PART 5: COMMON BIASES AND ERRORS IN DECISION MAKING 🧠⚠️
+================================================================================
+
+THIS SECTION IS SUPER IMPORTANT FOR YOUR EXAM!
+
+Our brains take SHORTCUTS that can lead to BAD decisions. These are called BIASES.
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  BIAS 1: OVERCONFIDENCE BIAS 😎                                            │
+│  ─────────────────────────────────                                         │
+│                                                                             │
+│  WHAT IT IS:                                                               │
+│    Unrealistic POSITIVE expectations or beliefs about your own abilities. │
+│    Thinking you're better than you actually are.                          │
+│                                                                             │
+│  EXAMPLE:                                                                  │
+│    "I'm sure this product will succeed!" (without proper research)        │
+│    "I don't need to study much, I'll definitely pass."                   │
+│    90% of drivers think they're "above average" - impossible!            │
+│                                                                             │
+│  THE DANGER:                                                               │
+│    → Underestimate risks                                                  │
+│    → Don't prepare backup plans                                           │
+│    → Ignore warning signs                                                 │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  BIAS 2: IMMEDIATE GRATIFICATION BIAS 🍬                                   │
+│  ─────────────────────────────────────────                                 │
+│                                                                             │
+│  WHAT IT IS:                                                               │
+│    Focus on SHORT-TERM gains/rewards over LONG-TERM benefits.              │
+│    Wanting the reward NOW rather than waiting for something better.        │
+│                                                                             │
+│  EXAMPLE:                                                                  │
+│    Choosing a quick profit now vs. investing for bigger profit later.    │
+│    Eating junk food now instead of staying healthy for the future.       │
+│    Skipping exercise today for Netflix.                                  │
+│                                                                             │
+│  THE DANGER:                                                               │
+│    → Sacrifice long-term success for short-term pleasure                  │
+│    → Poor strategic decisions                                             │
+│    → "I'll deal with consequences later" attitude                        │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  BIAS 3: ANCHORING BIAS ⚓                                                 │
+│  ─────────────────────────                                                 │
+│                                                                             │
+│  WHAT IT IS:                                                               │
+│    Relying too heavily on the FIRST piece of information you receive.     │
+│    Failing to ADJUST when new information comes in.                        │
+│                                                                             │
+│  EXAMPLE:                                                                  │
+│    Salary negotiation: First offer is $50,000.                            │
+│    You anchor on that number even though the job is worth $70,000!       │
+│                                                                             │
+│    House price: Listed at $300,000.                                       │
+│    You think $280,000 is a "great deal" even if it's only worth $250k!  │
+│                                                                             │
+│  THE DANGER:                                                               │
+│    → Get stuck on initial numbers/ideas                                   │
+│    → Miss better alternatives                                             │
+│    → Easily manipulated by whoever sets the "anchor"                     │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  BIAS 4: SELECTIVE PERCEPTION BIAS 👁️                                     │
+│  ──────────────────────────────────────                                    │
+│                                                                             │
+│  WHAT IT IS:                                                               │
+│    Interpreting information in a way that ALIGNS with existing beliefs.   │
+│    Filtering out what DOESN'T fit your worldview.                         │
+│                                                                             │
+│  EXAMPLE:                                                                  │
+│    You think Product A is best.                                           │
+│    You notice all positive reviews for A and ignore negative ones.       │
+│    You notice all negative reviews for competitors.                      │
+│                                                                             │
+│    A manager who thinks an employee is lazy will notice every time       │
+│    they're late but ignore all the times they work overtime!             │
+│                                                                             │
+│  THE DANGER:                                                               │
+│    → See only what you want to see                                        │
+│    → Miss important contradictory information                             │
+│    → Reinforce wrong beliefs                                              │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  BIAS 5: CONFIRMATION BIAS ✓                                               │
+│  ──────────────────────────────                                            │
+│                                                                             │
+│  WHAT IT IS:                                                               │
+│    SEARCHING for or giving weight to info that CONFIRMS your              │
+│    pre-conception. REJECTING contradictory information.                    │
+│                                                                             │
+│  SIMILAR TO SELECTIVE PERCEPTION, BUT MORE ACTIVE:                         │
+│    Selective Perception: You filter what comes to you                      │
+│    Confirmation Bias: You actively SEEK supporting evidence               │
+│                                                                             │
+│  EXAMPLE:                                                                  │
+│    You believe working from home is bad.                                  │
+│    You Google "work from home problems" (not benefits!)                  │
+│    You find articles supporting your view.                               │
+│    "See! I was right!"                                                   │
+│                                                                             │
+│  THE DANGER:                                                               │
+│    → Echo chambers                                                        │
+│    → Never challenge your own views                                       │
+│    → Miss the full picture                                                │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  BIAS 6: FRAMING BIAS 🖼️                                                   │
+│  ─────────────────────────                                                 │
+│                                                                             │
+│  WHAT IT IS:                                                               │
+│    Being influenced by HOW information is PRESENTED.                       │
+│    Highlighting and downplaying various aspects changes perception.        │
+│                                                                             │
+│  EXAMPLE:                                                                  │
+│    Same fact, two frames:                                                  │
+│    "This surgery has a 90% survival rate" vs.                            │
+│    "This surgery has a 10% death rate"                                   │
+│    SAME information, but feels very different!                           │
+│                                                                             │
+│    "95% fat-free!" sounds great.                                         │
+│    "Contains 5% fat!" sounds bad.                                        │
+│    Same product!                                                         │
+│                                                                             │
+│  THE DANGER:                                                               │
+│    → Easily manipulated by marketers and politicians                     │
+│    → Same data leads to different decisions based on presentation        │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  BIAS 7: AVAILABILITY BIAS 📰                                              │
+│  ──────────────────────────────                                            │
+│                                                                             │
+│  WHAT IT IS:                                                               │
+│    Over-emphasizing information that is VIVID, RECENT, or MEMORABLE       │
+│    rather than focusing on RELIABILITY or ACCURACY.                        │
+│                                                                             │
+│  EXAMPLE:                                                                  │
+│    After seeing a plane crash on news, you fear flying.                  │
+│    But statistically, driving is way more dangerous!                     │
+│    The crash is "available" in your mind because it was vivid/recent.   │
+│                                                                             │
+│    A manager remembers the ONE time a supplier failed                     │
+│    and ignores the 99 times they delivered perfectly.                    │
+│                                                                             │
+│  THE DANGER:                                                               │
+│    → Overreact to dramatic but rare events                               │
+│    → Underestimate common but "boring" risks                             │
+│    → Let headlines drive decisions                                       │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  BIAS 8: REPRESENTATION BIAS 👤                                            │
+│  ─────────────────────────────────                                         │
+│                                                                             │
+│  WHAT IT IS:                                                               │
+│    Judging the likelihood of an event based on STEREOTYPES                │
+│    rather than CRITICAL/STATISTICAL data.                                  │
+│                                                                             │
+│  EXAMPLE:                                                                  │
+│    "Sarah is quiet, wears glasses, and loves reading.                    │
+│     Is she more likely to be a librarian or a salesperson?"              │
+│                                                                             │
+│    Most people say librarian (fits the stereotype!)                      │
+│    But there are WAY more salespeople than librarians!                   │
+│    Statistically, she's probably a salesperson.                          │
+│                                                                             │
+│  THE DANGER:                                                               │
+│    → Make decisions based on stereotypes                                 │
+│    → Ignore base rates and statistics                                    │
+│    → Prejudice in hiring and evaluation                                  │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  BIAS 9: RANDOMNESS BIAS 🎲                                                │
+│  ──────────────────────────────                                            │
+│                                                                             │
+│  WHAT IT IS:                                                               │
+│    Finding PATTERNS that DON'T actually exist.                             │
+│    Seeing meaning in random events.                                        │
+│                                                                             │
+│  EXAMPLE:                                                                  │
+│    "I wore my lucky shirt and we won! I must wear it every game!"        │
+│    (The shirt has nothing to do with winning!)                           │
+│                                                                             │
+│    "Stock went up 3 days in a row, it must continue!"                    │
+│    (Random fluctuations don't guarantee future patterns)                 │
+│                                                                             │
+│  THE DANGER:                                                               │
+│    → Make predictions based on coincidences                              │
+│    → Superstitious thinking in business                                  │
+│    → Waste resources on fake patterns                                    │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  BIAS 10: SUNK COST ERROR 💸                                               │
+│  ──────────────────────────────                                            │
+│                                                                             │
+│  WHAT IT IS:                                                               │
+│    Letting PAST investments influence continuing something                 │
+│    even if continuing is NOT justified by current value.                  │
+│                                                                             │
+│  KEY CONCEPT:                                                              │
+│    Sunk costs = Money/time already spent (can't get it back!)            │
+│    These should NOT affect future decisions!                              │
+│                                                                             │
+│  EXAMPLE:                                                                  │
+│    "I've already invested $5 million in this failing project.           │
+│     I can't stop now - I'll lose all that money!"                        │
+│                                                                             │
+│    WRONG THINKING! The $5M is gone whether you continue or not!          │
+│    Question should be: "Is spending MORE money worth it?"               │
+│                                                                             │
+│    Movie example: You paid $15 for a terrible movie.                     │
+│    Should you stay? NO! The $15 is gone.                                 │
+│    Leaving saves you 2 hours of misery!                                  │
+│                                                                             │
+│  THE DANGER:                                                               │
+│    → Throw good money after bad                                          │
+│    → Continue failing projects too long                                  │
+│    → "We've come too far to stop now" (sometimes stopping IS right)     │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  BIAS 11: SELF-SERVING BIAS 🏆                                             │
+│  ─────────────────────────────                                             │
+│                                                                             │
+│  WHAT IT IS:                                                               │
+│    Taking CREDIT for successes but BLAMING external factors for failures. │
+│                                                                             │
+│  EXAMPLE:                                                                  │
+│    Project succeeds: "I worked so hard! My leadership made this happen!" │
+│    Project fails: "The economy was bad. My team let me down. Bad luck." │
+│                                                                             │
+│    Won the game: "I practiced so much!"                                  │
+│    Lost the game: "The referee was unfair!"                              │
+│                                                                             │
+│  THE DANGER:                                                               │
+│    → Never learn from failures                                           │
+│    → Blame others unfairly                                               │
+│    → Overestimate your own contribution                                  │
+│    → Poor team relationships                                             │
+│                                                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  BIAS 12: HINDSIGHT BIAS 🔙                                                │
+│  ──────────────────────────────                                            │
+│                                                                             │
+│  WHAT IT IS:                                                               │
+│    Believing that an outcome was KNOWABLE in advance after it occurred.   │
+│    "I knew it all along!" (But did you really?)                          │
+│    Overestimating your ability to have foreseen the result.              │
+│                                                                             │
+│  EXAMPLE:                                                                  │
+│    After a company fails: "I KNEW they would fail! It was so obvious!"  │
+│    (But you didn't warn anyone before it happened...)                    │
+│                                                                             │
+│    After an election: "I totally called it!"                             │
+│    (You said both candidates could win!)                                 │
+│                                                                             │
+│  THE DANGER:                                                               │
+│    → Unfairly judge others' past decisions                               │
+│    → Think you're better at predicting than you are                     │
+│    → Don't properly appreciate uncertainty                              │
+│    → Learn wrong lessons from history                                    │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+MEMORY TRICK FOR ALL 12 BIASES:
+
+    "OIASCFARSSH"... or just remember categories:
+
+    ABOUT YOURSELF: Overconfidence, Self-serving, Hindsight
+    ABOUT TIME: Immediate gratification, Sunk cost
+    ABOUT INFORMATION: Anchoring, Selective perception, Confirmation,
+                       Framing, Availability
+    ABOUT PATTERNS: Representation, Randomness
+
+================================================================================
+PART 6: ETHICS IN DECISION MAKING ⚖️
+================================================================================
+
+Making decisions isn't just about what's profitable - it's about what's RIGHT.
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                                                                             │
+│  KEY PRINCIPLES 🌟                                                         │
+│  ─────────────────                                                         │
+│                                                                             │
+│  1️⃣ ETHICAL DECISIONS ALIGN WITH COMPANY VALUES AND SOCIETAL NORMS        │
+│  ─────────────────────────────────────────────────────────────────         │
+│                                                                             │
+│    → What does our company stand for?                                     │
+│    → What does society consider acceptable?                               │
+│    → Just because you CAN do something doesn't mean you SHOULD           │
+│                                                                             │
+│    EXAMPLE:                                                                │
+│      A company could save money by dumping waste in a river.             │
+│      Legal? Maybe in some places.                                        │
+│      Ethical? NO! Harms the community and environment.                   │
+│                                                                             │
+│  2️⃣ CONSIDER STAKEHOLDERS, NOT JUST PROFITS                               │
+│  ─────────────────────────────────────────────                             │
+│                                                                             │
+│    WHO ARE STAKEHOLDERS?                                                   │
+│    Anyone affected by your decisions:                                      │
+│                                                                             │
+│    → EMPLOYEES: Will this decision harm their jobs, safety, wellbeing?   │
+│    → CUSTOMERS: Will this decision deliver fair value? Is it safe?       │
+│    → DIRECTORS/SHAREHOLDERS: Is this in the company's long-term interest?│
+│    → COMMUNITY: How does this affect the local area?                     │
+│    → ENVIRONMENT: What's the environmental impact?                       │
+│    → SUPPLIERS: Are we treating our partners fairly?                     │
+│                                                                             │
+│    DON'T JUST ASK: "Will this make money?"                               │
+│    ALSO ASK: "Is this the right thing to do for everyone affected?"     │
+│                                                                             │
+│  3️⃣ USE ETHICAL TOOLS                                                     │
+│  ────────────────────────                                                  │
+│                                                                             │
+│    TOOL 1: CODE OF ETHICS                                                  │
+│    ────────────────────────                                                │
+│      → Written document stating company values                            │
+│      → Guidelines for behavior                                            │
+│      → What's acceptable and what's not                                  │
+│      → Helps employees make consistent ethical decisions                  │
+│                                                                             │
+│    TOOL 2: ETHICAL TRAINING                                                │
+│    ─────────────────────────                                               │
+│      → Teach employees how to recognize ethical dilemmas                  │
+│      → Practice making ethical decisions                                  │
+│      → Discuss real-world scenarios                                       │
+│      → Build a culture of integrity                                       │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+ETHICAL DECISION-MAKING TEST:
+    Before making a decision, ask yourself:
+    
+    ✓ Is it LEGAL?
+    ✓ Is it FAIR to all stakeholders?
+    ✓ Would I be comfortable if it was on the NEWS?
+    ✓ Would I be proud to tell my family about it?
+    ✓ Does it align with our COMPANY VALUES?
+    
+    If you answer NO to any of these → RECONSIDER!
+
+================================================================================
+🎯 QUICK REVIEW CHECKLIST - LECTURE 4 (FINAL!) 🎯
+================================================================================
+
+□ DECISION-MAKING STYLES:
+    □ Linear = Data + Logic
+    □ Non-linear = Intuition + Emotions + Experiences
+    □ Most managers use BOTH
+
+□ GROUP DECISION MAKING:
+    □ Advantages: More info/perspectives, Higher acceptance
+    □ Disadvantages: Time-consuming, Risk of groupthink
+
+□ DESIGN THINKING (5 steps):
+    1. Empathy
+    2. Problem Definition
+    3. Idea Generation (Ideation)
+    4. Prototyping
+    5. Testing
+
+□ BIG DATA:
+    □ How it helps: Identifies trends, Predicts behavior, Reduces uncertainty,
+                    Improves accuracy
+    □ Sources: Customer transactions, Social media, Mobile apps, Market data
+    □ Limitations: Privacy, Poor quality data, Needs skilled analysts, 
+                   Must be up-to-date
+
+□ THE 12 BIASES (Try to remember at least the names and one-line definitions):
+    1. Overconfidence - Think you're better than you are
+    2. Immediate Gratification - Want short-term over long-term
+    3. Anchoring - Stuck on first information
+    4. Selective Perception - Filter out what doesn't fit beliefs
+    5. Confirmation - Seek info that confirms pre-conceptions
+    6. Framing - Influenced by how info is presented
+    7. Availability - Over-emphasize vivid/recent info
+    8. Representation - Judge by stereotypes, not statistics
+    9. Randomness - See patterns that don't exist
+    10. Sunk Cost - Past investments affect future decisions
+    11. Self-Serving - Credit for success, blame others for failure
+    12. Hindsight - "I knew it all along" (after the fact)
+
+□ ETHICS:
+    □ Align with company values and societal norms
+    □ Consider ALL stakeholders (not just profits)
+    □ Tools: Code of Ethics, Ethical Training
+
+================================================================================
+            🎊 CONGRATULATIONS! YOU'VE COMPLETED ALL LECTURES! 🎊
+================================================================================
+
+FINAL TIPS FOR YOUR EXAM:
+
+    ✅ Read through all 4 easy files once more tonight
+    ✅ Focus on DEFINITIONS - they love asking those!
+    ✅ Remember the LISTS (4 functions, 3 skills, 8 steps, 12 biases)
+    ✅ Understand EXAMPLES - they help you explain concepts
+    ✅ Get good sleep - a rested brain remembers better!
+    ✅ Stay calm during the exam - you've got this!
+
+================================================================================
+GOOD LUCK ON YOUR EXAM! YOU'RE GOING TO DO GREAT! 💪🌟
+================================================================================

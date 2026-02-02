@@ -1,0 +1,813 @@
+So, what do you think? After 20 or 30 epochs, will your model learn the data or memorize it? That also depends on the relationship between your data and the model. Is there enough capacity for the entire content to be logged? For instance, my content is very large today, maybe my mental capacity is a bit... 'narrow,' so I brought pages along with me. 'Okay, wherever my flow gets stuck, I will consult the notes to see how much we have covered.' So that depends on your mental capability—what the content is versus how big your model is. However, even then, if you input something from the same data and calculate the loss, it acts as a... you can say... a biased method.
+
+So now your check is that you split this data into Train and Test. For example, you make splits of 80, 10, 10. Train, Validate, Test. However, there is a question here: whenever a dataset arrives, it belongs to the same data distribution. This means that in the construction of this data, we need Independent samples and Identical. For example, you want to talk about a specific disease, you want to collect data. One way is you go to a hospital—for example, cancer detection or let's say heart disease detection—you are collecting some data. You went to a hospital; whatever new patient arrives, if they are affected by heart disease, you take their data. Now, since the hospital is the same, their data measuring... you can say... all the tools and protocols are the same. But the independent... the persons coming there, they don't have a relationship with each other. So this will be your one independent and identical sampling process. We call this IID sampling. So, first of all, your data must be from IID sampling. You shouldn't do this: for example, I gave you a task to collect sugar-related data. You went home and asked your entire family. Now, if you asked your entire family, it clearly means there will be some predictable trends within it. There, your law of independence will be compromised because dependencies will arise with genes, besides your environment, food, living style. So you can say, if you are constructing such data, it will be independent, but not identical.
+
+Another example is, you have two hospitals. One is for adults and the second one is for children. Now you sampled data for a specific disease from here. What problem will arise here? The problem will arise that one doctor is treating children, the other is treating adults. Now, when you take data from there, it might be that the independence is maintained, but the law of identical distribution fails. So, whenever you construct data, you must make sure that your data comes from IID. Now, the issue here is the 80, 10, 10 split.
+
+Hypothesis... when you select a hypothesis, your check is that the Unseen Data... you run this 80 data on as many epochs as you want, fine-tune your model as many times as you want with this. For Validation, you have another set. Why do we select validation data? To suggest parameters... model... You can say for hyperparameter tuning or hypothesis selection. It means, for example, if it's a Neural Network, how many layers should it have? How many neurons? What is its learning rate? Learning rate decay? So on and so forth. For example, you checked on a Decision Tree, Neural Network, you checked on any other model. So, this validation set is your expected risk. The empirical risk is your training loss. Your objective is that as long as your training loss decreases, you are just focusing on training loss, until the turn for validation comes. 'Validation is a data that is still unseen data for your model.' You check on it again whether it is correct or not. Now, a model is giving 95% accuracy on training, but 45% on validation. What does this mean? Overfitting. It is remembering something... regarding the decision-making. So, you have to look based on validation what your hypothesis is. Based on that, when you select, then by the end you say this test data is... you can say... this is exactly that data which is unseen and on validation as well. Now you will check on this and then assume that on this too, the loss should be low. On this too, if the loss is low, only then is our hypothesis correct.
+
+Okay. Will this model fail anywhere? This test-train split model, can it fail anywhere? Nature of data is different... Data is different... How can the nature of data be different? Steps... For example... Time series problem. You trained it for weekdays and predicted for the weekend. There is a scenario where maybe in that case, your train-test split might not form so well that the true picture comes forward. Then what do we use? Then we use K-Fold Cross Validation. K-Fold Cross Validation. For example, you have a data set, say 400 samples or 350 samples. Now what is the train-test split for this? You can say that whenever you have that kind of problem where your data is of limited nature, or there is any kind of trend, seasonality, this kind of thing appearing in the data... In that case, instead of a train-test split, you should go for K-Fold Cross Validation.
+
+And what does this mean? For example, you have a dataset. Say 100 samples. Now, you choose 'K'. You select a 'K' value. For example, 10. In that case, what will happen? Within this kit, you will have 10 sets formed. You can say F1, F2, F3, F4, F5... so on... F10. No, not steps... Iterations. In iteration 1, what will happen? In the first iteration, F1 is selected as testing data. And the remaining 9 folds will serve as training data. In the next iteration, what will happen? F2 is selected as test data. The remaining 9 folds are for training. So, you can say we have 10 iterations, and in those 10 iterations, every data will contribute once to testing and once to training. From scratch. No weight saving. From scratch. So its loss... its loss will also be an Average Loss. So you can say... the iterations... the loss of all iterations... you divide by... you can say your K. Then your average loss comes. And based on that average value, then you see which hypothesis has the average loss lowest. So this is basically that data which is your unseen and on validation as well. Now, assume you check on this, and then you assume that on this too, the loss should be low.
+
+Okay, we have a special case here, whose name is Leave One Out Cross Validation. K is equal to... N. You can say that as much data as you have, you just take one out of it for testing, and the rest for training. Leave One Out. So it happens that if you have 100 data points, then out of those 100... first sample for testing, remaining 99 for training. Then second for testing, remaining 99 for training. And you have to see that in every iteration, when you are relating to the other, there is no dependency between them. It's not that, for example, you trained... now those weights that you trained, you use those same weights and run it once more. That is wrong. From scratch... With random initialization... And then you have to see on these iterations, what is the loss by the end. And a special case of this is, which implies K is equal to N, Leave One Out Cross Validation.
+
+So, now let's talk about the Loss. Loss. If we talk about Loss... that implies classification... or regression. That depends on the problem. Loss, in generic terms, you can say... I discussed earlier regarding the step function... Step function. Step function loss... You can say... zero... one. Loss function... Zero One Loss. Zero One Loss. But we don't use this. Why don't we use this? Derivative. Because its derivative is... at zero... it is not defined. We need a smooth curve so that we can find its derivative. It's necessary for backpropagation. If your loss function is not differentiable, you cannot perform backpropagation.
+
+So, mostly the loss functions we use... MSE... Mean Squared Error. Or... MAE... Mean Absolute Error. What is the difference between them? Square... Mod... Formula... In terms of nature... In terms of penalty? Outliers... Outliers. If you have outliers in your data, which one should you use? MAE. Why? Because MSE has a square. If your error is large... taking its square will make the penalty even larger. So you can say, if you have a dataset where you think there are outliers... or noisy data... in that case, MAE is a better choice. But if you have data that is smooth... simple... normalized... in that case, MSE is better. Why? Because in MSE, you get a curve... a quadratic curve. It is easier to optimize. In MAE, you get a linear line. It's like... constant gradient. In MSE, when you are close to the target, your gradient becomes smaller. In MAE, whether you are far or near, the gradient is the same. So, convergence is difficult in MAE compared to MSE. So, these are the two major losses we use for regression.
+
+Instructor: Down-sampling, up-sampling, augmentation... none of these. There is a technique we call "stratified." When you attach the "stratified" keyword to sampling, what it does is extract data based on labels in the same ratio for your training and testing sets. When you have a problem like class imbalance or limited labeled data, you might think, "This isn't allowed, that isn't allowed." In such cases, there is a high chance that if you train, it might be heavily biased toward the major class. If your luck is good, the minor class might show up in training or testing. But if the test set ends up composed entirely of the major class, you might get 98% accuracy, but we have failed the objective.(Student question about preprocessing)Instructor: No, you don't do that. Where you train the data... inside the train_test_split function, you write stratify and give it the labels. It handles all that work itself. You don't need to do it specially. Stratify is a helper function, you can use it.Instructor: Okay, now we start our code properly. This is the first topic. The first classifier is based on probability. You likely know probability; maybe you've studied it more recently than I have.For example, you have a space... Probability of Event A is represented as the cardinality of A over the Universe's cardinality. This tells you the probability of a specific event occurring within a sample space. The same goes for some other event B.Instructor: Can you tell me... for example, I have a problem where I have a die. Basically, if I roll a die, what is the probability that the answer is 2?Students: 1/6.Instructor: The space is {1, 2, 3, 4, 5, 6}, and 2 can appear only once. So, 1/6 is its probability.Instructor: What if I tell you that now you have two dice, D1 and D2? And I say that when you roll D1 and D2, the sum should be 4. What is the probability of this event?Students: (Discussion) 3/36... 1/12.Instructor: For two dice, the total sample space is 36. How can the sum be 4? You can have (1, 3), (2, 2), or (3, 1). Can (2, 2) appear twice? No, consider it once. So, (1, 3), (3, 1), and (2, 2). There are 3 possibilities. So, 3/36, which is 1/12.Instructor: Now, consider a Future Space (conditional). We studied sampling rules earlier—IID (Identical and Independent). If we have duplicates, the results might not be accurate. But here, (2,2) appears... okay.Instructor: What if I ask: Probability that D1 + D2 = 4, given that D1 is equal to 1? Now what is the answer?Students: (Discussion regarding sample space reduction)Instructor: When you have a joint probability... looking at it with uncertainty is very high. Your universe is very large. In that context, when you look at D1 + D2, these are two events forming. You don't know what will happen on D1 or D2. But if we know that 1 has already appeared on D1... then for the sum to be 4, what must appear on D2?Students: 3.Instructor: So, if D1 is fixed at 1, the sample space for D2 is still {1, 2, 3, 4, 5, 6}. For the sum to be 4, we need a 3. That is one specific outcome out of the six possibilities for D2. So the answer is 1/6. We can say that our sample space, or our "universe," was reduced. This concept—this Bayesian thinking—is how we approach Machine Learning here.Instructor: Let’s look at this via a Venn diagram. For example, I have a sample space. I have an event A. Event A represents all people diagnosed with a confirmed disease. Let's say it's a dangerous disease like diabetes, cancer, or a heart condition. We have another event, B. B is the test for that disease.Now, we have an intersection. This intersection... we can call it "True Positive." You also have cases where the test is positive but the disease is not there (False Positive). You have cases where the disease is there but the test is negative (False Negative). And the remaining space is True Negative.Instructor: We can treat this as a joint probability. What if: Probability of (Disease A) given (Test B is Positive)?Usually, in real life, it is hard to calculate this directly because of the uncertainty. But, if we know that a patient has the disease (Event A is true), it is easier to calculate the probability that the test will be positive (Sensitivity).Instructor: This leads us to Bayes' Theorem.$P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$Here:$P(A|B)$ is the Posterior.$P(B|A)$ is the Likelihood.$P(A)$ is the Prior.$P(B)$ is the Evidence.Instructor: This probability helps us answer real-life questions where uncertainty is high. By knowing the Prior (how common the disease is) and the Likelihood (how accurate the test is given the disease), we can calculate the Posterior (chance of disease given a positive test).Instructor: Let's formulate this.$P(A \cap B) = P(A|B) \cdot P(B)$And also:$P(A \cap B) = P(B|A) \cdot P(A)$From these two equations, we can conclude the formula for Bayes' Theorem.So, if you want to know if a test result is positive, does the person actually have the disease? We calculate this as:Probability of (Disease given Test Positive) = [ Probability of (Test Positive given Disease) * Probability of (Disease) ] / Probability of (Test Positive).Instructor: This makes sense to us because finding the probability of the test being positive when the disease is known is standard (lab specs). But the reverse—diagnosing based on a test—is what we need the theorem for.Instructor: (Setting up a word problem about students)Let's say we have a class. 1000 students.There are different departments: CS, Business, and Data Science.Let's say Data Science has 100 students, and 75% are shy.CS has 300 students, and 50% are shy.Business has 200 students, and 15% are shy.If you pick a student at random and they turn out to be shy, what is the probability that they belong to the Data Science department?This is a classic application. We have the "Likelihoods" (percentage of shy students per department) and the "Priors" (number of students in each department). We can use the formula to find the "Posterior."
+
+CLASSIFICATION 
+Text Classification 
+Is this spam? 
+Subject: Important notice! 
+From: Stanford University <newsforum@stanford.edu> 
+Date: October 28, 2011 12:34:16 PM PDT 
+To: undisclosed-recipients:; 
+Greats News! 
+You can now access the latest news by using the link below to login to Stanford University News Forum. 
+http://www.123contactform.com/contact-form-Stanford New1-236335.html 
+Click on the above link to login for more information about this new exciting forum. You can also copy the above link to your browser bar and login for more information 
+about the new services. 
+Stanford University. All Rights Reserved. 
+Is this spam? 
+Subject: [Important notice! 
+From: Stanford University <newsforum@stanford.edu> 
+Date: October 28, 2011 12:34:16 PM PDT 
+To: undisclosed-recipients:; 
+Greats News! 
+You can now access the latest news by using the link below to login to Stanford University News Forum. 
+http://www.123contactform.com/contact-form-Stanford New1-236335.html 
+Click on the above link to login for more information about this new exciting forum You can also copy the above link to your browser bar and login for more information 
+about the new services. 
+Stanford University. All Rights Reserved. 
+Who wrote which Federalist papers? 
+1787-8: anonymous essays try to convince New York to ratify U.S Constitution: Jay, Madison, Hamilton. 
+Authorship of 12 of the letters in dispute 
+1963: solved by Mosteller and Wallace using Bayesian methods 
+For Mr Church from her sister 
+Glogabeth. 
+2 
+Hamilton 
+FEDERALIST: 
+A COLLECTION 
+ESS 
+OT 
+A Y S, 
+WRITTEN IN FAVOUR OF THE 
+NEW CONSTITUTION, 
+AS AGREED UPON BY THE FEDERAL CONVENTION, SEPTEMBER 17, 1787. 
+IN TWO VOLUMES. 
+VOL. I 
+NEW-YORK: 
+PRINTED AND SOLD BY J. AND A. MLEAN, 
+No. 4, HANOVER-SQUARE 
+M. DOGLXXXVILL 
+Male or female author? 
+1. By 1925 present-day Vietnam was divided into three parts under French colonial rule. The southern region embracing Saigon and the Mekong delta was the colony of Cochin-China; the central area with its imperial capital at Hue was the protectorate of Annam... 
+2. Clara never failed to be astonished by the 
+extraordinary felicity of her own name. She found it hard to trust herself to the mercy of fate, which had managed over the years to convert her 
+greatest shame into one of her greatest assets... 
+S. Argamon, M. Koppel, J. Fine, A. R. Shimoni, 2003. "Gender, Genre, and Writing Style in Formal Written Texts," Text, volume 23, number 3, pp. 321-346 
+Male or female author? 
+More determiners: Male 
+1. By 1925 present-day Vietnam was divided into three parts under French colonial rule. The southern region embracing Saigon and the Mekong delta was the colony of Cochin-China; the central area with its imperial capital at Hue was the protectorate of Annam... 
+2. Clara never failed to be astonished by the 
+extraordinary felicity of her own name. She found it hard to trust herself to the mercy of fate, which had managed over the years to convert her 
+greatest shame into one of her greatest assets... 
+S. Argamon, M. Koppel, J. Fine, A. R. Shimoni, 2003. "Gender, Genre, and Writing Style in Formal Written Texts," Text, volume 23, number 3, nn 
+321-346 
+More pronouns: Female 
+Positive or negative movie review? 
+• ...zany characters and richly applied satire, and some great plot twists 
+It was pathetic. The worst part about it was the boxing scenes... 
+...awesome caramel sauce and sweet toasty almonds. I love this place! 
+...awful pizza and ridiculously overpriced... 
+What is the subject of this article? 
+MEDLINE Article 
+Brain 
+Cognition 
+Syntactic frame and verb bias in spravia: Pauctility judgmenta 
+al undergoes-subject sentences. 
+? 
+MeSH Subject Category Hierarchy 
+Antogonists and Inhibitors 
+• Blood Supply 
+• 
+Chemistry 
+Drug Therapy 
+Embryology 
+• Epidemiology 
+Text Classification 
+• Assigning subject categories, topics, or genres 
+• 
+Spam detection 
+• 
+Authorship identification 
+Age/gender identification 
+• 
+• 
+Language Identification 
+Sentiment analysis 
+C = { 
+Novel 
+Short story 
+Romance 
+Science fiction 
+Fantasy 
+Mystery / Detective 
+Horror 
+Thriller 
+Historical fiction 
+Adventure 
+} 
+Classification Methods: Hand-coded rules 
+• 
+Rules based on combinations of words or other 
+features 
+spam: black-list-address OR ("dollars" AND "have been selected") 
+Accuracy can be high 
+- If rules carefully refined by expert 
+But building and maintaining these rules is 
+expensive 
+Classification Methods: Supervised Machine Learning 
+• 
+• 
+Input: 
+- a document d 
+a fixed set of classes C = {C1, C2,..., C,} 
+A training set of m hand-labeled documents (d1,C1),...., (dm, cm) 
+Output: 
+a learned classifier y: d→ c 
+d1 
+तर 
+الله 
+• C1 
+WI, 
+w2 
+W2) 
+wh 
+:c2 
+lebeded 
+deta 
+GenAI / LLMs Learning Features more than just decision boundaries 
+Naïve Bayes (1) 
+Naïve Bayes Intuition 
+• Classification method based on Bayes rule 
+• A simple (naïve) assumption about how the features interact 
+• Relies on a very simple representation of document 
+- Bag of words 
+* Stemming & Lemmatization 
+Term Frequency (TF) 
+Formalizing the Naïve Bayes 
+Classifier 
+Given Document "d" we have to predict its class ? 
+Naïve Bayes Classifier (I) 
+CMAP = argmax P(c|d) 
+MAP is "maximum a posteriori" = most likely class 
+Maximum a posteriori class 
+CEC C={c1, c2,c3...,cn} 
+= argmax 
+сес 
+P(d|c)P(c) 
+P(d) 
+d = {......, fantastic, .....} 
+Bayes Rule 
+P(d) will be same for all the class so we can ignore it 
+returns 'positive' 
+= argmax P(dc)P(c) 
+C = {positive, negative} 
+P('fantastic' | postive) 
+P('fantastic' | negative) 
+CEC 
+Likelihood 
+Prior 
+Dropping the denominator 
+Naïve Bayes Classifier (II) 
+d 
+fizf2s 
+CMAP = argmax P(d|c)P(c) 
+CEC 
+f 29 
+1537... 
+fr 
+Document d 
+represented as 
+argmax P(ƒ1, ƒ 2,···, fc)P(c) features f-f 
+CEC 
+• 
+Naïve Bayes Classifier (IV) 
+CMAP = argmax P(fi, f2,..., fn|c)P(c) 
+сес 
+Hard to compute directly 
+Every possible set of words and positions 
+• Could only be estimated if a very, very large number 
+of training examples was available. 
+• Naïve Bayes makes two simplifying assumptions 
+Multinomial Naïve Bayes Independence 
+Assumptions 
+• 
+P(ƒ1, ƒ2, ..., ƒn │c) 
+Bag of Words assumption: Assume position doesn't 
+matter 
+Conditional Independence (aka Naïve Bayes 
+assumption): Assume the feature probabilities P(x;|C;) are independent given the class c. 
+P(f1,···, ƒn │c) = P(fi│c) •P(f1⁄2 │c) • P(ƒ3 │c) •...• P(fn │c) 
+That's why we call Naive as a Log Linear Classifier.. 
+Naïve Bayes: Learning 
+Learning the Multinomial Naïve Bayes Model 
+First attempt: maximum likelihood estimates 
+- simply use the frequencies in the data 
+fraction of documents in each class 
+No 
+P(c) = 
+N 
+doc 
+C = 
+{P,N} 
+Ndoc = 100 
+30 
+Np=70 N~:3 
+- Assume a feature is just the existence of a word in the P(9)=70 
+document's bag of words 
+the fraction of times the word w; appears in all 
+documents of topic c 
+100 
+=0·70 
+P(fantastic IP) 
+730 
+P^(w; | c) = 
+count(w;,c) 
+Σcount(w, c) 
+WEV 
+30 Tobo 
+V consists of the union of all the word types in all classes, 
+not just the words in one class c. 
+Sall word of writ P 
+بحث 
+Parameter estimation 
+count(w;,c) 
+Î(w; | c) = 
+fraction of times word w; appears among 
+Σcount(w,c) all words in documents of topic c 
+WEV 
+Create mega-document for topic c by concatenating all docs in this topic 
+Use frequency of w in mega-document 
+Di : {w, w.... 
+• wz... wn}_ 
+D2 = {wi, w2 
+D3.. {wi 
+22 
+०५: { 
+1 
+" 
+-> P 
+won 3->N 
+3_ 
+أدب أن 
+一了 
+<}->P 
+аз 
+D1.03.D4 
+D2-N 
+Mage Dxx fo {P&N} 
+Problem with Maximum Likelihood 
+• What if we have seen no training documents with the word fantastic in the topic positive? 
+P^("fantastic" [positive) 
+count("fantastic", positive) 
+= 
+0 
+count(w, positive) 
+WEV 
+• Zero probabilities cannot be conditioned away, no matter the other evidence! 
+CMAP = argmax, Ê(c)][‚Â(x; [c) 
+о 
+need some method to resolve 
+Any idea??? 
+Laplace (add-1) smoothing for Naïve 
+Bayes 
+count(w,c) 
+Î(w; | c) = 
+Σ(count(w,c)) 
+P(w;|c)= 
+WEV 
+count(w1, c)+1 
+Σ(count(w,c)+1) 
+WEV 
+count(w;,c) +1 Σcount(w,c) 
+count(w, c) + V 
+کے 
+W} 
+wev 
+1 
+4 11 
+WEV 
+length of vocataly 
+Unknown words 
+• 
+Words that occur in our test data but not in any training document in any class 
+Ignore such words i.e. remove them from the test document and not include any probability for them at all. 
+Some systems also ignore stop words 
+very frequent words like the and a. 
+- sort the vocabulary by frequency in the training set, and define 
+the top 10-100 entries as stop words 
+- or, use a pre-defined stop word list 
+every instance of these stop words are simply removed from both training and test documents as if they had never occurred 
+However, using a stop word list doesn't improve performance 
+Log Linear Approach for Inference P(c|d) = xi*wi + b 
+Example: Sentiment analysis with add-1 smoothing 
+Cat 
+Documents 
+Training 
+— 
+just plain boring 
+entirely predictable and lacks energy 
+no surprises and very few laughs 
+the most fun film of the summer 
+predictable with no fun 
+Prior: Nc/ Ndoc 
+P(-) = 
+33 
+P(+) = 
+→ unknown word 
++ 
+very powerful 
++ 
+Test 
+? 
+Dropping "with" as an unknown word 
+1+1 
+P(“predictable”|+) = 
+0+1 
+9+20 
+1+1 
+14+20 
+0+1 
+P("no" +) = 
+9+20 
+= 
+0+1 
+14+20 
+1+1 
+P("fun"+) = 
+9+20 
+= 
+P("predictable"-) 
+P("no") = 
+P("fun"-) 
+P(-)P(S|-) 
+P(+)P(S|+) 
+= 
+35215 
+X 
+X 
+14+20 
+2×2×1 343 
+1 × 1 × 2 
+293 
+- 
+6.1 × 10-5 
+= 3.2 × 10-5 
+The test sentence belongs to class negative. 
+25 
+Vocabulary 1. just 2. plain 3. boring 4. entirely 
+5. predictable 6. and 7. lacks 8. energy 9. no 
+10.surprises 11. very 
+12. few 
+13. laughs 14. powerful 
+15. the 
+16. most 
+17. fun 
+18. film 
+19. of 
+20. summer 
+Class 
+Dan Jurafsky 
+P(c) = N 
+Doc Words 
+N 
+Training 1 Chinese Beijing Chinese 
+C 
+Ê(w|c) = count(w,c)+1 
+2 
+Chinese Chinese Shanghai 
+C 
+count(c)+|V| 
+3 
+Chinese Macao 
+C 
+4 
+Tokyo Japan Chinese 
+j 
+Test 
+5 
+Chinese Chinese Chinese Tokyo 
+? 
+Japan 
+Dan Jurafsky 
+P(c)= 
+N 
+Training 
+1 
+Chinese Beijing Chinese 
+N 
+2 
+Chinese Chinese Shanghai 
+U U 
+C 
+C 
+3 
+Chinese Macao 
+с 
+P(w|c) = count(w,c)+1 
+4 
+Tokyo Japan Chinese 
+j 
+count(c)+|V| 
+Test 
+5 
+Chinese Chinese Chinese Tokyo Japan 
+? 
+Priors: 
+P(c)= 3 
+4_1 
+P(j)= 
+4 
+Choosing a class: 
+P(c|d5) ∞ 3/4* (3/7)3 * 1/14 * 1/14 
+≈ 0.0003 
+Conditional Probabilities: 
+P(Chinese | c) = 
+(5+1)/ (8+6) = 6/14 = 3/7 
+P(Tokyo c) 
+= 
+(0+1)/ (8+6) = 1/14 
+P(j|d5) 
+х 
+1/4 * (2/9)3 * 2/9 * 2/9 
+P(Japan c) 
+= 
+(0+1)/(8+6) = 1/14 
+≈ 0.0001 
+P(Chinese (j) = 
+= 
+(1+1)/ (3+6) = 2/9 
+P(Tokyo❘j) 
+(1+1)/ (3+6)= 2/9 
+45 
+P(Japan j) 
+(1+1)/ (3+6) = 2/9 
+Sentiment Analysis: Optimization 
+• 
+Whether a word occurs or not seems to matter more than its frequency 
+Improves performance by clipping word counts in each document at 1 
+- called binary multinomial naive Bayes or binary NB 
+- for each document remove all duplicate words before 
+concatenating them into the single big document 
+the word great has a count of 2 even for Binary NB, because it appears in multiple documents. 
+Sentiment Analysis: Optimization 
+NB 
+Counts 
+Binary Counts 
+Four original documents: 
++ 
++ 
+- it was pathetic the worst part was the 
+and 
+2 
+0 
+1 
+0 
+— 
+- 
+boxing scenes 
+no plot twists or great scenes 
++ and satire and great plot twists 
++ great scenes great film 
+After per-document binarization: 
+it was pathetic the worst part boxing 
+scenes 
+- no plot twists or great scenes 
+boxing 
+0 
+1 0 1 
+film 
+1 0 1 
+great 
+3 
+1 
+120 
+0 
+1 
+it 
+0 
+1 0 1 
+no 
+0 
+1 
+0 
+1 
+or 
+0 
+1 
+O 
+1 
+part 
+0 
+1 
+0 
+1 
+pathetic 0 
+1 
+0 
+1 
+plot 
+1 
+1 
+1 
+1 
+satire 
+1 
+0 
+1 
+0 
+scenes 
+1 
++ and satire great plot twists 
+the 
+0 
++ great scenes film 
+twists 
+1 
+was 
+0 
+2212 
+1 
+2 
+0 
+1 
+1 
+0 
+1 
+worst 
+0 
+1 
+0 
+1 
+Sentiment Analysis: Optimization 
+when a negation is present, the sentiment of the subsequent words may be reversed or altered. 
+Negation 
+- I really like this movie (positive) 
+- I didn't like this movie (negative) 
+Prepend the prefix NOT to every word after a token of logical negation (n't, not, no, never) until the next punctuation mark 
+didn't like this movie, but I 
+didn't NOT_like NOT this NOT_movie, but I 
+'words' like NOT_like, NOT_recommend will occur more often in negative documents, while words like NOT_bored, 
+NOT_dismiss will acquire positive associations 
+Sentiment Analysis: Insufficient data 
+Insufficient labeled training data to train accurate naive Bayes classifiers Sentiment lexicons 
+Extract positive and negative word features from sentiment lexicons 
+• lists of words that are pre-annotated with positive or negative sentiment 
+MPQA subjectivity lexicon 
+6885 words, 2718 positive and 4912 negative 
++ : admirable, beautiful, confident, dazzling, ecstatic, favor, glee, great 
+- 
+- : awful, bad, bias, catastrophe, cheat, deny, envious, foul, harsh, hate 
+If we do not have a lot of training data, add features: 
+'this word occurs in the positive lexicon' 
+- 'this word occurs in the negative lexicon' 
+And treat all instances of words in the lexicon as counts for that one feature, instead of counting each word separately 
+If we have lots of training data, and if the test data matches the training data, using just two features won't work as well as using all the words 
+SPAM vs HAM: Optimization 
+Rather than using all the words as individual features: 
+1.Predefined Sets of Likely Features: 
+• Instead of using all words as individual features, predefined sets of words or phrases are identified as features. 
+These sets are likely to appear frequently in either spam or ham emails. This approach reduces the dimensionality of the feature space and focuses on relevant linguistic patterns. 
+2.Including Non-Purely Linguistic Features: 
+• 
+Features are not limited to linguistic elements alone. 
+They may include non-linguistic aspects of emails, such as their structure, formatting, or metadata. 
+For instance, features like HTML text-to-image ratio or the email's routing path can be considered. 
+SPAM vs HAM: Optimization 
+3. Examples from SpamAssassin: 
+Spam detection systems like SpamAssassin utilize predefined features such as: 
+Specific phrases like "one hundred percent guaranteed" or 
+"millions of dollars" (identified using regular expressions). 
+Non-linguistic features like HTML text-to-image ratio, which can indicate spammy content. 
+Consideration of the email's routing path, which provides insights into its origin and authenticity. 
+4. Other Features: 
+Additional features may include characteristics like: 
+Email subject lines written in all capital letters, often indicative of 
+spam. 
+Presence of urgent phrases like "urgent reply" in the subject line. Mention of online pharmaceuticals in the email subject line or body. 
+Structural irregularities in HTML, such as unbalanced "head" tags. Claims offering removal from mailing lists, a common tactic in spam emails. 
+Naïve Bayes: Relationship to 
+Language Modeling 
+Generative Model for Multinomial Naïve Bayes 
+c=China 
+X1=Shanghai 
+X2-and 
+X3=Shenzhen 
+X1-issue 
+Xs-bonds 
+Naïve Bayes and Language Modeling 
+• 
+• 
+• 
+Naïve bayes classifiers can use any sort of feature 
+URL, email address, dictionaries, network features 
+But if, as in the previous slides 
+We use only word features 
+- we use all of the words in the text (not a subset) 
+Then 
+Naïve bayes has an important similarity to language modeling. 
+Each class = a unigram language model 
+• 
+• 
+Assigning each word: P(word | c) 
+Assigning each sentence: P(sc) = P(wic) 
+II 
+iЄpositions 
+Class pos 
+0.1 
+| 
+| 
+love this 
+fun film 
+0.1 
+love 
+0.01 
+this 
+0.1 0.1 .05 
+0.01 0.1 
+0.05 
+fun 
+0.1 
+film 
+... 
+P(s | pos) = 0.0000005 
+Naïve Bayes as a Language Modei 
+• Which class assigns the higher probability 
+to s? 
+Model pos 
+Model neg 
+0.1 
+0.2 
+| 
+love this 
+fun 
+film 
+0.1 
+love 
+0.001 love 
+0.01 
+this 
+0.01 
+this 
+0.1 
+0.1 
+0.01 
+0.05 0.1 
+0.2 
+0.001 
+0.01 
+0.005 0.1 
+0.05 
+fun 
+0.005 fun 
+0.1 
+film 
+0.1 
+film 
+P(s pos) > P(s|neg) 
+Multinomial Naïve Bayes: Another Worked Example 
+Doc Words 
+Class 
+P(c)= 
+N 
+Training 
+1 
+Chinese Beijing Chinese 
+C 
+N 
+2 
+Chinese Chinese Shanghai 
+C 
+3 
+Chinese Macao 
+C 
+Ê(w|c) = count(w,c)+1 
+4 
+Tokyo Japan Chinese 
+j 
+count(c)+|V| 
+Test 
+5 
+Chinese Chinese Chinese Tokyo Japan 
+? 
+Priors: 
+P(c)= 
+3 
+4 
+P(j)= 
+1 
+4 
+Conditional Probabilities: 
+P(Chinese | c) = (5+1) / (8+6) = 6/14 = 3/7 
+P(Tokyo|c) 
+= 
+(0+1)/(8+6)= 1/14 
+P(Japan | c) P(Chinese) = 
+= 
+(0+1)/(8+6)= 1/14 
+(1+1)/ (3+6) = 2/9 
+P(Tokyo |j) P(Japan ❘j) 
+= 
+(1+1)/ (3+6) = 2/9 
+= 
+(1+1)/ (3+6)=2/9 
+Choosing a class: 
+P(c|d5) 
+∞ 3/4 * (3/7)3 * 1/14 * 1/14 
+≈ 0.0003 
+P(j|d5) 
+∞ 1/4*(2/9)3 * 2/9 * 2/9 
+≈ 0.0001 
+Naïve Bayes in Spam Filtering 
+SpamAssassin Features: 
+― 
+― 
+— 
+― 
+― 
+Online Pharmacy 
+Mentions millions of (dollar) ((dollar) NN, NNN,NNN.NN) 
+Phrase: impress ... girl 
+From: starts with many numbers 
+Subject is all capitals 
+HTML has a low ratio of text to image area 
+One hundred percent guaranteed 
+Claims you can be removed from the list 
+'Prestigious Non-Accredited Universities' 
+http://spamassassin.apache.org/tests 3 3 x.html 
+Summary: Naive Bayes is Not So Naive 
+• 
+Very Fast, low storage requirements 
+Very good in domains with many equally important features: It excels in scenarios where multiple features are equally relevant, as it doesn't 
+prioritize one feature over another. 
+Optimal if the independence assumptions hold: 
+If assumed independence is correct, then it is the Bayes Optimal Classifier for problem 
+A good dependable baseline for text classification 
+― 
+But we will see other classifiers that give better accuracy
+
+Log-Linear Concept in Naive Bayes (With Derivation and Solved Example) 
+1. What does Log-Linear mean? 
+A model is called log-linear if the logarithm of its probability (or score) can be written as a linear function of the input features. 
+2. Naive Bayes Decision Rule 
+For class y and features x = (x1, x2, ..., xd): 
+P(y|x) ∝ P(y) Π_i P(x_i | y) 
+3. Taking Logarithm (Derivation) 
+Taking log on both sides: 
+log P(y|x) = log P(y) + Σ_i log P(x_i | y) 
+For count-based features: 
+log P(y|x) = log P(y) + Σ_i x_i log P(word_i | y) 
+This can be written as: w■x + b, which is linear in x. 
+4. Solved Example: Spam Classification 
+Classes: Spam (S), Not Spam (N) 
+Features: free, win 
+Given Probabilities: 
+1 P(S)=0.4, P(N)=0.6 
+2 P(free|S)=0.6, P(win|S)=0.3 
+3 P(free|N)=0.1, P(win|N)=0.05 
+New Email: 'free win win' → x = (1,2) 
+Original Naive Bayes: 
+P(S|x) ∝ 0.4 × 0.6 × 0.3² = 0.0216 
+P(N|x) ∝ 0.6 × 0.1 × 0.05² = 0.00015 
+Prediction: Spam 
+Log-Linear Form: 
+log P(S|x) = log(0.4) + 1·log(0.6) + 2·log(0.3) = -3.835 
+log P(N|x) = log(0.6) + 1·log(0.1) + 2·log(0.05) = -8.806 
+Since -3.835 > -8.806 → Spam 
+5. Why Log-Linear? 
+Because after taking logs, Naive Bayes becomes a linear function of features: w■x + b. Hence, Naive Bayes is a log-linear classifier.
+
+Types of Naive Bayes 28 January 2026 11:54
+
+Bernoulli Naive Bayes
+Description: For binary or boolean features.
+
+EXAMPLE | HAS 4 LEGS? | CAN FLY? | LAY EGGS? | | :---: | :---: | :---: | | 1 | 0 | 1 | | 0 | 1 | 1 | | 0 | 1 | 1 | | 0 | 1 | 0 | | 0 | 0 | 1 |
+
+Multinomial Naive Bayes
+Description: For discrete features (like word count).
+
+EXAMPLE | WORD the | WORD but | WORD is | | :---: | :---: | :---: | | 4 | 1 | 2 | | 3 | 0 | 0 | | 3 | 0 | 0 | | 1 | 0 | 4 | | 0 | 2 | 3 |
+
+Gaussian Naive Bayes
+Description: For continuous, real-valued attributes.
+
+EXAMPLE | AGE | WEIGHT | HEIGHT | | :---: | :---: | :---: | | 17.4 | 56.5 | 145.2 | | 25.4 | 71.2 | 170.4 | | 18.8 | 70.3 | 164.5 | | 21.1 | 51.2 | 140.5 | | 20.9 | 81.5 | 182.2 |
+
+Summary: Bernoulli NB assumes binary data, Multinomial NB works with discrete counts, and Gaussian NB handles continuous data assuming a normal distribution.

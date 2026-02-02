@@ -1,0 +1,157 @@
+Page 1: The Manager as Decision Maker
+Header Info
+
+[cite_start]
+
+Date: Wed, 28 January 2026    
+
+[cite_start]
+
+Topic: (Chp#2) The Manager as Decision Maker    
+
+Decision Making Styles
+
+[cite_start]
+
+Linear Thinkers: Use data and logic.   
+
+[cite_start]
+
+Non-linear Thinkers: Use intuition, emotions, and experiences.   
+
+[cite_start]Most managers use a mix of both styles.   
+
+[cite_start]
+
+Note on Intuition: It is useful in uncertainty or under time pressure, but can be biased if left unchecked.   
+
+Group Decision Making
+
+Advantages:
+
+[cite_start]More information and perspectives.   
+
+[cite_start]Higher acceptance of decisions.   
+
+Disadvantages:
+
+[cite_start]Time-consuming.   
+
+[cite_start]Risk of groupthink.   
+
+Design Thinking
+
+[cite_start]
+
+Definition: A human-centered, creative approach to solve problems.   
+
+[cite_start]
+
+Focus: It focuses on user needs, UX (User Experience), and developing innovative solutions.   
+
+[cite_start]
+
+Benefit: Reduces the risk of product failure.   
+
+Key Characteristics:
+
+[cite_start]Empathy (understanding)    
+
+[cite_start]Problem definition    
+
+[cite_start]Idea generation    
+
+[cite_start]Prototyping    
+
+[cite_start]Testing    
+
+Big Data
+
+[cite_start]
+
+Goal: Improve decision quality using vast datasets & analytics (structured and unstructured).   
+
+How it improves decisions:
+
+[cite_start]Identifies trends.   
+
+[cite_start]Predicts customer behavior.   
+
+[cite_start]Reduces uncertainty.   
+
+[cite_start]Improves accuracy.   
+
+[cite_start]
+
+Sources: Customer transactions, social media, mobile apps, and market data.   
+
+Page 2: Limitations, Biases, and Ethics
+Big Data Limitations
+
+[cite_start]Data privacy concerns.   
+
+[cite_start]Poor quality data leads to poor decisions.   
+
+[cite_start]Requires skilled analysts.   
+
+[cite_start]Data needs to be up to date.   
+
+Common Biases & Errors in Decision Making
+
+[cite_start]
+
+Overconfidence bias: Unrealistic positive expectations or beliefs.   
+
+[cite_start]
+
+Immediate gratification bias: Focus on short-term gain/rewards.   
+
+[cite_start]
+
+Anchoring bias: Relying too heavily on the first piece of info, failing to adjust when new info comes in.   
+
+[cite_start]
+
+Selective Perception bias: Interpreting info in a way that aligns with existing beliefs, filtering what does not fit.   
+
+[cite_start]
+
+Confirmation bias: Searching for or giving weight to info that confirms your pre-conception and rejecting contradictory info.   
+
+[cite_start]
+
+Framing bias: Being influenced by the way info is presented, highlighting and downplaying various aspects.   
+
+[cite_start]
+
+Availability bias: Over-emphasizing info that is vivid, recent, or memorable rather than focusing on reliability/accuracy.   
+
+[cite_start]
+
+Representation bias: Judging the likelihood of an event based on stereotypes rather than critical/statistical data.   
+
+[cite_start]
+
+Randomness bias: Finding patterns that don't exist.   
+
+[cite_start]
+
+Sunk Cost Error: Letting past investments influence continuing something even if the cost is not justified.   
+
+[cite_start]
+
+Self-serving Bias: Taking credit for success but blaming external factors for failures.   
+
+[cite_start]
+
+Hindsight Bias: Believing that an outcome is known after it occurred, that it could have been predicted in advance, and overestimating one's ability to foresee.   
+
+Ethics in Decision Making
+
+[cite_start]Ethical decisions align with company values and societal norms.   
+
+[cite_start]Consider stakeholders, not just profits (employees, customers, directors, etc.).   
+
+[cite_start]
+
+Tools: Code of Ethics, ethical training.

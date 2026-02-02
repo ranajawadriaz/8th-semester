@@ -1,0 +1,922 @@
+================================================================================
+🎨 LECTURE 3 - CSS (Cascading Style Sheets) - EASY VERSION 🎨
+================================================================================
+                    ⭐ YOUR EXAM CHEAT SHEET ⭐
+================================================================================
+
+Hey! This is the EASY version of CSS.
+CSS makes things PRETTY! Let's understand it step by step. 💪
+
+================================================================================
+📌 GRADING INFO (For your reference)
+================================================================================
+
+   Assignments: 8%
+   Project: 10% (5% each phase)
+   Quiz: 9%
+   Class Participation: 3%
+   Midterms: 30%
+   Final Exam: 40%
+
+================================================================================
+📌 SECTION 1: WHAT IS CSS?
+================================================================================
+
+🔹 CSS = Cascading Style Sheets
+
+   - CSS is for STYLING (colors, fonts, spacing, layout)
+   - HTML creates STRUCTURE, CSS makes it BEAUTIFUL
+   - "Cascading" means styles can OVERRIDE each other (more on this later)
+
+🔹 ANALOGY:
+   ┌────────────────────────────────────────────────────────────────┐
+   │  HTML = The skeleton/bones of a body                          │
+   │  CSS = The skin, clothes, makeup - how it LOOKS               │
+   │                                                                │
+   │  HTML = A plain Word document                                  │
+   │  CSS = Formatting, colors, fonts in that document             │
+   └────────────────────────────────────────────────────────────────┘
+
+🔹 3 WAYS TO ADD CSS:
+
+   1. INLINE CSS (in HTML tag itself):
+      <h1 style="color: red;">Hello</h1>
+   
+   2. INTERNAL CSS (in <head> section):
+      <head>
+        <style>
+          h1 { color: red; }
+        </style>
+      </head>
+   
+   3. EXTERNAL CSS (separate .css file):
+      <head>
+        <link rel="stylesheet" href="styles.css">
+      </head>
+
+================================================================================
+📌 SECTION 2: CSS SELECTORS - HOW TO TARGET ELEMENTS
+================================================================================
+
+🔹 WHAT ARE SELECTORS?
+   - Selectors CHOOSE which elements to style
+   - Like pointing at something and saying "make THAT one red"
+
+--------------------------------------------------------------------------------
+🔹 SELECTOR TYPE 1: ELEMENT SELECTOR
+--------------------------------------------------------------------------------
+
+   Targets ALL elements of that type:
+
+   /* This makes ALL paragraphs red and centered */
+   p {
+     text-align: center;
+     color: red;
+   }
+
+   EXAMPLE IN HTML:
+   <p>I'm red and centered!</p>
+   <p>Me too!</p>
+   <p>And me!</p>
+   <!-- ALL p tags get the style -->
+
+--------------------------------------------------------------------------------
+🔹 SELECTOR TYPE 2: ID SELECTOR (uses #)
+--------------------------------------------------------------------------------
+
+   Targets ONE SPECIFIC element by its ID:
+   ⚠️ IDs should be UNIQUE (only one element with that ID!)
+
+   /* The # means "look for ID" */
+   #para1 {
+     text-align: center;
+     color: red;
+   }
+
+   EXAMPLE IN HTML:
+   <p id="para1">I'm the special one!</p>  <!-- Only this gets styled -->
+   <p>I'm normal</p>
+
+--------------------------------------------------------------------------------
+🔹 SELECTOR TYPE 3: CLASS SELECTOR (uses .)
+--------------------------------------------------------------------------------
+
+   Targets ALL elements with that class:
+   ✅ Classes can be reused on multiple elements!
+
+   /* The . means "look for class" */
+   .highlight {
+     background-color: yellow;
+   }
+
+   EXAMPLE IN HTML:
+   <p class="highlight">I'm highlighted!</p>    <!-- Gets styled -->
+   <p>I'm not</p>
+   <p class="highlight">Me too!</p>             <!-- Gets styled -->
+   <h2 class="highlight">Even headings!</h2>    <!-- Gets styled -->
+
+   ⭐ ONE ELEMENT CAN HAVE MULTIPLE CLASSES:
+   <p class="center large">I have TWO classes!</p>
+   
+   .center { text-align: center; }
+   .large { font-size: 24px; }
+   <!-- This paragraph gets BOTH styles! -->
+
+--------------------------------------------------------------------------------
+🔹 SELECTOR TYPE 4: UNIVERSAL SELECTOR (uses *)
+--------------------------------------------------------------------------------
+
+   Targets EVERYTHING on the page:
+
+   /* * means "select ALL elements" */
+   * {
+     text-align: center;
+     color: blue;
+   }
+
+   <!-- Every single element becomes centered and blue! -->
+
+--------------------------------------------------------------------------------
+🔹 SELECTOR TYPE 5: GROUPING SELECTOR (uses ,)
+--------------------------------------------------------------------------------
+
+   Apply same style to MULTIPLE selectors at once:
+
+   /* Instead of writing same style 3 times... */
+   h1, h2, p {
+     text-align: center;
+     color: red;
+   }
+
+   <!-- h1, h2, AND p all get these styles -->
+
+================================================================================
+📌 SECTION 3: CSS PROPERTIES - WHAT YOU CAN STYLE
+================================================================================
+
+🔹 CSS SYNTAX:
+
+   selector {
+     property: value;
+     property: value;
+   }
+
+   EXAMPLE:
+   p {
+     color: red;           /* property: value */
+     font-size: 16px;      /* property: value */
+   }
+
+================================================================================
+📌 SECTION 4: COLORS & BACKGROUNDS
+================================================================================
+
+🔹 TEXT COLOR:
+
+   h1 {
+     color: red;                    /* Color name */
+     color: #FF0000;                /* Hex code (same as red) */
+     color: rgb(255, 0, 0);         /* RGB (same as red) */
+   }
+
+🔹 BACKGROUND COLOR:
+
+   body {
+     background-color: lightblue;
+   }
+   
+   h1 {
+     background-color: DodgerBlue;
+   }
+   
+   p {
+     background-color: #FFFFFF;     /* White */
+     color: DodgerBlue;             /* Blue text */
+   }
+
+🔹 BACKGROUND IMAGE:
+
+   body {
+     background-image: url("paper.gif");
+     /* Can also use full URL: url("https://example.com/image.jpg") */
+   }
+
+================================================================================
+📌 SECTION 5: WIDTH & HEIGHT
+================================================================================
+
+🔹 SETTING SIZE:
+
+   div {
+     width: 500px;          /* Fixed width in pixels */
+     height: 200px;         /* Fixed height in pixels */
+   }
+
+   div {
+     width: 50%;            /* 50% of parent's width */
+     height: 100%;          /* 100% of parent's height */
+   }
+
+   div {
+     max-width: 800px;      /* Won't go wider than 800px */
+     min-width: 200px;      /* Won't go narrower than 200px */
+   }
+
+================================================================================
+📌 SECTION 6: FONTS & TEXT
+================================================================================
+
+🔹 FONT SIZE:
+
+   p {
+     font-size: 40px;       /* In pixels (fixed) */
+     font-size: 2.5em;      /* Relative to parent (scalable) */
+     font-size: 100%;       /* Relative percentage */
+   }
+
+🔹 FONT FAMILY (which font to use):
+
+   p {
+     font-family: Arial, "Times New Roman", sans-serif;
+     /* Browser tries Arial first, then Times New Roman, then any sans-serif */
+     /* Fonts with spaces need quotes: "Times New Roman" */
+   }
+
+🔹 FONT STYLE:
+
+   p {
+     font-style: normal;    /* Regular text */
+     font-style: italic;    /* Slanted text */
+   }
+
+🔹 FONT WEIGHT (thickness):
+
+   p {
+     font-weight: normal;   /* Regular thickness */
+     font-weight: bold;     /* Thick/bold */
+     font-weight: 900;      /* Extra bold (100-900 scale) */
+   }
+
+🔹 COMPLETE FONT EXAMPLE:
+
+   p {
+     font-family: Arial, sans-serif;
+     font-size: 18px;
+     font-style: italic;
+     font-weight: bold;
+     color: navy;
+   }
+
+================================================================================
+📌 SECTION 7: CSS BORDERS - VERY DETAILED
+================================================================================
+
+🔹 BORDER STYLES (MEMORIZE THESE!):
+
+   /* All different border styles */
+   p.dotted  { border-style: dotted; }    /* ............. */
+   p.dashed  { border-style: dashed; }    /* - - - - - - - */
+   p.solid   { border-style: solid; }     /* _____________ */
+   p.double  { border-style: double; }    /* Two lines */
+   p.groove  { border-style: groove; }    /* 3D grooved */
+   p.ridge   { border-style: ridge; }     /* 3D ridged */
+   p.inset   { border-style: inset; }     /* 3D inset */
+   p.outset  { border-style: outset; }    /* 3D outset */
+   p.none    { border-style: none; }      /* No border */
+   p.hidden  { border-style: hidden; }    /* Hidden */
+
+   /* Mix different sides! */
+   p.mix {
+     border-style: dotted dashed solid double;
+     /* TOP=dotted, RIGHT=dashed, BOTTOM=solid, LEFT=double */
+   }
+
+🔹 BORDER WIDTH:
+
+   p {
+     border-style: solid;
+     border-width: 5px;     /* All sides 5px */
+   }
+
+🔹 BORDER COLOR:
+
+   p {
+     border-style: solid;
+     border-width: 2px;
+     border-color: red;     /* Red border */
+   }
+
+🔹 INDIVIDUAL SIDES:
+
+   p {
+     border-top: 1px solid red;
+     border-right: 2px dashed blue;
+     border-bottom: 3px dotted green;
+     border-left: 4px double orange;
+   }
+
+🔹 SHORTHAND (All in one line):
+
+   p {
+     border: 2px solid red;
+     /* width style color - all in one! */
+   }
+
+   h1 {
+     border: 2px solid Tomato;
+   }
+
+================================================================================
+📌 SECTION 8: TEXT ALIGNMENT & FLOAT
+================================================================================
+
+🔹 TEXT-ALIGN (Aligns content INSIDE an element):
+
+   p {
+     text-align: left;      /* Default for English */
+     text-align: center;    /* Centered */
+     text-align: right;     /* Right aligned */
+   }
+
+🔹 FLOAT (Moves the ELEMENT itself):
+
+   img {
+     float: left;           /* Image floats to left, text wraps around */
+     float: right;          /* Image floats to right */
+   }
+
+🔹 THE DIFFERENCE:
+   ┌────────────────────────────────────────────────────────────────┐
+   │  text-align: Moves content INSIDE the box                     │
+   │  float: Moves the ENTIRE BOX to left/right                    │
+   │                                                                │
+   │  text-align: center   →  [    Text Here    ]                  │
+   │                                                                │
+   │  float: right         →              [Box moves here]         │
+   │                            Other content wraps around          │
+   └────────────────────────────────────────────────────────────────┘
+
+================================================================================
+📌 SECTION 9: MARGIN & PADDING - SUPER IMPORTANT!
+================================================================================
+
+🔹 THE DIFFERENCE:
+   ┌────────────────────────────────────────────────────────────────┐
+   │  MARGIN = Space OUTSIDE the border (between elements)         │
+   │  PADDING = Space INSIDE the border (around content)           │
+   └────────────────────────────────────────────────────────────────┘
+
+   VISUAL:
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │                         MARGIN (outside)                               │
+   │   ┌─────────────────────────────────────────────────────────────────┐  │
+   │   │                       BORDER                                    │  │
+   │   │   ┌─────────────────────────────────────────────────────────┐   │  │
+   │   │   │                  PADDING (inside)                       │   │  │
+   │   │   │   ┌─────────────────────────────────────────────────┐   │   │  │
+   │   │   │   │                                                 │   │   │  │
+   │   │   │   │              CONTENT                            │   │   │  │
+   │   │   │   │              (Your text, images, etc.)          │   │   │  │
+   │   │   │   │                                                 │   │   │  │
+   │   │   │   └─────────────────────────────────────────────────┘   │   │  │
+   │   │   └─────────────────────────────────────────────────────────┘   │  │
+   │   └─────────────────────────────────────────────────────────────────┘  │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+🔹 MARGIN EXAMPLES:
+
+   /* All sides same */
+   div {
+     margin: 25px;          /* 25px on all sides */
+   }
+
+   /* Individual sides */
+   div {
+     margin-top: 10px;
+     margin-right: 20px;
+     margin-bottom: 10px;
+     margin-left: 20px;
+   }
+
+   /* Shorthand - 4 values (clockwise: top, right, bottom, left) */
+   div {
+     margin: 25px 50px 75px 100px;
+     /*      TOP  RIGHT BOTTOM LEFT */
+     /*      Think: TRouBLe - T R B L */
+   }
+
+🔹 PADDING EXAMPLES:
+
+   /* All sides same */
+   div {
+     padding: 25px;         /* 25px on all sides */
+   }
+
+   /* Individual sides */
+   div {
+     padding-top: 10px;
+     padding-right: 20px;
+     padding-bottom: 10px;
+     padding-left: 20px;
+   }
+
+   /* Shorthand - 4 values */
+   div {
+     padding: 25px 50px 75px 100px;
+     /*       TOP  RIGHT BOTTOM LEFT */
+   }
+
+🔹 SHORTHAND VARIATIONS - MEMORIZE THIS!
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  4 VALUES: margin: 25px 50px 75px 100px;                               │
+   │            TOP=25, RIGHT=50, BOTTOM=75, LEFT=100                       │
+   │                                                                        │
+   │  3 VALUES: margin: 10px 20px 30px;                                     │
+   │            TOP=10, LEFT+RIGHT=20, BOTTOM=30                            │
+   │                                                                        │
+   │  2 VALUES: margin: 10px 20px;                                          │
+   │            TOP+BOTTOM=10, LEFT+RIGHT=20                                │
+   │                                                                        │
+   │  1 VALUE:  margin: 25px;                                               │
+   │            ALL SIDES=25                                                │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+   EXAMPLE WITH 2 VALUES:
+   div {
+     padding: 10px 20px;
+     /* This means:
+        Top = 10px
+        Bottom = 10px
+        Left = 20px
+        Right = 20px
+     */
+   }
+
+   EXAMPLE WITH 3 VALUES:
+   div {
+     padding: 10px 20px 30px;
+     /* This means:
+        Top = 10px
+        Left = 20px
+        Right = 20px
+        Bottom = 30px
+     */
+   }
+
+================================================================================
+📌 SECTION 10: ANCHOR (LINK) STYLES
+================================================================================
+
+🔹 LINK STATES (Pseudo-classes):
+
+   a:link     → Normal, unvisited link
+   a:visited  → Link user has clicked before
+   a:hover    → When mouse is over the link
+   a:active   → Moment link is being clicked
+
+🔹 COMPLETE LINK STYLING:
+
+   /* Unvisited link */
+   a:link {
+     color: blue;
+     text-decoration: none;      /* Remove underline */
+   }
+
+   /* Visited link */
+   a:visited {
+     color: purple;
+   }
+
+   /* Mouse over link */
+   a:hover {
+     color: red;
+     text-decoration: underline;
+   }
+
+   /* When clicking */
+   a:active {
+     color: orange;
+   }
+
+🔹 BUTTON-STYLE LINKS:
+
+   a:link {
+     background-color: white;
+     color: black;
+     border: 2px solid green;
+     padding: 10px 20px;
+     text-align: center;
+     text-decoration: none;
+   }
+
+================================================================================
+📌 SECTION 11: SPECIFICITY - WHICH STYLE WINS?
+================================================================================
+
+🔹 WHAT IS SPECIFICITY?
+   - When multiple CSS rules target same element, which one wins?
+   - More SPECIFIC selector = HIGHER priority
+
+🔹 SPECIFICITY ORDER (Highest to Lowest):
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  PRIORITY   │  SELECTOR TYPE              │  EXAMPLE                   │
+   │─────────────│─────────────────────────────│────────────────────────────│
+   │  1st (WIN)  │  Inline style               │  <p style="color:red">     │
+   │  2nd        │  ID selector                │  #myId { }                 │
+   │  3rd        │  Class selector             │  .myClass { }              │
+   │  4th (LOSE) │  Element selector           │  p { }                     │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+🔹 EXAMPLE:
+
+   <p id="special" class="highlight">What color am I?</p>
+
+   /* In CSS file: */
+   p { color: blue; }                /* Element selector */
+   .highlight { color: green; }      /* Class selector - wins over element */
+   #special { color: red; }          /* ID selector - wins over class! */
+
+   RESULT: Text is RED (ID selector wins!)
+
+================================================================================
+📌 SECTION 12: CSS CASCADE - TIE BREAKER
+================================================================================
+
+🔹 WHEN SAME SPECIFICITY, WHAT WINS?
+
+   1. Internal CSS beats External CSS (if same specificity)
+   2. Later rule beats Earlier rule (last one wins!)
+
+🔹 EXAMPLE:
+
+   /* In style.css (external): */
+   p { color: blue; }
+
+   /* In HTML (internal): */
+   <style>
+     p { color: red; }
+   </style>
+
+   RESULT: Internal CSS wins → Text is RED
+
+   /* Two rules with same specificity: */
+   p { color: blue; }
+   p { color: red; }    /* This comes LATER */
+
+   RESULT: Later rule wins → Text is RED
+
+================================================================================
+📌 SECTION 13: CSS PRECEDENCE ORDER
+================================================================================
+
+🔹 ORDER OF PRECEDENCE (First = Highest Priority):
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  1. !important (ALWAYS wins, avoid using if possible)                  │
+   │  2. Inline CSS (style attribute in HTML tag)                           │
+   │  3. Internal/Embedded CSS (in <style> tag in <head>)                   │
+   │  4. External CSS (separate .css file)                                  │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+🔹 THE !important RULE:
+
+   p {
+     color: red !important;     /* This ALWAYS wins! */
+   }
+
+   p {
+     color: blue;               /* This won't apply */
+   }
+
+   ⚠️ Avoid !important unless absolutely necessary!
+   It makes code hard to maintain and debug.
+
+================================================================================
+📌 SECTION 14: THE BOX MODEL - MOST IMPORTANT CONCEPT!
+================================================================================
+
+🔹 EVERY HTML ELEMENT IS A BOX!
+
+   The box has 4 parts:
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │                                                                         │
+   │    ┌─────────────────────────────────────────────────────────────────┐  │
+   │    │   MARGIN (Space outside border, separates from other elements) │  │
+   │    │  ┌───────────────────────────────────────────────────────────┐  │  │
+   │    │  │   BORDER (The actual line around the element)             │  │  │
+   │    │  │  ┌─────────────────────────────────────────────────────┐  │  │  │
+   │    │  │  │   PADDING (Space between border and content)        │  │  │  │
+   │    │  │  │  ┌───────────────────────────────────────────────┐  │  │  │  │
+   │    │  │  │  │                                               │  │  │  │  │
+   │    │  │  │  │           CONTENT                             │  │  │  │  │
+   │    │  │  │  │           (Text, images, etc.)                │  │  │  │  │
+   │    │  │  │  │                                               │  │  │  │  │
+   │    │  │  │  └───────────────────────────────────────────────┘  │  │  │  │
+   │    │  │  │   PADDING                                           │  │  │  │
+   │    │  │  └─────────────────────────────────────────────────────┘  │  │  │
+   │    │  │   BORDER                                                  │  │  │
+   │    │  └───────────────────────────────────────────────────────────┘  │  │
+   │    │   MARGIN                                                        │  │
+   │    └─────────────────────────────────────────────────────────────────┘  │
+   │                                                                         │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+🔹 BOX MODEL EXPLANATION:
+
+   1. CONTENT: The actual text/images inside
+      - Controlled by width/height properties
+   
+   2. PADDING: Space INSIDE the border, around content
+      - Has same background color as content
+      - Makes element bigger
+   
+   3. BORDER: The line around the element
+      - Can be styled (solid, dashed, etc.)
+   
+   4. MARGIN: Space OUTSIDE the border
+      - Transparent (shows parent's background)
+      - Creates space between elements
+
+🔹 CODE EXAMPLE:
+
+   div {
+     /* Content area */
+     width: 300px;
+     height: 200px;
+     
+     /* Padding (inside border) */
+     padding: 20px;
+     
+     /* Border */
+     border: 5px solid black;
+     
+     /* Margin (outside border) */
+     margin: 10px;
+     
+     background-color: lightblue;
+   }
+
+   TOTAL WIDTH = 300 + (20×2) + (5×2) + (10×2) = 370px
+                 content + padding + border + margin
+
+================================================================================
+📌 SECTION 15: DISPLAY PROPERTY - BLOCK vs INLINE
+================================================================================
+
+🔹 BLOCK ELEMENTS:
+   - Take FULL WIDTH available
+   - Start on NEW LINE
+   - Stack VERTICALLY
+   - You CAN set width/height
+
+   div {
+     display: block;        /* Default for div, p, h1-h6 */
+   }
+
+   Examples: <div>, <p>, <h1>, <form>, <header>, <footer>
+
+🔹 INLINE ELEMENTS:
+   - Take only NEEDED WIDTH
+   - Stay on SAME LINE
+   - Flow HORIZONTALLY
+   - You CANNOT set width/height
+
+   span {
+     display: inline;       /* Default for span, a, img */
+   }
+
+   Examples: <span>, <a>, <strong>, <em>, <img>
+
+🔹 INLINE-BLOCK (Best of both!):
+   - Stays on same line (like inline)
+   - BUT you CAN set width/height (like block)
+
+   span {
+     display: inline-block;
+     width: 100px;
+     height: 50px;
+   }
+
+🔹 DISPLAY: NONE
+   - Element DISAPPEARS completely!
+   - Takes no space at all
+
+   .hidden {
+     display: none;         /* Completely hidden */
+   }
+
+🔹 VISUAL COMPARISON:
+
+   BLOCK:
+   ┌────────────────────────────────────────┐
+   │  Block Element 1                       │ ← Full width
+   └────────────────────────────────────────┘
+   ┌────────────────────────────────────────┐
+   │  Block Element 2                       │ ← New line
+   └────────────────────────────────────────┘
+
+   INLINE:
+   ┌──────┐┌──────┐┌──────┐ ← All on same line
+   │ Span ││ Link ││ Text │    Only as wide as content
+   └──────┘└──────┘└──────┘
+
+   INLINE-BLOCK:
+   ┌──────────────┐┌──────────────┐ ← Same line
+   │    Box 1     ││    Box 2     │    BUT with set width/height
+   │    100x50    ││    100x50    │
+   └──────────────┘└──────────────┘
+
+================================================================================
+📌 SECTION 16: DISPLAY PROPERTY VALUES
+================================================================================
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  VALUE           │  BEHAVIOR                                           │
+   │──────────────────│─────────────────────────────────────────────────────│
+   │  block           │  Full width, new line, can set dimensions           │
+   │  inline          │  Same line, can't set dimensions                    │
+   │  inline-block    │  Same line, CAN set dimensions                      │
+   │  none            │  Hidden completely                                  │
+   │  list-item       │  Like block but with bullet point                   │
+   │  table           │  Behaves like <table>                               │
+   │  inline-table    │  Table but inline                                   │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+📌 SECTION 17: CLASS TEST SOLUTION
+================================================================================
+
+QUESTION: Create HTML page with header, main section (paragraph + image),
+and another section (name + year). Style with CSS.
+
+SOLUTION:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Simple Web Page</title>
+  
+  <style>
+    /* Page background */
+    body {
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+    
+    /* Header styling */
+    header h1 {
+      font-size: 32px;
+      color: darkblue;
+      text-align: center;
+    }
+    
+    /* Main section styling */
+    main {
+      background-color: white;
+      padding: 20px;
+      margin: 20px;
+    }
+    
+    main p {
+      padding: 10px;
+      margin: 15px 0;
+      color: #333;
+    }
+    
+    main img {
+      max-width: 100%;
+      display: block;
+      margin: 10px auto;
+    }
+    
+    /* Footer/info section styling */
+    .info-section {
+      background-color: lightgray;
+      padding: 15px;
+      margin: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  
+  <!-- Header with big title -->
+  <header>
+    <h1>My Simple Web Page</h1>
+  </header>
+  
+  <!-- Main section with paragraph and image -->
+  <main>
+    <p>
+      Welcome to my website! This is a paragraph with some text.
+      I'm learning HTML and CSS for my web programming course.
+    </p>
+    <img src="example.jpg" alt="An example image">
+  </main>
+  
+  <!-- Section with name and year -->
+  <section class="info-section">
+    <p>Created by: Your Name</p>
+    <p>Year: 2026</p>
+  </section>
+  
+</body>
+</html>
+
+================================================================================
+📌 SECTION 18: QUICK REFERENCE - ALL CSS PROPERTIES
+================================================================================
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  COLORS & BACKGROUNDS                                                  │
+   │  ────────────────────                                                  │
+   │  color: red;                                                           │
+   │  background-color: blue;                                               │
+   │  background-image: url("image.jpg");                                   │
+   │                                                                        │
+   │  TEXT                                                                  │
+   │  ────                                                                  │
+   │  font-size: 16px;                                                      │
+   │  font-family: Arial;                                                   │
+   │  font-weight: bold;                                                    │
+   │  font-style: italic;                                                   │
+   │  text-align: center;                                                   │
+   │  text-decoration: underline;                                           │
+   │                                                                        │
+   │  BOX MODEL                                                             │
+   │  ─────────                                                             │
+   │  width: 100px;                                                         │
+   │  height: 100px;                                                        │
+   │  padding: 10px;                                                        │
+   │  margin: 10px;                                                         │
+   │  border: 1px solid black;                                              │
+   │                                                                        │
+   │  DISPLAY                                                               │
+   │  ───────                                                               │
+   │  display: block;                                                       │
+   │  display: inline;                                                      │
+   │  display: inline-block;                                                │
+   │  display: none;                                                        │
+   │                                                                        │
+   │  POSITIONING                                                           │
+   │  ───────────                                                           │
+   │  float: left / right;                                                  │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+📌 SUMMARY - QUICK REVISION
+================================================================================
+
+   SELECTORS:
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  p { }           → All <p> elements                                    │
+   │  #myId { }       → Element with id="myId"                              │
+   │  .myClass { }    → All elements with class="myClass"                   │
+   │  * { }           → All elements                                        │
+   │  h1, h2, p { }   → Multiple elements                                   │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+   SPECIFICITY (Who wins):
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  1. !important (always wins)                                           │
+   │  2. Inline style (style="")                                            │
+   │  3. ID selector (#)                                                    │
+   │  4. Class selector (.)                                                 │
+   │  5. Element selector (p, div)                                          │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+   BOX MODEL:
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  MARGIN → BORDER → PADDING → CONTENT                                   │
+   │  (outside)        (inside)                                             │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+   MARGIN/PADDING SHORTHAND:
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  4 values: TOP RIGHT BOTTOM LEFT (clockwise, TRouBLe)                  │
+   │  3 values: TOP LEFT+RIGHT BOTTOM                                       │
+   │  2 values: TOP+BOTTOM LEFT+RIGHT                                       │
+   │  1 value:  ALL SIDES                                                   │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+   DISPLAY:
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  block = full width, new line                                          │
+   │  inline = only needed width, same line                                 │
+   │  inline-block = same line BUT can set width/height                     │
+   │  none = hidden                                                         │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+📌 STUDY RESOURCES
+================================================================================
+
+   https://www.w3schools.com/css/default.asp
+
+================================================================================
+                         💪 YOU'VE GOT THIS! GOOD LUCK! 💪
+================================================================================
