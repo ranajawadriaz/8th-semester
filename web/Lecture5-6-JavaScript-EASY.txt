@@ -1,0 +1,1260 @@
+================================================================================
+⚡ LECTURE 5 & 6 - JAVASCRIPT, ES6, OBJECTS & TYPESCRIPT - EASY VERSION ⚡
+================================================================================
+                    ⭐ YOUR EXAM CHEAT SHEET ⭐
+================================================================================
+
+Hey! This is the EASY version of JavaScript, ES6, Objects & TypeScript.
+JS is the language that makes websites ALIVE! Let's break it down! 💪
+
+================================================================================
+📌 SECTION 1: WHAT IS JAVASCRIPT?
+================================================================================
+
+🔹 DEFINITION:
+   JavaScript (JS) is a PROGRAMMING LANGUAGE for the web.
+
+   - HTML = Structure (skeleton)
+   - CSS = Style (clothes & makeup)
+   - JavaScript = BEHAVIOR (makes things move, react, change!)
+
+🔹 KEY FACTS:
+   - Lightweight & interpreted (no compiling needed, browser runs it directly)
+   - Runs in the BROWSER (client-side) - Chrome, Firefox, etc.
+   - Also runs on SERVERS using Node.js
+   - Case-sensitive! ("Name" and "name" are DIFFERENT)
+
+🔹 WHAT CAN JAVASCRIPT DO?
+   ┌────────────────────────────────────────────────────────────────┐
+   │  ✅ Form validations (check if email is valid before submit)  │
+   │  ✅ Animations (sliding menus, fading images)                 │
+   │  ✅ Update page content WITHOUT reloading (DOM manipulation)  │
+   │  ✅ Handle button clicks and user interactions                │
+   │  ✅ Fetch data from servers (APIs)                            │
+   │  ✅ Build full applications (React, Angular, Vue)             │
+   └────────────────────────────────────────────────────────────────┘
+
+================================================================================
+📌 SECTION 2: HOW TO ADD JAVASCRIPT TO HTML
+================================================================================
+
+🔹 3 WAYS TO ADD JS:
+
+   ── WAY 1: INLINE (inside HTML tag) ──
+
+   <button onclick="alert('Hello!')">Click Me</button>
+   <!-- When button is clicked, a popup shows "Hello!" -->
+
+
+   ── WAY 2: INTERNAL (inside <script> tag in HTML) ──
+
+   <html>
+   <body>
+     <h1 id="title">Hello</h1>
+
+     <script>
+       // JavaScript code goes here
+       document.getElementById("title").innerHTML = "Changed!";
+     </script>
+   </body>
+   </html>
+
+
+   ── WAY 3: EXTERNAL (separate .js file - BEST practice) ──
+
+   <!-- In your HTML file -->
+   <script src="script.js"></script>
+
+   // In script.js file
+   alert("Hello from external file!");
+
+================================================================================
+📌 SECTION 3: JAVASCRIPT'S QUIRKS - KNOW THESE FOR EXAM!
+================================================================================
+
+🔹 IMPORTANT THINGS ABOUT JS:
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  1. CASE SENSITIVE                                                      │
+   │     "myVar" and "myvar" are DIFFERENT variables!                        │
+   │     Function, class, variable names - ALL case sensitive               │
+   │                                                                        │
+   │  2. SEMICOLONS                                                         │
+   │     Not required BUT encouraged! Use them to be safe.                  │
+   │     let x = 5;    ← Good practice                                     │
+   │     let x = 5     ← Works but risky                                   │
+   │                                                                        │
+   │  3. === vs ==                                                          │
+   │     == checks VALUE only (allows type conversion)                      │
+   │     === checks VALUE AND TYPE (strict, no conversion)                  │
+   │                                                                        │
+   │     5 == "5"    → true  (JS converts string to number)                 │
+   │     5 === "5"   → false (number vs string = different types!)          │
+   │                                                                        │
+   │  4. null vs undefined                                                  │
+   │     null = "I intentionally set this to NOTHING"                       │
+   │     undefined = "This variable exists but has NO VALUE yet"            │
+   │                                                                        │
+   │     let x;              // x is undefined (declared, never set)        │
+   │     let y = null;       // y is null (intentionally empty)             │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+📌 SECTION 4: VARIABLES - var, let, const
+================================================================================
+
+🔹 THREE WAYS TO DECLARE VARIABLES:
+
+   ── var (OLD way, avoid if possible) ──
+
+   var age = 25;
+   // FUNCTION scoped (NOT block scoped!)
+   // Can be re-declared and updated
+
+
+   ── let (MODERN way, use this!) ──
+
+   let name = "John";
+   // BLOCK scoped (stays inside { } where declared)
+   // Can be updated but NOT re-declared in same scope
+
+
+   ── const (for values that NEVER change) ──
+
+   const pi = 3.14;
+   // BLOCK scoped
+   // Cannot be updated or re-declared
+   // MUST be initialized when declared
+
+
+🔹 var vs let - THE BIG DIFFERENCE (EXAM FAVORITE!):
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  var = FUNCTION SCOPE                                                   │
+   │  ────────────────────                                                  │
+   │  if (true) {                                                            │
+   │    var x = 10;                                                          │
+   │  }                                                                      │
+   │  console.log(x);    // 10 ← WORKS! var leaks out of if block!          │
+   │                                                                        │
+   │  ─────────────────────────────────────────────────────────────          │
+   │                                                                        │
+   │  let = BLOCK SCOPE                                                      │
+   │  ─────────────────                                                     │
+   │  if (true) {                                                            │
+   │    let y = 10;                                                          │
+   │  }                                                                      │
+   │  console.log(y);    // ERROR! y is not defined (stays inside block)     │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+   SIMPLE RULE:
+   ┌────────────────────────────────────────────────────────────────┐
+   │  Use const by default                                         │
+   │  Use let when value needs to change                           │
+   │  Avoid var (old, causes bugs with scope)                      │
+   └────────────────────────────────────────────────────────────────┘
+
+🔹 IMPORTANT const WITH OBJECTS:
+
+   const person = { firstName: "John" };
+
+   // This is NOT allowed (can't reassign the whole object):
+   person = { firstName: "Ali" };     // ❌ ERROR!
+
+   // But this IS allowed (can change properties inside):
+   person.firstName = "Ali";          // ✅ WORKS!
+
+   // WHY? const means the VARIABLE can't point to a new object,
+   // but the object's CONTENTS can still change.
+
+================================================================================
+📌 SECTION 5: DATA TYPES
+================================================================================
+
+🔹 JAVASCRIPT DATA TYPES:
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  TYPE        │  EXAMPLE                        │  DESCRIPTION          │
+   │──────────────│─────────────────────────────────│───────────────────────│
+   │  Number      │  let x = 16;                     │  Integers & decimals  │
+   │              │  let y = 7.5;                    │                       │
+   │──────────────│─────────────────────────────────│───────────────────────│
+   │  String      │  let name = "John";              │  Text in quotes       │
+   │              │  let s = 'Hello';                │  Single or double     │
+   │──────────────│─────────────────────────────────│───────────────────────│
+   │  Boolean     │  let x = true;                   │  true or false only   │
+   │              │  let y = false;                  │                       │
+   │──────────────│─────────────────────────────────│───────────────────────│
+   │  Object      │  const p = {name: "Ali"};        │  Key-value pairs      │
+   │──────────────│─────────────────────────────────│───────────────────────│
+   │  Array       │  const cars = ["BMW", "Audi"];   │  List of items        │
+   │──────────────│─────────────────────────────────│───────────────────────│
+   │  Undefined   │  let x;                          │  Declared but no value│
+   │──────────────│─────────────────────────────────│───────────────────────│
+   │  Null        │  let x = null;                   │  Intentionally empty  │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+🔹 CODE EXAMPLES WITH COMMENTS:
+
+   // Numbers (integers and decimals)
+   let length = 16;         // whole number
+   let weight = 7.5;        // decimal number
+
+   // Strings (text - use quotes)
+   let color = "Yellow";    // double quotes
+   let lastName = 'Johnson'; // single quotes work too
+
+   // Booleans (true or false - for conditions)
+   let isLoggedIn = true;
+   let isAdmin = false;
+
+   // Object (collection of key:value pairs)
+   const person = {
+     firstName: "John",     // key: value
+     lastName: "Doe",       // key: value
+     age: 50                // key: value
+   };
+
+   // Array (ordered list of items)
+   const cars = ["Saab", "Volvo", "BMW"];
+   // Access by index: cars[0] = "Saab", cars[1] = "Volvo"
+
+   // Date object
+   const date = new Date("2022-03-25");
+
+================================================================================
+📌 SECTION 6: OPERATORS
+================================================================================
+
+🔹 ARITHMETIC OPERATORS:
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  +    Addition         │  5 + 3 = 8                                    │
+   │  -    Subtraction      │  5 - 3 = 2                                    │
+   │  *    Multiplication   │  5 * 3 = 15                                   │
+   │  /    Division         │  15 / 3 = 5                                   │
+   │  %    Modulus/Remainder│  5 % 2 = 1 (remainder when 5÷2)              │
+   │  **   Power/Exponent   │  2 ** 3 = 8 (2 to the power 3)              │
+   │  ++   Increment by 1  │  x++ (x = x + 1)                             │
+   │  --   Decrement by 1  │  x-- (x = x - 1)                             │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+🔹 TYPE COERCION - TRICKY! EXAM LOVES THIS!
+
+   JavaScript AUTOMATICALLY converts types sometimes:
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  STRING COERCION (Number + String = String!)                           │
+   │  ──────────────────────────────────────────                            │
+   │  console.log(2 + "2");      // "22" (number becomes string, concat!)  │
+   │  console.log("Hello" + 5);  // "Hello5"                               │
+   │  console.log(1 + 2 + "3");  // "33" (1+2=3, then 3+"3"="33")         │
+   │                                                                        │
+   │  NUMBER COERCION (String with -, *, / = Number!)                       │
+   │  ──────────────────────────────────────────────                        │
+   │  console.log("10" - 5);     // 5 (string becomes number!)             │
+   │  console.log("6" * 2);      // 12                                     │
+   │  console.log("10" / 2);     // 5                                      │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+   REMEMBER: + with strings = CONCATENATION (joining)
+             -, *, / with strings = MATH (converts to number)
+
+🔹 ASSIGNMENT OPERATORS:
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  =      Assign          │  x = 5        (x is now 5)                  │
+   │  +=     Add & assign    │  x += 3       (same as x = x + 3)          │
+   │  -=     Subtract        │  x -= 3       (same as x = x - 3)          │
+   │  *=     Multiply        │  x *= 3       (same as x = x * 3)          │
+   │  /=     Divide          │  x /= 3       (same as x = x / 3)          │
+   │  %=     Modulus          │  x %= 3       (same as x = x % 3)          │
+   │  **=    Power            │  x **= 3      (same as x = x ** 3)         │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+🔹 COMPARISON OPERATORS:
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  ==     Equal (value only)       │  5 == "5"  → true                   │
+   │  ===    Strict equal (value+type)│  5 === "5" → false                  │
+   │  !=     Not equal                │  5 != 8    → true                   │
+   │  !==    Strict not equal         │  5 !== "5" → true                   │
+   │  >      Greater than            │  5 > 3     → true                   │
+   │  <      Less than               │  5 < 3     → false                  │
+   │  >=     Greater or equal        │  5 >= 5    → true                   │
+   │  <=     Less or equal           │  5 <= 3    → false                  │
+   │  &&     AND (both must be true) │  true && false → false              │
+   │  ||     OR (one must be true)   │  true || false → true               │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+📌 SECTION 7: STRING METHODS
+================================================================================
+
+🔹 USEFUL STRING METHODS:
+
+   let text = "Hello World";
+
+   // LENGTH
+   text.length;              // 11 (counts all characters including space)
+
+   // SLICE - Extract part of string (supports NEGATIVE indexes!)
+   text.slice(0, 5);         // "Hello" (from index 0 to 4)
+   text.slice(-5);           // "World" (last 5 characters)
+
+   // SUBSTRING - Like slice but NO negative values
+   text.substring(0, 5);     // "Hello"
+   // If you give negative, it treats it as 0
+   // If start > end, it SWAPS them
+
+   // AT - Get character at position (supports NEGATIVE!)
+   text.at(0);               // "H"
+   text.at(-1);              // "d" (last character)
+
+   // BRACKET NOTATION - Get character (NO negative support)
+   text[0];                  // "H"
+   text[-1];                 // undefined (doesn't work with negative!)
+
+   // UPPERCASE / LOWERCASE
+   text.toUpperCase();       // "HELLO WORLD"
+   text.toLowerCase();       // "hello world"
+
+   // REPLACE
+   text.replace("World", "JS"); // "Hello JS"
+
+   // SPLIT - Break string into array
+   text.split(" ");          // ["Hello", "World"]
+
+   // INCLUDES - Check if contains
+   text.includes("World");   // true
+
+   // TRIM - Remove whitespace from both sides
+   "  Hello  ".trim();       // "Hello"
+
+🔹 KEY DIFFERENCE TABLE:
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  METHOD      │  NEGATIVE INDEX?  │  NOTES                              │
+   │──────────────│───────────────────│─────────────────────────────────────│
+   │  slice()     │  ✅ YES           │  Most flexible                      │
+   │  at()        │  ✅ YES           │  Gets single character              │
+   │  substring() │  ❌ NO (makes 0)  │  Swaps if start > end              │
+   │  [ ]         │  ❌ NO (undefined)│  Simple but limited                 │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+📌 SECTION 8: NUMBER METHODS
+================================================================================
+
+🔹 USEFUL NUMBER METHODS:
+
+   let x = 9.656;
+
+   // TO FIXED - Round to N decimal places (returns STRING!)
+   x.toFixed(0);             // "10"
+   x.toFixed(2);             // "9.66"
+
+   // PARSE INT - Convert string to integer
+   parseInt("10");           // 10
+   parseInt("10.5");         // 10 (drops decimal)
+   parseInt("hello");        // NaN (Not a Number)
+
+   // PARSE FLOAT - Convert string to decimal
+   parseFloat("10.5");       // 10.5
+
+   // IS NaN - Check if value is Not a Number
+   isNaN("hello");           // true
+   isNaN(123);               // false
+
+   // Math object
+   Math.round(4.7);          // 5
+   Math.floor(4.7);          // 4 (round DOWN)
+   Math.ceil(4.3);           // 5 (round UP)
+   Math.random();            // Random number between 0 and 1
+   Math.max(1, 5, 3);        // 5
+   Math.min(1, 5, 3);        // 1
+
+================================================================================
+📌 SECTION 9: ARRAY METHODS
+================================================================================
+
+🔹 ARRAYS = ORDERED LISTS:
+
+   const cars = ["BMW", "Volvo", "Saab"];
+   //  Index:      0       1        2
+
+   // ACCESS
+   cars[0];                  // "BMW"
+   cars[2];                  // "Saab"
+
+   // LENGTH
+   cars.length;              // 3
+
+   // PUSH - Add to END
+   cars.push("Ford");        // ["BMW", "Volvo", "Saab", "Ford"]
+
+   // POP - Remove from END
+   cars.pop();               // Removes "Ford", returns "Ford"
+
+   // UNSHIFT - Add to BEGINNING
+   cars.unshift("Audi");     // ["Audi", "BMW", "Volvo", "Saab"]
+
+   // SHIFT - Remove from BEGINNING
+   cars.shift();             // Removes "Audi", returns "Audi"
+
+   // SPLICE - Add/Remove at any position
+   cars.splice(1, 0, "Honda"); // At index 1, remove 0, add "Honda"
+   // ["BMW", "Honda", "Volvo", "Saab"]
+
+   // INCLUDES - Check if exists
+   cars.includes("BMW");     // true
+
+   // INDEX OF - Find position
+   cars.indexOf("Volvo");    // 1
+
+   // JOIN - Convert array to string
+   cars.join(", ");          // "BMW, Volvo, Saab"
+
+   // SORT
+   cars.sort();              // Alphabetical order
+
+   // REVERSE
+   cars.reverse();           // Reverse order
+
+   // MAP - Transform each item (returns NEW array)
+   const numbers = [1, 2, 3];
+   const doubled = numbers.map(n => n * 2);  // [2, 4, 6]
+
+   // FILTER - Keep items matching condition
+   const big = numbers.filter(n => n > 1);   // [2, 3]
+
+   // FOREACH - Loop through each item
+   cars.forEach(function(car) {
+     console.log(car);
+   });
+
+================================================================================
+📌 SECTION 10: DATES & MATH.RANDOM
+================================================================================
+
+🔹 DATES:
+
+   // Current date and time
+   const now = new Date();
+   
+   // Specific date
+   const d = new Date("2022-03-25");
+
+   // Custom date with all parts
+   // new Date(year, month, day, hours, minutes, seconds, ms)
+   const birthday = new Date(2000, 0, 15);
+   // ⚠️ Month is 0-indexed! January = 0, February = 1, etc.
+
+   // Get parts
+   now.getFullYear();        // 2026
+   now.getMonth();           // 0-11 (January = 0!)
+   now.getDate();            // 1-31 (day of month)
+   now.getDay();             // 0-6 (Sunday = 0!)
+   now.getHours();           // 0-23
+   now.getMinutes();         // 0-59
+
+🔹 RANDOM NUMBERS:
+
+   Math.random();                           // Random 0 to 0.999...
+   Math.floor(Math.random() * 10);          // Random 0 to 9
+   Math.floor(Math.random() * 10) + 1;      // Random 1 to 10
+   Math.floor(Math.random() * 100) + 1;     // Random 1 to 100
+
+================================================================================
+📌 SECTION 11: OBJECTS - VERY IMPORTANT!
+================================================================================
+
+🔹 WHAT IS AN OBJECT?
+   - Collection of KEY:VALUE pairs
+   - Like a real-world object with properties
+   - Person has name, age, eye color → person object!
+
+🔹 CREATING OBJECTS:
+
+   ── METHOD 1: Object Literal (Most Common) ──
+
+   const person = {
+     firstName: "John",       // property (key: value)
+     lastName: "Doe",
+     age: 50,
+     eyeColor: "blue"
+   };
+
+   ── METHOD 2: Using new Object() ──
+
+   var item = new Object();
+   item.title = "HTML Specification";
+   item.status = "available";
+
+
+🔹 ACCESSING PROPERTIES:
+
+   // Dot notation (most common)
+   let name = person.firstName;      // "John"
+
+   // Bracket notation
+   let age = person["age"];          // 50
+
+   // Both work! Bracket notation useful when property name is in variable:
+   let key = "firstName";
+   let value = person[key];          // "John"
+
+
+🔹 ADDING NEW PROPERTIES:
+
+   person.nationality = "English";
+   // person now has: firstName, lastName, age, eyeColor, nationality
+
+
+🔹 DELETING PROPERTIES:
+
+   delete person.age;
+   // person no longer has age property
+
+
+🔹 CONST WITH OBJECTS (TRICKY - EXAM QUESTION!):
+
+   const person = { firstName: "John" };
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  person = { firstName: "Ali" };    // ❌ ERROR! Can't reassign object  │
+   │  person.firstName = "Ali";         // ✅ WORKS! Can change properties  │
+   │                                                                        │
+   │  WHY? const protects the VARIABLE (the reference/pointer),             │
+   │  NOT the content inside the object.                                    │
+   │                                                                        │
+   │  Think of it like: const = the HOUSE ADDRESS can't change,             │
+   │  but you CAN rearrange FURNITURE inside the house!                     │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+📌 SECTION 12: OBJECT METHODS (Functions inside Objects)
+================================================================================
+
+🔹 OBJECTS CAN HAVE FUNCTIONS:
+
+   var item = new Object();
+   item.title = "HTML Specification";
+   item.status = "available";
+   
+   // Adding a METHOD (function inside object)
+   item.isAvailable = function() {
+     return this.status == "available";    // 'this' refers to the object itself
+   };
+
+   alert(item.title);           // "HTML Specification"
+   alert(item.isAvailable());   // true
+
+   // 'this' keyword = "me, this object I belong to"
+   // this.status = "my status property"
+
+================================================================================
+📌 SECTION 13: OBJECT CONSTRUCTORS - CREATING MULTIPLE OBJECTS
+================================================================================
+
+🔹 WHAT IF YOU NEED MANY SIMILAR OBJECTS?
+   Instead of writing each one by hand, use a CONSTRUCTOR:
+
+   // Constructor function (like a TEMPLATE for objects)
+   function Item(t) {
+     this.title = t;                        // Set title from parameter
+     this.status = "available";             // Default status
+     this.isAvailable = function() {        // Method
+       return this.status == "available";
+     };
+   }
+
+   // Create objects using the constructor
+   var item1 = new Item("HTML Specification");
+   var item2 = new Item("Javascript Specification");
+
+   alert(item1.title);          // "HTML Specification"
+   alert(item2.title);          // "Javascript Specification"
+   alert(item1.isAvailable());  // true
+   alert(item2.isAvailable());  // true
+
+
+🔹 EXTENDING OBJECTS (Adding stuff to existing object):
+
+   var item1 = new Item("HTML Specification");
+   
+   // Add a NEW method to ONLY this object
+   item1.issue = function() {
+     this.status = "issued";     // Change status to "issued"
+   };
+
+   alert(item1.isAvailable());  // true (status is still "available")
+   
+   item1.issue();               // Call the issue function
+   
+   alert(item1.isAvailable());  // false (status is now "issued"!)
+
+================================================================================
+📌 SECTION 14: PROTOTYPE - BETTER WAY FOR METHODS
+================================================================================
+
+🔹 THE PROBLEM WITH CONSTRUCTORS:
+   Every time you create a new object, the functions are DUPLICATED in memory.
+   
+🔹 THE SOLUTION - PROTOTYPE:
+   Define methods on the PROTOTYPE so all objects SHARE them.
+
+   // Properties in constructor
+   function Item(title) {
+     this.title = title;
+     this.status = "available";
+   }
+
+   // Methods on PROTOTYPE (shared by all Item objects!)
+   Item.prototype.isAvailable = function() {
+     return this.status == "available";
+   };
+
+   Item.prototype.issue = function() {
+     this.status = "issued";
+   };
+
+   var item1 = new Item("HTML Spec");
+   var item2 = new Item("JS Spec");
+   // Both share the SAME isAvailable and issue functions!
+   // More memory efficient!
+
+================================================================================
+📌 SECTION 15: CLASSES (Modern ES6 Way) - IMPORTANT!
+================================================================================
+
+🔹 CLASSES ARE SYNTACTIC SUGAR OVER PROTOTYPES:
+   Same thing as constructor + prototype, but CLEANER syntax.
+
+   class Item {
+     // Constructor - called when you do new Item(...)
+     constructor(title) {
+       this.title = title;
+       this.status = "available";
+     }
+
+     // Methods - automatically go on prototype!
+     isAvailable() {
+       return this.status === "available";
+     }
+
+     issue() {
+       this.status = "issued";
+     }
+   }
+
+   const item1 = new Item("HTML Spec");
+   console.log(item1.title);          // "HTML Spec"
+   console.log(item1.isAvailable());  // true
+   item1.issue();
+   console.log(item1.isAvailable());  // false
+
+🔹 RULES INSIDE CLASS { }:
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  ❌ CANNOT use inside class body:                                      │
+   │     let, var, const, normal statements                                 │
+   │                                                                        │
+   │  ✅ CAN ONLY have:                                                     │
+   │     constructor                                                        │
+   │     methods (functions)                                                 │
+   │     class fields (special syntax like: name = "default")               │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+🔹 CLASS FIELDS (auto-become this.property):
+
+   class Person {
+     name = "Unknown";        // This automatically becomes this.name
+     age = 0;                 // This automatically becomes this.age
+     
+     constructor(name, age) {
+       this.name = name;
+       this.age = age;
+     }
+     
+     greet() {
+       return `Hi, I'm ${this.name}`;
+     }
+   }
+
+================================================================================
+📌 SECTION 16: INHERITANCE (extends)
+================================================================================
+
+🔹 WHAT IS INHERITANCE?
+   - One class can INHERIT from another (get all its stuff)
+   - Child class gets parent's properties and methods
+   - Child can ADD its own stuff or OVERRIDE parent's
+
+   // Parent class
+   class Animal {
+     constructor(name) {
+       this.name = name;
+     }
+
+     speak() {
+       return `${this.name} makes a sound`;
+     }
+   }
+
+   // Child class EXTENDS parent
+   class Dog extends Animal {
+     constructor(name, breed) {
+       super(name);            // Call parent's constructor!
+       this.breed = breed;     // Add new property
+     }
+
+     // Override parent's method
+     speak() {
+       return `${this.name} barks!`;
+     }
+   }
+
+   const dog = new Dog("Rex", "German Shepherd");
+   console.log(dog.name);      // "Rex" (inherited from Animal)
+   console.log(dog.breed);     // "German Shepherd" (Dog's own)
+   console.log(dog.speak());   // "Rex barks!" (overridden method)
+
+   // super() = call parent class constructor
+   // extends = inherit from parent class
+
+================================================================================
+📌 SECTION 17: CONTROL STATEMENTS (if/else, switch)
+================================================================================
+
+🔹 IF-ELSE:
+
+   let age = 20;
+
+   if (age > 18) {
+     console.log("You are an adult.");     // This runs
+   } else if (age === 18) {
+     console.log("Just turned 18!");
+   } else {
+     console.log("You are a minor.");
+   }
+
+   // With multiple conditions using && (AND) and || (OR)
+   if (age > 18 || hasPermission) {
+     console.log("Access granted");
+   }
+
+   // && = BOTH must be true
+   // || = AT LEAST ONE must be true
+
+
+🔹 SWITCH CASE:
+
+   let x = "0";
+
+   switch (x) {
+     case 0:                   // ⚠️ This is NUMBER 0
+       text = "Off";
+       break;                  // MUST have break! Or it falls through
+     case 1:
+       text = "On";
+       break;
+     default:                  // If nothing matches
+       text = "No value found";
+   }
+
+   // RESULT: "No value found"
+   // WHY? Because x is STRING "0", not NUMBER 0
+   // switch uses === (strict comparison)!
+
+   ⚠️ IMPORTANT: switch uses === (strict), not ==
+   So "0" !== 0 (string vs number)!
+
+================================================================================
+📌 SECTION 18: LOOPS
+================================================================================
+
+🔹 FOR LOOP (Most common):
+
+   // Structure:
+   // for (initialization; condition; increment) { code }
+
+   for (let i = 0; i < 5; i++) {
+     console.log(i);
+   }
+   // Output: 0, 1, 2, 3, 4
+
+   // BREAKDOWN:
+   // let i = 0      → Start at 0 (runs once)
+   // i < 5          → Keep going while i is less than 5
+   // i++            → Add 1 to i after each loop
+   // { body }       → Code that runs each time
+
+
+🔹 LOOPING THROUGH AN ARRAY:
+
+   const cars = ["BMW", "Volvo", "Saab", "Ford"];
+
+   // Method 1: Classic for loop
+   for (let i = 0; i < cars.length; i++) {
+     console.log(cars[i]);
+   }
+   // BMW, Volvo, Saab, Ford
+
+   // Method 2: forEach (cleaner for arrays)
+   cars.forEach(function(car, index) {
+     console.log(car, index);
+   });
+   // BMW 0
+   // Volvo 1
+   // Saab 2
+   // Ford 3
+
+   // Method 3: for...of (ES6, simplest)
+   for (let car of cars) {
+     console.log(car);
+   }
+   // BMW, Volvo, Saab, Ford
+
+
+🔹 WHILE LOOP:
+
+   let i = 0;
+   while (i < 5) {
+     console.log(i);
+     i++;               // Don't forget this or INFINITE LOOP!
+   }
+   // 0, 1, 2, 3, 4
+
+================================================================================
+📌 SECTION 19: FUNCTIONS
+================================================================================
+
+🔹 WHAT ARE FUNCTIONS?
+   - Reusable blocks of code
+   - Define once, use many times
+   - Can take inputs (parameters) and return outputs
+
+🔹 FUNCTION DECLARATION:
+
+   // Define the function
+   function greet(name) {
+     return "Hello, " + name;
+   }
+
+   // Call/use the function
+   console.log(greet("Alice"));     // "Hello, Alice"
+   console.log(greet("Bob"));       // "Hello, Bob"
+
+
+🔹 FUNCTION WITH MULTIPLE PARAMETERS:
+
+   function multiply(a, b) {
+     return a * b;             // Returns the product
+   }
+
+   let result = multiply(4, 3);  // result = 12
+
+
+🔹 ARROW FUNCTIONS (ES6 - Shorter syntax):
+
+   // Regular function
+   function add(a, b) {
+     return a + b;
+   }
+
+   // Arrow function (same thing, shorter!)
+   const add = (a, b) => {
+     return a + b;
+   };
+
+   // Even shorter for single expressions!
+   const add = (a, b) => a + b;
+
+   // Single parameter? No parentheses needed!
+   const double = x => x * 2;
+
+   console.log(add(5, 3));      // 8
+   console.log(double(4));      // 8
+
+================================================================================
+📌 SECTION 20: CALLBACKS
+================================================================================
+
+🔹 WHAT IS A CALLBACK?
+   - A function passed as an ARGUMENT to another function
+   - The receiving function can CALL it whenever needed
+   - Like giving someone your phone number (callback) to call you later
+
+🔹 EXAMPLE:
+
+   // Step 1: Define a function that ACCEPTS a callback
+   function calculate(a, b, callback) {
+     let result = callback(a, b);        // Call the callback!
+     console.log("Result:", result);
+   }
+
+   // Step 2: Define functions to use as callbacks
+   function add(x, y) {
+     return x + y;
+   }
+
+   function multiply(x, y) {
+     return x * y;
+   }
+
+   // Step 3: Pass functions as arguments
+   calculate(5, 3, add);          // Result: 8
+   calculate(5, 3, multiply);     // Result: 15
+
+   // WHAT HAPPENED:
+   // calculate received 5, 3, and the 'add' function
+   // Inside, it called add(5, 3) which returned 8
+   // Then printed "Result: 8"
+
+🔹 WHY CALLBACKS?
+   ┌────────────────────────────────────────────────────────────────┐
+   │  ✅ Code reuse (same function, different behaviors)            │
+   │  ✅ Asynchronous operations (do something after data loads)    │
+   │  ✅ Event handling (do something when button clicked)          │
+   └────────────────────────────────────────────────────────────────┘
+
+================================================================================
+📌 SECTION 21: ES6 FEATURES - MODERN JAVASCRIPT
+================================================================================
+
+🔹 WHAT IS ES6?
+   - ECMAScript 2015 (aka ES6)
+   - Modern JavaScript features
+   - Makes code shorter, cleaner, easier to read
+
+🔹 TEMPLATE LITERALS (String with variables):
+
+   // OLD WAY (concatenation with +)
+   let age = 20;
+   let msg = "My age is " + age;         // "My age is 20"
+
+   // NEW WAY (template literals with backticks ` `)
+   let msg = `My age is ${age}`;          // "My age is 20"
+
+   // USE BACKTICKS ` (not regular quotes!)
+   // ${variable} inserts the value
+   // Can also do expressions: ${age + 5}
+
+   let name = "Ali";
+   let greeting = `Hello ${name}, you are ${age} years old!`;
+   // "Hello Ali, you are 20 years old!"
+
+🔹 DESTRUCTURING (Unpack values from objects/arrays):
+
+   // OBJECT DESTRUCTURING
+   const person = {
+     firstName: "John",
+     lastName: "Doe",
+     age: 50
+   };
+
+   // OLD WAY
+   let firstName = person.firstName;
+   let lastName = person.lastName;
+
+   // NEW WAY - Destructuring (one line!)
+   let { firstName, lastName, country = "US" } = person;
+   
+   console.log(firstName);    // "John"
+   console.log(lastName);     // "Doe"
+   console.log(country);      // "US" (default value, since person has no country)
+
+   // ARRAY DESTRUCTURING
+   const colors = ["red", "green", "blue"];
+   let [first, second, third] = colors;
+   
+   console.log(first);        // "red"
+   console.log(second);       // "green"
+
+🔹 SPREAD OPERATOR (...):
+
+   // Copy an array
+   const arr1 = [1, 2, 3];
+   const arr2 = [...arr1, 4, 5];    // [1, 2, 3, 4, 5]
+
+   // Copy an object
+   const obj1 = { name: "Ali" };
+   const obj2 = { ...obj1, age: 20 };  // { name: "Ali", age: 20 }
+
+🔹 LET & CONST (already covered in Section 4)
+
+🔹 ARROW FUNCTIONS (already covered in Section 19)
+
+================================================================================
+📌 SECTION 22: TYPESCRIPT - JAVASCRIPT WITH TYPES
+================================================================================
+
+🔹 WHAT IS TYPESCRIPT?
+   - TypeScript is a SUPERSET of JavaScript
+   - Developed by Microsoft
+   - ADDS TYPES to JavaScript
+   - Helps catch errors BEFORE running code
+   - All JavaScript code is valid TypeScript code!
+
+   ┌────────────────────────────────────────────────────────────────┐
+   │  JavaScript:  let name = "John";    // No type info           │
+   │  TypeScript:  let name: string = "John";  // Has type!        │
+   │                                                                │
+   │  Think of it like:                                             │
+   │  JS = Writing without spell-check                              │
+   │  TS = Writing WITH spell-check (catches mistakes!)             │
+   └────────────────────────────────────────────────────────────────┘
+
+🔹 BASIC TYPES IN TYPESCRIPT:
+
+   // String
+   let name: string = "John";
+
+   // Number
+   let age: number = 25;
+
+   // Boolean
+   let isActive: boolean = true;
+
+   // Any (can be anything - avoid when possible!)
+   let value: any = "hello";
+   value = 42;       // Allowed because it's 'any'
+
+🔹 ARRAYS IN TYPESCRIPT:
+
+   // Array of numbers
+   let scores: number[] = [90, 85, 70];
+
+   // Array of strings
+   let names: string[] = ["Ali", "Sara", "Ahmed"];
+
+   // Alternative syntax
+   let ids: Array<number> = [1, 2, 3];
+
+🔹 FUNCTIONS WITH TYPES:
+
+   // Parameters AND return type are specified
+   function add(a: number, b: number): number {
+     return a + b;
+   }
+
+   add(5, 3);        // ✅ Works! Returns 8
+   add("5", 3);      // ❌ ERROR! "5" is string, not number
+
+   // Function that returns nothing
+   function greet(name: string): void {
+     console.log("Hello " + name);
+   }
+
+🔹 CORRECT vs INCORRECT USAGE:
+
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  ✅ CORRECT TYPESCRIPT:                                                │
+   │  ────────────────────                                                  │
+   │  let x: number = 10;        // number variable with number value      │
+   │  let s: string = "hello";   // string variable with string value      │
+   │  function add(a: number, b: number): number {                         │
+   │    return a + b;                                                       │
+   │  }                                                                     │
+   │                                                                        │
+   │  ❌ INCORRECT TYPESCRIPT:                                               │
+   │  ──────────────────────                                                │
+   │  let x: number = "hello";   // ERROR! Can't assign string to number   │
+   │  let s: string = 42;        // ERROR! Can't assign number to string   │
+   │  function add(a: number, b: number): number {                         │
+   │    return "hello";           // ERROR! Returns string, not number      │
+   │  }                                                                     │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+🔹 WHY USE TYPESCRIPT?
+   ✅ Catches errors at COMPILE time (before running)
+   ✅ Better code editor support (autocomplete, suggestions)
+   ✅ Self-documenting code (types explain what data is expected)
+   ✅ Easier to refactor and maintain large projects
+   ✅ Used by Angular, many large projects
+
+================================================================================
+📌 SECTION 23: PROMISES & ASYNC/AWAIT (Research Task Topic)
+================================================================================
+
+🔹 WHAT IS A PROMISE?
+   - Represents a value that may be available NOW, LATER, or NEVER
+   - Like ordering food: you get a receipt (promise), food comes later
+   - 3 states: Pending → Fulfilled (success) or Rejected (failed)
+
+🔹 PROMISE EXAMPLE:
+
+   // Creating a promise
+   const myPromise = new Promise((resolve, reject) => {
+     let success = true;
+     
+     if (success) {
+       resolve("Data loaded!");        // Fulfilled!
+     } else {
+       reject("Something went wrong"); // Rejected!
+     }
+   });
+
+   // Using the promise
+   myPromise
+     .then(result => {
+       console.log(result);            // "Data loaded!"
+     })
+     .catch(error => {
+       console.log(error);             // Only if rejected
+     });
+
+🔹 ASYNC/AWAIT (Cleaner way to use Promises):
+
+   // async function = function that returns a promise
+   // await = wait for promise to resolve
+
+   async function fetchData() {
+     try {
+       let response = await fetch("https://api.example.com/data");
+       // ↑ WAITS here until data comes back
+       
+       let data = await response.json();
+       // ↑ WAITS here until JSON is parsed
+       
+       console.log(data);
+     } catch (error) {
+       console.log("Error:", error);   // If something goes wrong
+     }
+   }
+
+   fetchData();
+
+🔹 PROMISE vs ASYNC/AWAIT:
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  PROMISE (.then .catch):              ASYNC/AWAIT:                      │
+   │                                                                        │
+   │  getData()                            async function main() {          │
+   │    .then(result => {                    try {                           │
+   │      console.log(result);                let result = await getData(); │
+   │    })                                    console.log(result);          │
+   │    .catch(error => {                   } catch(error) {                │
+   │      console.log(error);                 console.log(error);           │
+   │    });                                 }                                │
+   │                                       }                                │
+   │                                                                        │
+   │  Both do the SAME thing!                                               │
+   │  async/await is just CLEANER and reads like normal code.               │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+📌 SECTION 24: DOM MANIPULATION (Bonus - Useful to Know!)
+================================================================================
+
+🔹 WHAT IS DOM?
+   - DOM = Document Object Model
+   - Browser turns HTML into a tree of objects
+   - JavaScript can READ and CHANGE this tree!
+
+🔹 COMMON DOM METHODS:
+
+   // Get element by ID
+   let title = document.getElementById("myTitle");
+
+   // Get elements by class name (returns array-like)
+   let items = document.getElementsByClassName("item");
+
+   // Modern way - querySelector (uses CSS selectors!)
+   let title = document.querySelector("#myTitle");      // by ID
+   let first = document.querySelector(".item");         // first .item
+   let all = document.querySelectorAll(".item");         // ALL .items
+
+   // Change content
+   title.innerHTML = "New Title!";
+   title.textContent = "New Title!";    // Safer, no HTML
+
+   // Change style
+   title.style.color = "red";
+   title.style.fontSize = "24px";
+
+   // Change attributes
+   let img = document.querySelector("img");
+   img.setAttribute("src", "new-image.jpg");
+
+   // Add event listener
+   let btn = document.querySelector("button");
+   btn.addEventListener("click", function() {
+     alert("Button clicked!");
+   });
+
+================================================================================
+📌 SECTION 25: QUICK REFERENCE - JAVASCRIPT CHEAT SHEET
+================================================================================
+
+   VARIABLES:
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  var   = function scope, avoid using                                   │
+   │  let   = block scope, use for changing values                          │
+   │  const = block scope, use for fixed values                             │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+   DATA TYPES:
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  Number, String, Boolean, Object, Array, Undefined, Null               │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+   COMPARISON:
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  ==  checks value only       │  ===  checks value AND type            │
+   │  !=  not equal (value)       │  !==  not equal (strict)               │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+   TYPE COERCION:
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  2 + "2" = "22"    (string concatenation wins with +)                  │
+   │  "10" - 5 = 5      (math wins with -, *, /)                            │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+   NULL vs UNDEFINED:
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  null = intentionally empty   │  undefined = declared but never set   │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+   OBJECTS:
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  const obj = { key: "value" };                                         │
+   │  obj.key or obj["key"] to access                                       │
+   │  const with objects: can't reassign, CAN change properties             │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+   CLASSES:
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  class Name { constructor() {} method() {} }                           │
+   │  extends for inheritance, super() to call parent                       │
+   │  Only constructor, methods, class fields inside class body             │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+   ES6:
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  Template literals: `Hello ${name}`  (backticks!)                      │
+   │  Destructuring: let { a, b } = obj;                                    │
+   │  Arrow functions: (a, b) => a + b                                      │
+   │  Spread: [...arr]  or  {...obj}                                        │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+   TYPESCRIPT:
+   ┌─────────────────────────────────────────────────────────────────────────┐
+   │  Superset of JS with types. let x: number = 5;                         │
+   │  Arrays: let arr: number[] = [1,2,3];                                  │
+   │  Functions: function add(a: number, b: number): number { }             │
+   │  Catches errors at compile time, not runtime                           │
+   └─────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+📌 STUDY RESOURCES
+================================================================================
+
+   MDN Web Docs: https://developer.mozilla.org/
+   JavaScript.info: https://javascript.info/
+   W3Schools: https://www.w3schools.com/js/
+   FreeCodeCamp, Codecademy
+
+================================================================================
+                         💪 YOU'VE GOT THIS! GOOD LUCK! 💪
+================================================================================
